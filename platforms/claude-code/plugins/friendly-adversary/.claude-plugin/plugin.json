@@ -1,0 +1,11 @@
+{
+  "name": "friendly-adversary",
+  "description": "Local evidence-first PR review, codebase audit, and new-codebase design",
+  "version": "3.0.4",
+  "author": {
+    "name": "Matthew Groff"
+  },
+  "homepage": "https://github.com/mattlgroff/friendly-adversary",
+  "repository": "https://github.com/mattlgroff/friendly-adversary",
+  "license": "GPL-3.0-only"
+}

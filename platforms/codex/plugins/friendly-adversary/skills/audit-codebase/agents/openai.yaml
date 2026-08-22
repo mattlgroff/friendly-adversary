@@ -1,0 +1,6 @@
+interface:
+  display_name: "Friendly Adversary Codebase Audit"
+  short_description: "Audit a complete brownfield codebase"
+  default_prompt: "Use $friendly-adversary:audit-codebase to audit this entire codebase."
+policy:
+  allow_implicit_invocation: false

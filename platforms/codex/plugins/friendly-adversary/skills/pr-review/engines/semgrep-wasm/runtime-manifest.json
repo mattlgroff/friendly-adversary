@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "semgrepVersion": "1.172.0",
+  "friendlyAdversaryRuntimeVersion": "1.172.0-wasm-friendly-adversary.1",
+  "files": [
+    {
+      "path": "runtime/engine/index.cjs",
+      "bytes": 6267057,
+      "sha256": "237c94e594d44cd7140a89e821be7e3450784b8f529324f67b82dbe61d63761c"
+    },
+    {
+      "path": "runtime/engine/semgrep-engine.wasm",
+      "bytes": 412542,
+      "sha256": "5254b71c09e32e67bc63c1167c49556d1ba3fee0b47964f221dd988eb58d562c"
+    },
+    {
+      "path": "runtime/python/index.cjs",
+      "bytes": 3945730,
+      "sha256": "e35f05c5c271afcff775338d30de0ac0c89ba88731a43f58698cfd841b8e4f84"
+    },
+    {
+      "path": "runtime/python/semgrep-parser.wasm",
+      "bytes": 493913,
+      "sha256": "7a8c343e14618636efdf038f6fe9b964ac367c4901b76af6dd62f01e94dcf89f"
+    },
+    {
+      "path": "runtime/typescript/index.cjs",
+      "bytes": 4490016,
+      "sha256": "aca9c1e69db168c9fccf02dd0f6458d001eaf649f9869f25b3b4e4f810d1a55d"
+    },
+    {
+      "path": "runtime/typescript/semgrep-parser.wasm",
+      "bytes": 2175325,
+      "sha256": "af6c6889f01ad926314863a4a0b8707ecb23de07c7b7e34006a38b896a2325d6"
+    }
+  ]
+}

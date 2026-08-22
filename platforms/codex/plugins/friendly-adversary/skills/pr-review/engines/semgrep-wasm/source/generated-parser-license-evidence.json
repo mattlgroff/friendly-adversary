@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-08-09",
+  "distributionLicense": "GPL-3.0-only",
+  "releaseScope": "public",
+  "method": "Conservative classification from exact generated inputs and linked-work compatibility",
+  "semgrepCommunityEdition": {
+    "repository": "https://github.com/semgrep/semgrep",
+    "commit": "651f37efa397bf066e1cf627414eeabe40b07e27",
+    "declaredLicense": "LGPL-2.1-only",
+    "licenseFile": "source/licenses/SEMGREP-LGPL-2.1.txt",
+    "officialLicenseStatements": [
+      "https://semgrep.dev/products/community-edition/",
+      "https://semgrep.dev/legal/terms",
+      "https://semgrep.dev/blog/2024/important-updates-to-semgrep-oss/"
+    ],
+    "gpl3CompatibilityEvidence": "https://www.gnu.org/licenses/gpl-faq.html#AllCompatibility"
+  },
+  "generator": {
+    "repository": "https://github.com/semgrep/ocaml-tree-sitter-semgrep",
+    "commit": "d68c1d87318808ec1b36ce89570ef6c0bc763f77",
+    "license": "GPL-3.0-only",
+    "licenseGitBlobSha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+    "licenseSha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "packagedLicenseFile": "source/licenses/GENERATED-PARSERS-GPL-3.0.txt"
+  },
+  "generatedParsers": [
+    {
+      "name": "semgrep-python",
+      "repository": "https://github.com/semgrep/semgrep-python",
+      "commit": "647a20f8207740b0a76541bb27e1eaaf111dca7e",
+      "sourceSubmodulePath": "languages/python/tree-sitter/semgrep-python",
+      "repositoryLicense": "NOASSERTION",
+      "distributionLicense": "GPL-3.0-only",
+      "grammarExtensionPath": "fyi/semgrep-grammars/src/semgrep-python/grammar.js",
+      "grammarExtensionGitBlobSha": "a4bf791e6eb22a36d2b2d4625d0e2e0fa41a38d8",
+      "matchingGeneratorPath": "lang/semgrep-grammars/src/semgrep-python/grammar.js",
+      "matchingGeneratorCommit": "d68c1d87318808ec1b36ce89570ef6c0bc763f77",
+      "upstreamGrammarLicense": "MIT",
+      "upstreamGrammarLicenseGitBlobSha": "ff8ed93cb0dd57d68feeefe4829dbc9083584b5e",
+      "buildCommand": "bash scripts/build-semgrep-wasm.sh /absolute/pristine/semgrep /absolute/new-output",
+      "runtimeOutputs": [
+        {
+          "path": "runtime/python/index.cjs",
+          "sha256": "e35f05c5c271afcff775338d30de0ac0c89ba88731a43f58698cfd841b8e4f84"
+        },
+        {
+          "path": "runtime/python/semgrep-parser.wasm",
+          "sha256": "7a8c343e14618636efdf038f6fe9b964ac367c4901b76af6dd62f01e94dcf89f"
+        }
+      ],
+      "basis": "The exact Semgrep grammar-extension blob is GPL-3.0 and the upstream tree-sitter grammar is MIT. The generated linked output is conservatively distributed under GPL-3.0."
+    },
+    {
+      "name": "semgrep-typescript",
+      "repository": "https://github.com/semgrep/semgrep-typescript",
+      "commit": "50fe6a5c46d3dee74d1d176b9767ffc520a1003e",
+      "sourceSubmodulePath": "languages/typescript/tree-sitter/semgrep-typescript",
+      "repositoryLicense": "NOASSERTION",
+      "distributionLicense": "GPL-3.0-only",
+      "generationCommit": "d68c1d87318808ec1b36ce89570ef6c0bc763f77",
+      "generationCommitRecordedByUpstream": true,
+      "grammarExtensionPath": "fyi/semgrep-grammars/src/semgrep-typescript/typescript/grammar.js",
+      "grammarExtensionGitBlobSha": "aabad764aea84334c2ffee1e24756bac3bd44010",
+      "matchingGeneratorPath": "lang/semgrep-grammars/src/semgrep-typescript/typescript/grammar.js",
+      "upstreamGrammarLicenses": ["MIT", "MIT"],
+      "upstreamGrammarLicenseGitBlobShas": [
+        "4b52d191cead337b11e274b79459a86f1b5a7779",
+        "aa9f858db5722d9576104726471b11cc0e31f131"
+      ],
+      "buildCommand": "bash scripts/build-semgrep-wasm.sh /absolute/pristine/semgrep /absolute/new-output",
+      "runtimeOutputs": [
+        {
+          "path": "runtime/typescript/index.cjs",
+          "sha256": "aca9c1e69db168c9fccf02dd0f6458d001eaf649f9869f25b3b4e4f810d1a55d"
+        },
+        {
+          "path": "runtime/typescript/semgrep-parser.wasm",
+          "sha256": "af6c6889f01ad926314863a4a0b8707ecb23de07c7b7e34006a38b896a2325d6"
+        }
+      ],
+      "basis": "The pinned commit explicitly records generation from the GPL-3.0 generator commit. Its Semgrep grammar-extension blob is GPL-3.0 and its upstream tree-sitter grammars are MIT."
+    },
+    {
+      "name": "semgrep-tsx",
+      "repository": "https://github.com/semgrep/semgrep-tsx",
+      "commit": "6005de74ed9e2fb891785a3df8582dbb91e272bc",
+      "sourceSubmodulePath": "languages/typescript/tree-sitter/semgrep-tsx",
+      "repositoryLicense": "NOASSERTION",
+      "distributionLicense": "GPL-3.0-only",
+      "generationCommit": "d68c1d87318808ec1b36ce89570ef6c0bc763f77",
+      "generationCommitRecordedByUpstream": true,
+      "grammarExtensionPath": "fyi/semgrep-grammars/src/semgrep-typescript/typescript/grammar.js",
+      "grammarExtensionGitBlobSha": "aabad764aea84334c2ffee1e24756bac3bd44010",
+      "matchingGeneratorPath": "lang/semgrep-grammars/src/semgrep-typescript/typescript/grammar.js",
+      "upstreamGrammarLicenses": ["MIT", "MIT"],
+      "upstreamGrammarLicenseGitBlobShas": [
+        "4b52d191cead337b11e274b79459a86f1b5a7779",
+        "aa9f858db5722d9576104726471b11cc0e31f131"
+      ],
+      "buildCommand": "bash scripts/build-semgrep-wasm.sh /absolute/pristine/semgrep /absolute/new-output",
+      "runtimeOutputs": [
+        {
+          "path": "runtime/typescript/index.cjs",
+          "sha256": "aca9c1e69db168c9fccf02dd0f6458d001eaf649f9869f25b3b4e4f810d1a55d"
+        },
+        {
+          "path": "runtime/typescript/semgrep-parser.wasm",
+          "sha256": "af6c6889f01ad926314863a4a0b8707ecb23de07c7b7e34006a38b896a2325d6"
+        }
+      ],
+      "basis": "The pinned commit explicitly records generation from the GPL-3.0 generator commit. Its Semgrep grammar-extension blob is GPL-3.0 and its upstream tree-sitter grammars are MIT."
+    }
+  ],
+  "publicDistribution": {
+    "allowed": true,
+    "sourceOffer": "https://github.com/mattlgroff/friendly-adversary/releases/download/v3.0.4/semgrep-1.172.0-friendly-adversary-corresponding-source.tar.gz",
+    "reason": "The public GPL-3.0-only release includes the complete corresponding-source archive and retained notices."
+  }
+}

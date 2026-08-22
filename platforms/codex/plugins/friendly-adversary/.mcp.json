@@ -1,0 +1,19 @@
+{
+  "friendly-adversary-reports": {
+    "command": "node",
+    "args": [
+      "--permission",
+      "--allow-fs-read=*",
+      "--allow-fs-write=*",
+      "--no-addons",
+      "skills/pr-review/scripts/runtime/friendly-adversary-mcp.cjs"
+    ],
+    "cwd": ".",
+    "enabled_tools": ["record_artifact"],
+    "default_tools_approval_mode": "approve",
+    "env": {
+      "NODE_OPTIONS": "",
+      "NODE_PATH": ""
+    }
+  }
+}

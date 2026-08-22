@@ -1,0 +1,46 @@
+schema_version: 1
+
+objective: highest-confirmed-finding-quality-per-resource-unit
+
+orchestrators:
+  - platform: claude-code
+    model: inherit
+    efforts: [high, max]
+  - platform: codex
+    model: inherit
+    efforts: [high, xhigh, max]
+
+lens_candidates:
+  claude-code:
+    - model: inherit
+      efforts: [medium, high]
+    - model: fable
+      efforts: [medium, high]
+    - model: sonnet
+      efforts: [medium, high]
+    - model: haiku
+      efforts: [medium, high]
+  codex:
+    - model: inherit
+      efforts: [medium, high]
+    - model: luna
+      efforts: [high]
+      fast_mode: true
+    - model: gpt-5.6-terra
+      efforts: [medium, high]
+
+metrics:
+  quality:
+    - material_recall
+    - precision
+    - evidence_validity
+    - severity_calibration
+    - abstention_correctness
+    - adjudicator_rejection_accuracy
+  resources:
+    - input_tokens_when_reported
+    - output_tokens_when_reported
+    - turns
+    - wall_clock_seconds
+    - tool_seconds
+    - cost_when_reported

@@ -1,0 +1,28 @@
+{
+  "name": "friendly-adversary",
+  "version": "3.0.4",
+  "description": "Local evidence-first PR review, codebase audit, and new-codebase design",
+  "author": {
+    "name": "Matthew Groff",
+    "url": "https://github.com/mattlgroff"
+  },
+  "homepage": "https://github.com/mattlgroff/friendly-adversary",
+  "repository": "https://github.com/mattlgroff/friendly-adversary",
+  "license": "GPL-3.0-only",
+  "keywords": ["code-review", "typescript", "python", "sast", "agent-skills"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Friendly Adversary",
+    "shortDescription": "Challenge code and verify every claim.",
+    "longDescription": "Run local PR reviews, full codebase audits, and interview-driven greenfield design with deterministic evidence and main-model adjudication.",
+    "developerName": "Matthew Groff",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": [
+      "Review this branch with Friendly Adversary.",
+      "Audit this entire codebase with Friendly Adversary.",
+      "Interview me and design a new codebase with Friendly Adversary."
+    ]
+  }
+}

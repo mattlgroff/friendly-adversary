@@ -1,0 +1,3401 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "e89fff89ac9af12e8d4ce9d5fd07beb408ca730f",
+  "sourceArchiveSha256": "1bbc690deaac5b5d68168574b0ced021dc2cdf65db436329fc20a9aae36d8406",
+  "testHarnessPatchSha256": "6af2397f03e406b16eb3fce33158cf158b9fa980c9e065b62a9f88636833fefb",
+  "runtime": "node 26.7.0",
+  "target": "wasm32-wasip1",
+  "modules": 11,
+  "passed": 819,
+  "failed": 0,
+  "ignored": 3,
+  "results": [
+    {
+      "component": "globset",
+      "file": "globset-7dc5729b66c3c219.wasm",
+      "sha256": "8de8443711968117a96772f44e88257c7cdb034685862c046e83d0d728efc04b",
+      "passed": 290,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "glob::tests::allow_unclosed_class_brace1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_brace2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_brace3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_empty1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_empty2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_many",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_negated_empty",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_negated_unclosed",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::allow_unclosed_class_single",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::any1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::any2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls13",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls14",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls15",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls16",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls17",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls18",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls19",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls20",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls21",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::cls9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_alt1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_alt2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_alt3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_alt4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_range1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_range2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_unclosed1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_unclosed2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_unclosed3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::err_unclosed4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_baselit1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_baselit2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_baselit3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_baselit4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_basetoks7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_ext7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_lit8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_prefix1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_prefix2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_prefix3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_prefix4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_req_ext9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::extract_suffix7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::literal1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::literal2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::match9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt13",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt14",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt15",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt16",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt17",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt18",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt19",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchalt9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchbackslash7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchcasei1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchcasei2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchcasei3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchcasei4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchescape",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot13",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot14",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot15",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot16",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot17",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot18",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot19",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot20",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot21",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot22",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot23",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot24",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot25",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot26",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot27",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot28",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot29",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot30",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchnot9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchpat7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrange9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec13",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec14",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec15",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec16",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec17",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec18",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec19",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec20",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec21",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec22",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec23",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec24",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec25",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec26",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec31",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec32",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec33",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec34",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchrec9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchslash1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchslash2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchslash3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchslash4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::matchslash5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re10",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re11",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re12",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re13",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re14",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re15",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re16",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re17",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re18",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re19",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re20",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re21",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re22",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re23",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re24",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re25",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re26",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re27",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re28",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re29",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re30",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re31",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re32",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re33",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re34",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re35",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re36",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re37",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re6",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re7",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re8",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re9",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re_casei",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re_empty",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re_slash1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::re_slash2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::rseq1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::rseq2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::rseq3",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::rseq4",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::rseq5",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::seq1",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::seq2",
+          "status": "ok"
+        },
+        {
+          "id": "glob::tests::seq3",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::ext1",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::ext2",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::ext3",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::ext4",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::ext5",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::name1",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::name2",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::name3",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::name4",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::normal1",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::normal2",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::normal3",
+          "status": "ok"
+        },
+        {
+          "id": "pathutil::tests::normal4",
+          "status": "ok"
+        },
+        {
+          "id": "tests::debug",
+          "status": "ok"
+        },
+        {
+          "id": "tests::default_set_is_empty_works",
+          "status": "ok"
+        },
+        {
+          "id": "tests::empty_set_works",
+          "status": "ok"
+        },
+        {
+          "id": "tests::escape",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_basename_literals",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_extensions",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_literals",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_prefix",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_regex",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_required_extensions",
+          "status": "ok"
+        },
+        {
+          "id": "tests::matches_all_suffix",
+          "status": "ok"
+        },
+        {
+          "id": "tests::set_does_not_remember",
+          "status": "ok"
+        },
+        {
+          "id": "tests::set_works",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-cli",
+      "file": "grep_cli-af4d87fb372abb78.wasm",
+      "sha256": "df6a07e0d4fceb65c45c3ec55fb16d43a9424d5f0704ce2648c2d8ff9e56f3bc",
+      "passed": 20,
+      "ignored": 1,
+      "tests": [
+        {
+          "id": "escape::tests::backslash",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::carriage",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::empty",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::invalid_utf8",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nl",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nothing_hex0",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nothing_hex1",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nothing_hex2",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nothing_simple",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::nul",
+          "status": "ok"
+        },
+        {
+          "id": "escape::tests::tab",
+          "status": "ok"
+        },
+        {
+          "id": "hostname::tests::print_hostname",
+          "status": "ignored"
+        },
+        {
+          "id": "human::tests::invalid_empty",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::invalid_non_digit",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::invalid_overflow",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::invalid_suffix",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::suffix_g",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::suffix_k",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::suffix_m",
+          "status": "ok"
+        },
+        {
+          "id": "human::tests::suffix_none",
+          "status": "ok"
+        },
+        {
+          "id": "pattern::tests::bytes",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-matcher",
+      "file": "grep_matcher-1b5aa6e03038173d.wasm",
+      "sha256": "ed48b26e4c97f01c5ab5869cf13f5153b5c514b08bb326071b3c508113024146",
+      "passed": 27,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "interpolate::tests::find_cap_ref1",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref10",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref11",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref12",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref13",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref2",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref3",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref4",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref5",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref6",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref7",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref8",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::find_cap_ref9",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp1",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp10",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp11",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp12",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp13",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp14",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp2",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp3",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp4",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp5",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp6",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp7",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp8",
+          "status": "ok"
+        },
+        {
+          "id": "interpolate::tests::interp9",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-matcher-integration",
+      "file": "integration-c1b957a7c0bd679e.wasm",
+      "sha256": "adfbe3448c7c30941ced906706eab9ce284a20b5bcac866682c1a4add70b5bba",
+      "passed": 10,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "test_matcher::captures",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::captures_iter",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::find",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::find_iter",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::no_captures",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::replace",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::replace_with_captures",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::shortest_match",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::try_captures_iter",
+          "status": "ok"
+        },
+        {
+          "id": "test_matcher::try_find_iter",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-printer",
+      "file": "grep_printer-b8490bfefbb0beb2.wasm",
+      "sha256": "46ebe696470d113571d5c5cec8717aedb1c540104e1bb55c8d1c810b4afc616d",
+      "passed": 109,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "hyperlink::tests::alias_names_are_reasonable",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::aliases_are_sorted",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::aliases_are_valid_formats",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::build_empty_format",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::build_format",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::handle_alias",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::parse_format",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::parse_invalid",
+          "status": "ok"
+        },
+        {
+          "id": "hyperlink::tests::parse_valid",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::always_begin_end_no_match",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::binary_detection",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::max_matches",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::max_matches_after_context",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::missing_crlf",
+          "status": "ok"
+        },
+        {
+          "id": "json::tests::no_match",
+          "status": "ok"
+        },
+        {
+          "id": "jsont::tests::base64_basic",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::byte_offset",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::byte_offset_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::column_number",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::column_number_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::context_break",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::context_break_multiple_heading",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::context_break_multiple_no_heading",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::heading",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::heading_multiple",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert_context",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert_context_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert_context_only_matching",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert_context_only_matching_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::invert_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::line_number",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::line_number_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_multi_line_preview",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_preview",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_with_count",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_with_count_preview_no_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_with_count_preview_one_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_columns_with_count_preview_two_matches",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_context",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_context_invert",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_multi_line1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_multi_line2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_multi_line3",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::max_matches_multi_line4",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::no_heading",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::no_heading_multiple",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns_multi_line1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns_multi_line2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns_preview",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns_preview_multi_line1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_max_columns_preview_multi_line2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_multi_line1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::only_matching_multi_line2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::path",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::path_terminator",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line1_only_first_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line2_only_first_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line3",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::per_match_multi_line3_only_first_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::regression_after_context_with_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::regression_crlf_preserve",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::regression_search_empty_with_crlf",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_max_columns",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_max_columns_preview1",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_max_columns_preview2",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_multi_line_combine_lines",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_multi_line_diff_line_term",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_only_matching",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_passthru",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::replacement_per_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::reports_binary",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::reports_match",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::reports_stats",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::reports_stats_multiple",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::separator_field",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::separator_path",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::trim_ascii",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::trim_ascii_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "standard::tests::trim_ascii_with_line_term",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_matches",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_max_matches",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_no_path",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_no_path_even_with_path",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path_field_separator",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path_separator",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path_terminator",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path_with_zero",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::count_path_without_zero",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_with_match_error",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_with_match_found",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_with_match_not_found",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_without_match_error",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_without_match_found",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::path_without_match_not_found",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::quiet",
+          "status": "ok"
+        },
+        {
+          "id": "summary::tests::quiet_with_stats",
+          "status": "ok"
+        },
+        {
+          "id": "util::tests::custom_decimal_format",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-regex",
+      "file": "grep_regex-37f80c429f2298c3.wasm",
+      "sha256": "43099a8d891220f2ee3286cc4c37ec9e0eb5c0a76c03e9e8d64433c7a3113eae",
+      "passed": 25,
+      "ignored": 1,
+      "tests": [
+        {
+          "id": "ast::tests::various",
+          "status": "ok"
+        },
+        {
+          "id": "ban::tests::various",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::alternation",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::anything",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::case_insensitive_alternation",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::class",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::concat",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::crazy_repeats",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::empty",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::heuristics",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::impossible",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::literal",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::look",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::optimize",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::repetition",
+          "status": "ok"
+        },
+        {
+          "id": "literal::tests::various",
+          "status": "ok"
+        },
+        {
+          "id": "matcher::tests::candidate_lines",
+          "status": "ignored"
+        },
+        {
+          "id": "matcher::tests::case_smart",
+          "status": "ok"
+        },
+        {
+          "id": "matcher::tests::line_terminator",
+          "status": "ok"
+        },
+        {
+          "id": "matcher::tests::line_terminator_crlf",
+          "status": "ok"
+        },
+        {
+          "id": "matcher::tests::line_terminator_error",
+          "status": "ok"
+        },
+        {
+          "id": "matcher::tests::word",
+          "status": "ok"
+        },
+        {
+          "id": "non_matching::tests::anchor",
+          "status": "ok"
+        },
+        {
+          "id": "non_matching::tests::dot",
+          "status": "ok"
+        },
+        {
+          "id": "non_matching::tests::literal",
+          "status": "ok"
+        },
+        {
+          "id": "strip::tests::various",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "grep-searcher",
+      "file": "grep_searcher-fbb4a52c2f8f5b30.wasm",
+      "sha256": "50fb69fb94f174aad17278a62052a7dbcfb2f47c92d5f01601c335636b9e042a",
+      "passed": 77,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "line_buffer::tests::buffer_basics1",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_basics2",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_basics3",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_basics4",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_convert1",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_convert2",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_convert3",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_convert4",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_none",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_quit1",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_quit2",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_quit3",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_quit4",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_binary_quit5",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_empty",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_limited_capacity1",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_limited_capacity2",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_limited_capacity3",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_small_capacity",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::buffer_zero_capacity",
+          "status": "ok"
+        },
+        {
+          "id": "line_buffer::tests::replace",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::line_count",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::line_iter",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::line_iter_empty",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::line_locate",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::line_locate_weird",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::preceding_lines_doc",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::preceding_lines_empty1",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::preceding_lines_empty2",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::preceding_lines_sherlock",
+          "status": "ok"
+        },
+        {
+          "id": "lines::tests::preceding_lines_short",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::basic1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::basic2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::basic3",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::basic4",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::big1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::big_error_multi_line",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::big_error_one_line",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::binary1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::binary2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::binary3",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::binary4",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_code1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_code2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_code3",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock3",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock4",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock5",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock6",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock_invert1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::context_sherlock_invert2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line3",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line4",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line5",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::empty_line6",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::invert1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::line_number1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::line_number_invert1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::multi_line_overlap1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::multi_line_overlap2",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::passthru_sherlock1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::passthru_sherlock_invert1",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::regression_2260",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::glue::tests::scratch",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::tests::config_error_heap_limit",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::tests::config_error_line_terminator",
+          "status": "ok"
+        },
+        {
+          "id": "searcher::tests::uft8_bom_sniffing",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line1",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line2",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line3",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line4",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line5",
+          "status": "ok"
+        },
+        {
+          "id": "testutil::tests::empty_line6",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "ignore",
+      "file": "ignore-bdbaf15e8a576eb3.wasm",
+      "sha256": "a9b55163629f76a92f1ea0a4750492c518fca16d9e8ce09e6f3202082f47c6d0",
+      "passed": 142,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "default_types::tests::default_types_aliases_are_sorted",
+          "status": "ok"
+        },
+        {
+          "id": "default_types::tests::default_types_are_sorted",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::absolute_parent",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::absolute_parent_anchored",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::absolute_parent_matchers_are_cached_across_roots",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::custom_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::custom_ignore_over_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::custom_ignore_precedence",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::errored",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::errored_both",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::errored_partial",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::errored_partial_and_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::exclude_lowest",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::explicit_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::git_exclude",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::git_info_exclude_in_linked_worktree",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::gitignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::gitignore_allowed_no_git",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::gitignore_no_git",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::gitignore_with_jj",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::ignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::ignore_over_gitignore",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::multi_root_custom_ignore_order_independent",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::multi_root_gitignore_order_independent",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::not_present_empty",
+          "status": "ok"
+        },
+        {
+          "id": "dir::tests::stops_at_git_dir",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::case_insensitive",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::cs1",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::cs2",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::cs3",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::cs4",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig1",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig10",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig11",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig12",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig13",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig14",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig15",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig16",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig17",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig18",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig19",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig2",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig20",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig21",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig22",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig23",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig24",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig25",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig26",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig27",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig28",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig29",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig3",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig30",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig31",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig32",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig33",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig34",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig35",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig36",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig37",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig38",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig39",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig4",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig40",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig41",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig42",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig43",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig44",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig5",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig6",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig7",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig8",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ig9",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot1",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot10",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot11",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot12",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot13",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot14",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot15",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot16",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot17",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot18",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot19",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot2",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot3",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot4",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot5",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot6",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot7",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot8",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::ignot9",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::parse_excludes_file1",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::parse_excludes_file2",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::parse_excludes_file3",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::parse_excludes_file4",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::parse_excludes_file5",
+          "status": "ok"
+        },
+        {
+          "id": "gitignore::tests::regression_106",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::absolute_path",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::allow_directories",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::case_insensitive",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::default_case_sensitive",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::empty",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::gitignore",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::only_ignores",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::precedence",
+          "status": "ok"
+        },
+        {
+          "id": "overrides::tests::simple",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match1",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match10",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match11",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match2",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match3",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match4",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match5",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match6",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match7",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match8",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::match9",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot1",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot2",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot3",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot4",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot5",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot6",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot7",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::matchnot8",
+          "status": "ok"
+        },
+        {
+          "id": "types::tests::test_invalid_defs",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::custom_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::custom_ignore_exclusive_use",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::empty",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::explicit_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::explicit_ignore_exclusive_use",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::filter",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::from_iter",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::gitignore",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::gitignore_parent",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::max_depth",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::max_filesize",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::min_depth",
+          "status": "ok"
+        },
+        {
+          "id": "walk::tests::no_ignores",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "ignore-integration-bom",
+      "file": "gitignore_skip_bom-68acc6c848aae5d6.wasm",
+      "sha256": "c05310ad560e3dfae4339eae1f1fd9483fa94cc6859bd032b0af148e040363a4",
+      "passed": 1,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "gitignore_skip_bom",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "component": "ignore-integration-parent",
+      "file": "gitignore_matched_path_or_any_parents_tests-29ab674faafa432e.wasm",
+      "sha256": "5236d9bc3ccea3d0de67539d89d7af8fa0ce20eac057fd1103696dbf9c94112e",
+      "passed": 4,
+      "ignored": 1,
+      "tests": [
+        {
+          "id": "test_dirs_in_deep",
+          "status": "ok"
+        },
+        {
+          "id": "test_dirs_in_root",
+          "status": "ok"
+        },
+        {
+          "id": "test_files_in_deep",
+          "status": "ok"
+        },
+        {
+          "id": "test_files_in_root",
+          "status": "ok"
+        },
+        {
+          "id": "test_path_should_be_under_root",
+          "status": "ignored"
+        }
+      ]
+    },
+    {
+      "component": "rg-core",
+      "file": "rg-caf334645ee31137.wasm",
+      "sha256": "a1a7a2cd65544d631a7dad25ba107565257e741c12627a9841b3c42821f1f1ad",
+      "passed": 114,
+      "ignored": 0,
+      "tests": [
+        {
+          "id": "flags::config::tests::basic",
+          "status": "ok"
+        },
+        {
+          "id": "flags::config::tests::error",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_after_context",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_auto_hybrid_regex",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_before_context",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_binary",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_block_buffered",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_byte_offset",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_case_sensitive",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_color",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_colors",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_column",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_context",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_context_separator",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_count",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_count_matches",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_crlf",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_debug",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_dfa_size_limit",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_encoding",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_engine",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_field_context_separator",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_field_match_separator",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_file",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_files",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_files_with_matches",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_files_without_match",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_fixed_strings",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_follow",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_generate",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_glob",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_glob_case_insensitive",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_heading",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_help",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_hidden",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_hostname_bin",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_hyperlink_format",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_iglob",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_ignore_case",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_ignore_file",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_ignore_file_case_insensitive",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_include_zero",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_invert_match",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_json",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_line_buffered",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_line_number",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_line_regexp",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_max_columns",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_max_columns_preview",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_max_count",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_max_depth",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_max_filesize",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_mmap",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_multiline",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_multiline_dotall",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_config",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_dot",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_exclude",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_files",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_global",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_messages",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_parent",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_ignore_vcs",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_line_number",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_messages",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_pcre2_unicode",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_require_git",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_no_unicode",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_null",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_null_data",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_one_file_system",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_only_matching",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_passthru",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_path_separator",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_pcre2",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_pcre2_version",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_pre",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_pre_glob",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_pretty",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_quiet",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_regex_size_limit",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_regexp",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_replace",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_search_zip",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_smart_case",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_sort",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_sort_files",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_sortr",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_stats",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_stop_on_nonmatch",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_text",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_threads",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_trace",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_trim",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_type",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_type_add",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_type_clear",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_type_list",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_type_not",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_unrestricted",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_version",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_vimgrep",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_with_filename",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_with_filename_no",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::test_word_regexp",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::available_shorts",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::choices_ascii_alphanumeric",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::longs_all_ascii_alphanumeric",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::longs_no_duplicates",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::non_switches_have_variable_names",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::shorts_all_ascii_alphanumeric",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::shorts_no_duplicates",
+          "status": "ok"
+        },
+        {
+          "id": "flags::defs::tests::switches_have_no_choices",
+          "status": "ok"
+        }
+      ]
+    }
+  ]
+}

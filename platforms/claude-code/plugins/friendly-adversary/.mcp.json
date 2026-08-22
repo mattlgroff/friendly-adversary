@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "friendly-adversary-reports": {
+      "command": "node",
+      "args": [
+        "--permission",
+        "--allow-fs-read=*",
+        "--allow-fs-write=*",
+        "--no-addons",
+        "${CLAUDE_PLUGIN_ROOT}/skills/pr-review/scripts/runtime/friendly-adversary-mcp.cjs"
+      ],
+      "env": {
+        "NODE_OPTIONS": "",
+        "NODE_PATH": ""
+      }
+    }
+  }
+}

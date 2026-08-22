@@ -1,0 +1,23 @@
+{
+  "name": "friendly-adversary",
+  "owner": {
+    "name": "Matthew Groff"
+  },
+  "description": "Friendly Adversary plugins for local PR review, codebase audit, and new-codebase design",
+  "plugins": [
+    {
+      "name": "friendly-adversary",
+      "source": "./platforms/claude-code/plugins/friendly-adversary",
+      "description": "Run local PR reviews, full codebase audits, and challenged new-codebase design with bundled WebAssembly analyzers",
+      "version": "3.0.4",
+      "author": {
+        "name": "Matthew Groff"
+      },
+      "homepage": "https://github.com/mattlgroff/friendly-adversary",
+      "repository": "https://github.com/mattlgroff/friendly-adversary",
+      "license": "GPL-3.0-only",
+      "category": "Developer Tools",
+      "tags": ["code-review", "typescript", "python", "sast", "agent-skills"]
+    }
+  ]
+}

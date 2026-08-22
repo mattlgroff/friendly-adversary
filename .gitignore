@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+build/oxlint-wasm/target/
+.DS_Store
+.friendly-adversary/
+*.log

@@ -1,0 +1,66 @@
+rules:
+  - id: friendly-adversary.javascript.dynamic-code-execution
+    message: Dynamic code execution accepts a non-literal value. Confirm that untrusted input cannot reach this call.
+    severity: WARNING
+    languages: [javascript, typescript]
+    patterns:
+      - pattern-either:
+          - pattern: eval($VALUE)
+          - pattern: Function(..., $VALUE)
+          - pattern: new Function(..., $VALUE)
+      - metavariable-pattern:
+          metavariable: $VALUE
+          patterns:
+            - pattern-not: '"..."'
+  - id: friendly-adversary.javascript.shell-exec
+    message: A shell command is constructed dynamically. Confirm argument separation and input trust.
+    severity: WARNING
+    languages: [javascript, typescript]
+    patterns:
+      - pattern-either:
+          - pattern: childProcess.exec($COMMAND, ...)
+          - pattern: childProcess.execSync($COMMAND, ...)
+          - pattern: child_process.exec($COMMAND, ...)
+          - pattern: child_process.execSync($COMMAND, ...)
+          - pattern: require("node:child_process").exec($COMMAND, ...)
+          - pattern: require("node:child_process").execSync($COMMAND, ...)
+          - pattern: require("child_process").exec($COMMAND, ...)
+          - pattern: require("child_process").execSync($COMMAND, ...)
+          - patterns:
+              - pattern: exec($COMMAND, ...)
+              - pattern-either:
+                  - pattern-inside: 'import { exec } from "node:child_process"; ...'
+                  - pattern-inside: 'import { exec } from "child_process"; ...'
+                  - pattern-inside: 'const { exec } = require("node:child_process"); ...'
+                  - pattern-inside: 'const { exec } = require("child_process"); ...'
+          - patterns:
+              - pattern: execSync($COMMAND, ...)
+              - pattern-either:
+                  - pattern-inside: 'import { execSync } from "node:child_process"; ...'
+                  - pattern-inside: 'import { execSync } from "child_process"; ...'
+                  - pattern-inside: 'const { execSync } = require("node:child_process"); ...'
+                  - pattern-inside: 'const { execSync } = require("child_process"); ...'
+          - patterns:
+              - pattern: $EXEC($COMMAND, ...)
+              - pattern-either:
+                  - pattern-inside: 'import { exec as $EXEC } from "node:child_process"; ...'
+                  - pattern-inside: 'import { exec as $EXEC } from "child_process"; ...'
+                  - pattern-inside: 'import { execSync as $EXEC } from "node:child_process"; ...'
+                  - pattern-inside: 'import { execSync as $EXEC } from "child_process"; ...'
+                  - pattern-inside: 'const { exec: $EXEC } = require("node:child_process"); ...'
+                  - pattern-inside: 'const { exec: $EXEC } = require("child_process"); ...'
+                  - pattern-inside: 'const { execSync: $EXEC } = require("node:child_process"); ...'
+                  - pattern-inside: 'const { execSync: $EXEC } = require("child_process"); ...'
+          - patterns:
+              - pattern-either:
+                  - pattern: $CHILD_PROCESS.exec($COMMAND, ...)
+                  - pattern: $CHILD_PROCESS.execSync($COMMAND, ...)
+              - pattern-either:
+                  - pattern-inside: 'import * as $CHILD_PROCESS from "node:child_process"; ...'
+                  - pattern-inside: 'import * as $CHILD_PROCESS from "child_process"; ...'
+                  - pattern-inside: 'const $CHILD_PROCESS = require("node:child_process"); ...'
+                  - pattern-inside: 'const $CHILD_PROCESS = require("child_process"); ...'
+      - metavariable-pattern:
+          metavariable: $COMMAND
+          patterns:
+            - pattern-not: '"..."'

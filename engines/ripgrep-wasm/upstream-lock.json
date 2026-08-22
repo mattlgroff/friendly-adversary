@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/BurntSushi/ripgrep.git",
+    "tag": "15.2.0",
+    "tagObject": "6ec72defacfb042f203ca0b4bf2513a0a5505a7e",
+    "commit": "e89fff89ac9af12e8d4ce9d5fd07beb408ca730f",
+    "releasedAt": "2026-07-15T16:26:10Z",
+    "license": "Unlicense OR MIT",
+    "sourceArchive": {
+      "path": "source/ripgrep-15.2.0-source.tar.gz",
+      "sha256": "1bbc690deaac5b5d68168574b0ced021dc2cdf65db436329fc20a9aae36d8406"
+    },
+    "cargoLockSha256": "7a7d39cda8a03930e578f1dbb724e055771901842eca239e03b01e19da946a64"
+  },
+  "build": {
+    "rustc": "1.97.1",
+    "rustcCommit": "8bab26f4f68e0e26f0bb7960be334d5b520ea452",
+    "target": "wasm32-wasip1",
+    "profile": "release-lto",
+    "command": "cargo build --locked --profile release-lto --target wasm32-wasip1 --bin rg",
+    "sourcePatches": 0,
+    "pcre2Enabled": false,
+    "independentRebuildByteIdentical": true
+  },
+  "runtime": {
+    "path": "runtime/rg.wasm",
+    "bytes": 2990679,
+    "sha256": "cb7a661e78f55ea0e82567867fc7ad5f09e3b352e3424eecd8fed8ebe1e37416",
+    "imports": [
+      "wasi_snapshot_preview1"
+    ],
+    "requiredArguments": [
+      "--no-config",
+      "--threads",
+      "1"
+    ],
+    "features": "-pcre2"
+  },
+  "dependencies": {
+    "cargoPackages": 33,
+    "treePath": "conformance/production-dependency-tree.txt",
+    "treeSha256": "ae684b98aceefa7fb3f6a24a4d977328244e0c8bcfb03b5d5bb4cca6bec1fce4",
+    "rustStandardLibraryIncluded": true
+  },
+  "notices": {
+    "rustCopyrightLibrarySha256": "0a65bb747c49c7bb816cbc7188319bd6e4e8d08091c1190b8a3c0971c47968ed",
+    "rustLicenseMitSha256": "b71bd43a069ca0641a9ecfe585ca7b3c53b5cc1608f8b68321168698e28b5ea1",
+    "rustLicenseApache20Sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+    "licenseManifestSha256": "b1def776dbe99e9a20108641575e3a83627e48c998e1e92e96bd2385197c4498"
+  },
+  "conformance": {
+    "upstreamInventory": 1189,
+    "productApplicablePassed": 722,
+    "productApplicableFailed": 0,
+    "productApplicableUpstreamIgnored": 1,
+    "productNonApplicable": 466,
+    "productUnclassified": 0,
+    "classifiedInventoryPath": "conformance/upstream-tests-classified.tsv",
+    "classifiedInventorySha256": "d5e6ad2eefac77c079a22a07b9bdf4869aee57af40202717173688428338ac67",
+    "researchInventoryPath": "conformance/upstream-tests-research.tsv",
+    "researchInventorySha256": "7c3deb8deb616c11b12230cfbbb6a562a6626fc985d55935ce452bfd407654d3",
+    "wasiResultsPath": "conformance/wasi-results.json",
+    "wasiResultsSha256": "517f9f4a00ea73830feba76186cbc50c98661381f5869cec05f667030440cb6d",
+    "nativeDocResultsPath": "conformance/native-doc-results.json",
+    "nativeDocResultsSha256": "80816e25a0b5fbc9e677921584e674f74a97360e4b5a896605435f21a592dbd0",
+    "nativeUpstreamPassed": 1174,
+    "nativeUpstreamFailed": 0,
+    "nativeUpstreamIgnored": 3,
+    "wasiPassed": 819,
+    "wasiApplicableFailed": 0,
+    "wasiUpstreamIgnored": 3,
+    "nativeDocPassed": 22,
+    "nativeDocIgnored": 2,
+    "productRuntimeCases": 9,
+    "exitCodeCases": 3,
+    "testHarnessPatchPath": "conformance/test-harness-wasi.patch",
+    "testHarnessPatchSha256": "6af2397f03e406b16eb3fce33158cf158b9fa980c9e065b62a9f88636833fefb",
+    "productionArtifactBuiltFromPatchedSource": false
+  }
+}

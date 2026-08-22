@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "semgrepVersion": "1.172.0",
+  "semgrepCommit": "651f37efa397bf066e1cf627414eeabe40b07e27",
+  "archive": {
+    "bytes": 126614798,
+    "sha256": "a1f8b4e3da8c67109cdc253f037adb36a407aacab24c6b5e044ae24a8ef23df1",
+    "entries": 74597,
+    "independentReproduction": {
+      "bytes": 126614798,
+      "sha256": "a1f8b4e3da8c67109cdc253f037adb36a407aacab24c6b5e044ae24a8ef23df1",
+      "entries": 74597
+    },
+    "filename": "semgrep-1.172.0-friendly-adversary-corresponding-source.tar.gz"
+  },
+  "sourceInputs": {
+    "algorithm": "sha256",
+    "definitionVersion": 1,
+    "fileCount": 132,
+    "fingerprint": "1c1956ebb7009048fa3c2c010602557d7d715884fd55040bfd0c829185611469"
+  },
+  "distributionLicense": "GPL-3.0-only",
+  "releaseScope": "public",
+  "publicSourceOffer": "https://github.com/mattlgroff/friendly-adversary/releases/download/v3.0.4/semgrep-1.172.0-friendly-adversary-corresponding-source.tar.gz",
+  "publicPublicationBlocked": false,
+  "releaseStatus": "public-release-ready"
+}

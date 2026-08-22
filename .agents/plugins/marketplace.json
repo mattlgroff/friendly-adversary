@@ -1,0 +1,20 @@
+{
+  "name": "friendly-adversary",
+  "interface": {
+    "displayName": "Friendly Adversary"
+  },
+  "plugins": [
+    {
+      "name": "friendly-adversary",
+      "source": {
+        "source": "local",
+        "path": "./platforms/codex/plugins/friendly-adversary"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

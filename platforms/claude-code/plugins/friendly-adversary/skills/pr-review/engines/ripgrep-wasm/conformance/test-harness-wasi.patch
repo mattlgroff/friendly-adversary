@@ -1,0 +1,110 @@
+diff --git a/crates/cli/src/hostname.rs b/crates/cli/src/hostname.rs
+index ef50747..c946b52 100644
+--- a/crates/cli/src/hostname.rs
++++ b/crates/cli/src/hostname.rs
+@@ -79,6 +79,10 @@ mod tests {
+     use super::*;
+ 
+     #[test]
++    #[cfg_attr(
++        target_os = "wasi",
++        ignore = "WASI preview1 does not expose a hostname API"
++    )]
+     fn print_hostname() {
+         println!("{:?}", hostname().unwrap());
+     }
+diff --git a/crates/globset/src/glob.rs b/crates/globset/src/glob.rs
+index ac1dd6d..8c176b3 100644
+--- a/crates/globset/src/glob.rs
++++ b/crates/globset/src/glob.rs
+@@ -1483,15 +1483,15 @@ mod tests {
+     matches!(matchalt19, "{a,b{c,d}}", "a");
+ 
+     matches!(matchslash1, "abc/def", "abc/def", SLASHLIT);
+-    #[cfg(unix)]
++    #[cfg(any(unix, target_os = "wasi"))]
+     nmatches!(matchslash2, "abc?def", "abc/def", SLASHLIT);
+-    #[cfg(not(unix))]
++    #[cfg(not(any(unix, target_os = "wasi")))]
+     nmatches!(matchslash2, "abc?def", "abc\\def", SLASHLIT);
+     nmatches!(matchslash3, "abc*def", "abc/def", SLASHLIT);
+     matches!(matchslash4, "abc[/]def", "abc/def", SLASHLIT); // differs
+-    #[cfg(unix)]
++    #[cfg(any(unix, target_os = "wasi"))]
+     nmatches!(matchslash5, "abc\\def", "abc/def", SLASHLIT);
+-    #[cfg(not(unix))]
++    #[cfg(not(any(unix, target_os = "wasi")))]
+     matches!(matchslash5, "abc\\def", "abc/def", SLASHLIT);
+ 
+     matches!(matchbackslash1, "\\[", "[", BSESC);
+@@ -1500,9 +1500,9 @@ mod tests {
+     matches!(matchbackslash4, "\\[a-z]", "\\a", NOBSESC);
+     matches!(matchbackslash5, "\\?", "\\a", NOBSESC);
+     matches!(matchbackslash6, "\\*", "\\\\", NOBSESC);
+-    #[cfg(unix)]
++    #[cfg(any(unix, target_os = "wasi"))]
+     matches!(matchbackslash7, "\\a", "a");
+-    #[cfg(not(unix))]
++    #[cfg(not(any(unix, target_os = "wasi")))]
+     matches!(matchbackslash8, "\\a", "/a");
+ 
+     nmatches!(matchnot1, "a*b*c", "abcd");
+diff --git a/crates/globset/src/pathutil.rs b/crates/globset/src/pathutil.rs
+index 64273c7..acb417c 100644
+--- a/crates/globset/src/pathutil.rs
++++ b/crates/globset/src/pathutil.rs
+@@ -130,12 +130,12 @@ mod tests {
+ 
+     normalize!(normal1, b"foo", b"foo");
+     normalize!(normal2, b"foo/bar", b"foo/bar");
+-    #[cfg(unix)]
++    #[cfg(any(unix, target_os = "wasi"))]
+     normalize!(normal3, b"foo\\bar", b"foo\\bar");
+-    #[cfg(not(unix))]
++    #[cfg(not(any(unix, target_os = "wasi")))]
+     normalize!(normal3, b"foo\\bar", b"foo/bar");
+-    #[cfg(unix)]
++    #[cfg(any(unix, target_os = "wasi"))]
+     normalize!(normal4, b"foo\\bar/baz", b"foo\\bar/baz");
+-    #[cfg(not(unix))]
++    #[cfg(not(any(unix, target_os = "wasi")))]
+     normalize!(normal4, b"foo\\bar/baz", b"foo/bar/baz");
+ }
+diff --git a/crates/ignore/src/lib.rs b/crates/ignore/src/lib.rs
+index 0ed4a49..d6fab63 100644
+--- a/crates/ignore/src/lib.rs
++++ b/crates/ignore/src/lib.rs
+@@ -524,7 +524,13 @@ mod tests {
+             static TRIES: usize = 100;
+             static COUNTER: AtomicUsize = AtomicUsize::new(0);
+ 
++            #[cfg(not(target_os = "wasi"))]
+             let tmpdir = env::temp_dir();
++            // Rust's WASI stdlib intentionally does not implement
++            // `std::env::temp_dir`, even when `/tmp` is preopened by the host.
++            // The Node test runner preopens `/tmp` explicitly.
++            #[cfg(target_os = "wasi")]
++            let tmpdir = PathBuf::from("/tmp");
+             for _ in 0..TRIES {
+                 let count = COUNTER.fetch_add(1, Ordering::Relaxed);
+                 let path = tmpdir.join("rust-ignore").join(count.to_string());
+diff --git a/crates/ignore/src/walk.rs b/crates/ignore/src/walk.rs
+index 93e6cf1..eb44161 100644
+--- a/crates/ignore/src/walk.rs
++++ b/crates/ignore/src/walk.rs
+@@ -2210,8 +2210,13 @@ mod tests {
+     fn assert_paths(prefix: &Path, builder: &WalkBuilder, expected: &[&str]) {
+         let got = walk_collect(prefix, builder);
+         assert_eq!(got, mkpaths(expected), "single threaded");
+-        let got = walk_collect_parallel(prefix, builder);
+-        assert_eq!(got, mkpaths(expected), "parallel");
++        // WASI preview1 has no threads and ripgrep resolves its default worker
++        // count to one there. The production wrapper also pins `--threads 1`.
++        #[cfg(not(target_os = "wasi"))]
++        {
++            let got = walk_collect_parallel(prefix, builder);
++            assert_eq!(got, mkpaths(expected), "parallel");
++        }
+     }
+ 
+     #[test]

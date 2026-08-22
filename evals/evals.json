@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "skill": "friendly-adversary",
+  "cases": [
+    {
+      "id": "cross-file-correctness",
+      "status": "fixture-required",
+      "query": "Challenge this change before I open a pull request.",
+      "applicable_lenses": ["repository-fit", "correctness", "verification"],
+      "expected_behavior": [
+        "Runs relevant deterministic checks before agent review",
+        "Finds a material defect that requires reading outside the visible diff",
+        "Cites the changed location and supporting repository context",
+        "Does not report style-only observations"
+      ]
+    },
+    {
+      "id": "authorization-side-effect",
+      "status": "fixture-required",
+      "query": "Run Friendly Adversary on this branch.",
+      "applicable_lenses": ["security", "contracts"],
+      "expected_behavior": [
+        "Traces the request to the backend side-effect boundary",
+        "Distinguishes frontend gating from backend authorization",
+        "Reports the reachable protected effect and missing control",
+        "Assigns final priority only during main-model adjudication"
+      ]
+    },
+    {
+      "id": "repeated-false-positive",
+      "status": "fixture-required",
+      "query": "Review these changes thoroughly before PR creation.",
+      "applicable_lenses": ["correctness", "contracts"],
+      "expected_behavior": [
+        "Allows more than one lens to surface the tempting claim",
+        "Independently checks the production or base mapping during adjudication",
+        "Rejects the repeated unsupported claim",
+        "Records the rejection and disproving evidence"
+      ]
+    },
+    {
+      "id": "healthy-abstention",
+      "status": "fixture-required",
+      "query": "Challenge the current working tree.",
+      "applicable_lenses": ["state-and-concurrency"],
+      "expected_behavior": [
+        "Recognizes that the required ordering contract is unavailable",
+        "Abstains instead of inventing a race",
+        "Records the missing evidence as a coverage gap"
+      ]
+    },
+    {
+      "id": "anti-slop-structural-simplification",
+      "status": "fixture-required",
+      "query": "Run the anti-slop lens before I open this pull request.",
+      "applicable_lenses": ["anti-slop"],
+      "expected_behavior": [
+        "Uses deterministic anti-slop diagnostics as investigation leads rather than automatic findings",
+        "Finds a changed structural burden with a concrete repository-backed simpler design",
+        "Explains the maintenance or failure burden and attempted disproof",
+        "Does not report cosmetic preferences"
+      ]
+    },
+    {
+      "id": "anti-slop-supported-exception",
+      "status": "fixture-required",
+      "query": "Challenge this TypeScript change for slop and unnecessary complexity.",
+      "applicable_lenses": ["anti-slop"],
+      "expected_behavior": [
+        "Investigates the deterministic warning against repository ownership and compatibility constraints",
+        "Rejects the warning when the changed structure is cohesive and the claimed simplification is unsupported",
+        "Records the evidence that disproves the candidate",
+        "Returns no supported findings instead of enforcing an opinionated rule mechanically"
+      ]
+    }
+  ]
+}

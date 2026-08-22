@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "upstreamCommit": "e89fff89ac9af12e8d4ce9d5fd07beb408ca730f",
+  "sourceArchiveSha256": "1bbc690deaac5b5d68168574b0ced021dc2cdf65db436329fc20a9aae36d8406",
+  "runtime": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: aarch64-apple-darwin\nrelease: 1.97.1\nLLVM version: 22.1.6",
+  "passed": 22,
+  "failed": 0,
+  "ignored": 2,
+  "tests": [
+    {
+      "component": "globset",
+      "id": "crates/globset/src/lib.rs - escape (line 1105)",
+      "status": "ok"
+    },
+    {
+      "component": "globset",
+      "id": "crates/globset/src/lib.rs - GlobSet::matches_all (line 367)",
+      "status": "ok"
+    },
+    {
+      "component": "globset",
+      "id": "crates/globset/src/lib.rs - (line 34)",
+      "status": "ok"
+    },
+    {
+      "component": "globset",
+      "id": "crates/globset/src/lib.rs - (line 18)",
+      "status": "ok"
+    },
+    {
+      "component": "globset",
+      "id": "crates/globset/src/lib.rs - (line 50)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/lib.rs - (line 51)",
+      "status": "ignored"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/lib.rs - (line 59)",
+      "status": "ignored"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/decompress.rs - decompress::DecompressionReader (line 321)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/process.rs - process::CommandReader (line 157)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/escape.rs - escape::unescape (line 62)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/pattern.rs - pattern::patterns_from_reader (line 125)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/lib.rs - (line 65)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-cli",
+      "id": "crates/cli/src/escape.rs - escape::escape (line 21)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-matcher",
+      "id": "crates/matcher/src/lib.rs - Match (line 61)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-printer",
+      "id": "crates/printer/src/color.rs - color::UserColorSpec (line 136)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-printer",
+      "id": "crates/printer/src/hyperlink/mod.rs - hyperlink::HyperlinkFormat (line 62)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-printer",
+      "id": "crates/printer/src/lib.rs - (line 26)",
+      "status": "ok"
+    },
+    {
+      "component": "grep-searcher",
+      "id": "crates/searcher/src/lib.rs - (line 39)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/lib.rs - (line 17)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/lib.rs - (line 35)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/types.rs - types (line 16)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/types.rs - types (line 51)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/types.rs - types (line 34)",
+      "status": "ok"
+    },
+    {
+      "component": "ignore",
+      "id": "crates/ignore/src/types.rs - types (line 71)",
+      "status": "ok"
+    }
+  ]
+}

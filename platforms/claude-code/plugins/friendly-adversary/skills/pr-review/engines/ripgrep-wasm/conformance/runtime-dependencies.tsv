@@ -1,0 +1,34 @@
+package	version	edge	upstream_license	selected_license	source	cargo_checksum_sha256
+aho-corasick	1.1.4	normal	Unlicense OR MIT	MIT	https://crates.io/crates/aho-corasick/1.1.4	ddd31a130427c27518df266943a5308ed92d4b226cc639f5a8f1002816174301
+anyhow	1.0.103	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/anyhow/1.0.103	2a4385e2e34eb35d6b3efe798b9eb88096925d87726c0798709bf56d9ed84af3
+bstr	1.13.0	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/bstr/1.13.0	1f7dc094d718f2e1c1559ad110e27eeaae14a5465d3d56dd6dbd793079fbd530
+cfg-if	1.0.4	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/cfg-if/1.0.4	9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801
+crossbeam-deque	0.8.7	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/crossbeam-deque/0.8.7	5181e0de7b61eb03a81e347d6dd8797bae9da5146707b51077e2d71a54ec0ceb
+crossbeam-epoch	0.9.20	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/crossbeam-epoch/0.9.20	2d6914041f254d6e9176c01941b21115dcfb7089e55135a35411081bd106ef3f
+crossbeam-utils	0.8.22	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/crossbeam-utils/0.8.22	61803da095bee82a81bb1a452ecc25d3b2f1416d1897eb86430c6159ef717c17
+encoding_rs	0.8.35	normal	(Apache-2.0 OR MIT) AND BSD-3-Clause	MIT AND BSD-3-Clause	https://crates.io/crates/encoding_rs/0.8.35	75030f3c4f45dafd7586dd6780965a8c7e8e285a5ecb86713e63a79c5b2766f3
+encoding_rs_io	0.1.7	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/encoding_rs_io/0.1.7	1cc3c5651fb62ab8aa3103998dade57efdd028544bd300516baa31840c252a83
+globset	0.4.19	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/globset	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep	0.4.1	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/grep	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep-cli	0.1.12	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/cli	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep-matcher	0.1.9	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/matcher	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep-printer	0.3.1	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/printer	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep-regex	0.1.14	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/regex	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+grep-searcher	0.1.17	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/searcher	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+ignore	0.4.29	normal	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f/crates/ignore	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+itoa	1.0.18	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/itoa/1.0.18	8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682
+lexopt	0.3.2	normal	MIT	MIT	https://crates.io/crates/lexopt/0.3.2	803ec87c9cfb29b9d2633f20cba1f488db3fd53f2158b1024cbefb47ba05d413
+log	0.4.33	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/log/0.4.33	0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad
+memchr	2.8.3	normal	Unlicense OR MIT	MIT	https://crates.io/crates/memchr/2.8.3	cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98
+memmap2	0.9.11	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/memmap2/0.9.11	d1219ed1b7f229ee7104d281dd01d6802fe28bb6e95d292942c4daacdeb798c0
+regex-automata	0.4.15	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/regex-automata/0.4.15	1f388202e4b80542a0921078cc23b6333bcf1409c1e3f86404cae4766a6131db
+regex-syntax	0.8.11	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/regex-syntax/0.8.11	d6f6ff9a378485b298a5286656da665ba74413d36db0979633275d2e708145d4
+ripgrep	15.2.0	root	Unlicense OR MIT	MIT	https://github.com/BurntSushi/ripgrep/tree/e89fff89ac9af12e8d4ce9d5fd07beb408ca730f	ripgrep-tree-c743701524f65f036cf174d6551918be7dfc0d40
+same-file	1.0.6	normal	Unlicense/MIT	MIT	https://crates.io/crates/same-file/1.0.6	93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502
+serde	1.0.228	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/serde/1.0.228	9a8e94ea7f378bd32cbbd37198a4a91436180c5bb472411e48b5ec2e2124ae9e
+serde_core	1.0.228	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/serde_core/1.0.228	41d385c7d4ca58e59fc732af25c3983b67ac852c1a25000afe1175de458b67ad
+serde_json	1.0.150	normal	MIT OR Apache-2.0	MIT	https://crates.io/crates/serde_json/1.0.150	e8014e44b4736ed0538adeecded0fce2a272f22dc9578a7eb6b2d9993c74cfb9
+termcolor	1.4.1	normal	Unlicense OR MIT	MIT	https://crates.io/crates/termcolor/1.4.1	06794f8f6c5c898b3275aebefa6b8a1cb24cd2c6c79397ab15774837a0bc5755
+textwrap	0.16.2	normal	MIT	MIT	https://crates.io/crates/textwrap/0.16.2	c13547615a44dc9c452a8a534638acdf07120d4b6847c8178705da06306a3057
+walkdir	2.5.0	normal	Unlicense/MIT	MIT	https://crates.io/crates/walkdir/2.5.0	29790946404f91d9c5d06f9874efddea1dc06c5efe94541a7d6863108e3a5e4b
+zmij	1.0.23	normal	MIT	MIT	https://crates.io/crates/zmij/1.0.23	29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b

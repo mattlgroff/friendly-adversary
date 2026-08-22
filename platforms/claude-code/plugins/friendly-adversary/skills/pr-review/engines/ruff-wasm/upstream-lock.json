@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/astral-sh/ruff.git",
+    "tag": "0.16.2",
+    "commit": "5b48a040974781ba90b47c8df628f8fd9b6c95dd",
+    "license": "MIT"
+  },
+  "package": {
+    "name": "@astral-sh/ruff-wasm-nodejs",
+    "version": "0.16.2",
+    "registryTarball": "https://registry.npmjs.org/@astral-sh/ruff-wasm-nodejs/-/ruff-wasm-nodejs-0.16.2.tgz",
+    "attestations": "https://registry.npmjs.org/-/npm/v1/attestations/@astral-sh%2fruff-wasm-nodejs@0.16.2",
+    "provenancePredicateType": "https://slsa.dev/provenance/v1",
+    "integrity": "sha512-ghAVdLPaA0s3KTVXvXBt2ojwwMQ5ZCb9ewrDIGJPhjjKLtbRV491zFf/LXflQEgjr1sWLDPnRk3XGJuWaGYKAw==",
+    "sha1": "101a98d778f1ebbcc7cc705d6da6e93c12479c84",
+    "downloadedTarballSha256": "d8c136cfc9132d2cd2712dabb3bd1504feb06738ba3e4c9336c1b17c0ee4aaca"
+  },
+  "runtime": {
+    "ruff_wasm.js": "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897",
+    "ruff_wasm.d.ts": "f45180dceecdeb92c621f8554f71e9ade6a72197020361d18f3dd651a0ca63b9",
+    "ruff_wasm_bg.wasm": "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f"
+  },
+  "notices": {
+    "LICENSE": "2597d854122b77ddc71971564ca2350a37608575ce324adc5650a2b2051c8f18",
+    "UPSTREAM_README.md": "adaf243fbff2d2b30969781acf0f2379fabdcfe0638f8e488394490d0c43758b",
+    "UPSTREAM_PACKAGE.json": "cbb81b0bf5f70d5f3323f31a540a42af24c902c98a41434010bb8e81fd78d9b3"
+  }
+}

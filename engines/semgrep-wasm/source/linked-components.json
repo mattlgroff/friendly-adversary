@@ -1,0 +1,1991 @@
+{
+  "schemaVersion": 1,
+  "distributionLicense": "GPL-3.0-only",
+  "releaseScope": "public",
+  "compatibilityMethod": "Every linked OPAM license expression has an explicit GPL-3.0-compatible selection; original component licenses and notices remain in force",
+  "linkedLicenseSelections": {
+    "BSD-3-Clause": "BSD-3-Clause",
+    "BSD-3-clause": "BSD-3-Clause",
+    "GPL-2.0-or-later": "GPL-3.0-only",
+    "ISC": "ISC",
+    "LGPL-2.0-only with OCaml-LGPL-linking-exception": "LGPL-2.0-only WITH OCaml-LGPL-linking-exception",
+    "LGPL-2.1-only": "LGPL-2.1-only",
+    "LGPL-2.1-only WITH OCaml-LGPL-linking-exception": "LGPL-2.1-only WITH OCaml-LGPL-linking-exception",
+    "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception": "LGPL-2.1-only WITH OCaml-LGPL-linking-exception",
+    "LGPL-3.0-or-later WITH OCaml-LGPL-linking-exception": "LGPL-3.0-only WITH OCaml-LGPL-linking-exception",
+    "MIT": "MIT"
+  },
+  "semgrepCommit": "651f37efa397bf066e1cf627414eeabe40b07e27",
+  "duneProfile": "release",
+  "targets": [
+    "js/engine/Main.bc-for-jsoo",
+    "js/languages/python/Parser.bc-for-jsoo",
+    "js/languages/typescript/Parser.bc-for-jsoo"
+  ],
+  "discovery": "Dune release link rules mapped through opam list --owns-file",
+  "linkedLibraryCount": 104,
+  "linkedOcamlPackageCount": 104,
+  "linkedOcamlPackagesWithLicenseFiles": 104,
+  "linkedOcamlPackages": [
+    {
+      "name": "ANSITerminal",
+      "version": "0.8.5",
+      "licenses": [
+        "LGPL-3.0-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/Chris00/ANSITerminal",
+      "devRepo": "git+https://github.com/Chris00/ANSITerminal.git",
+      "libraries": [
+        "ANSITerminal"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ANSITerminal--LICENSE.md",
+          "sha256": "28c56f73d05ee4585b40b53e188d56aa68246984f5c88df2349c7e7e3b0095fe"
+        }
+      ]
+    },
+    {
+      "name": "alcotest",
+      "version": "1.9.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/alcotest",
+      "devRepo": "git+https://github.com/mirage/alcotest.git",
+      "libraries": [
+        "alcotest"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/alcotest--LICENSE.md",
+          "sha256": "55138500a6158607188c517b8f1c2265576a9f3df6463f818e99c4a67f74753b"
+        }
+      ]
+    },
+    {
+      "name": "alcotest-lwt",
+      "version": "1.9.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/alcotest",
+      "devRepo": "git+https://github.com/mirage/alcotest.git",
+      "libraries": [
+        "alcotest-lwt"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/alcotest-lwt--LICENSE.md",
+          "sha256": "55138500a6158607188c517b8f1c2265576a9f3df6463f818e99c4a67f74753b"
+        }
+      ]
+    },
+    {
+      "name": "angstrom",
+      "version": "0.16.1",
+      "licenses": [
+        "BSD-3-clause"
+      ],
+      "homepage": "https://github.com/inhabitedtype/angstrom",
+      "devRepo": "git+https://github.com/inhabitedtype/angstrom.git",
+      "libraries": [
+        "angstrom"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/angstrom--LICENSE",
+          "sha256": "3031f5d8ca71f96746c77ca22fa1023b2b134c52994656d83fb9682cc9557916"
+        }
+      ]
+    },
+    {
+      "name": "astring",
+      "version": "0.8.5",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/astring",
+      "devRepo": "git+http://erratique.ch/repos/astring.git",
+      "libraries": [
+        "astring"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/astring--LICENSE.md",
+          "sha256": "8b1a29e7480c42c3553e4bf8acbb9570b87849384f6aaf3f32500a72a15f928f"
+        }
+      ]
+    },
+    {
+      "name": "atdgen-runtime",
+      "version": "4.2.0",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/ahrefs/atd",
+      "devRepo": "git+https://github.com/ahrefs/atd.git",
+      "libraries": [
+        "atdgen-runtime"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/atdgen-runtime--LICENSE.md",
+          "sha256": "6daeba09730bc46569c9497fbc74481e47894b351752bbd1a005a5d9603dab56"
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "version": "v0.17.3",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/base",
+      "devRepo": "git+https://github.com/janestreet/base.git",
+      "libraries": [
+        "base"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/base--LICENSE.md",
+          "sha256": "32c30525f61e707562867e232749a0ebd70ad9e6af989fe0aa0b10ec83addbed"
+        }
+      ]
+    },
+    {
+      "name": "base64",
+      "version": "3.5.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-base64",
+      "devRepo": "git+https://github.com/mirage/ocaml-base64.git",
+      "libraries": [
+        "base64"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/base64--LICENSE.md",
+          "sha256": "34c4342cf8ab5f81e9a8561c9890c7887a8c828199b57df832bf05648890a6ea"
+        }
+      ]
+    },
+    {
+      "name": "bigstringaf",
+      "version": "0.10.0",
+      "licenses": [
+        "BSD-3-clause"
+      ],
+      "homepage": "https://github.com/inhabitedtype/bigstringaf",
+      "devRepo": "git+https://github.com/inhabitedtype/bigstringaf.git",
+      "libraries": [
+        "bigstringaf"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/bigstringaf--LICENSE",
+          "sha256": "c6ce9a4f95724d0e450683141b6f984cdb0e180c95875fc6c89b8c4a861d0ac3"
+        }
+      ]
+    },
+    {
+      "name": "biniou",
+      "version": "1.2.2",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/mjambon/biniou",
+      "devRepo": "git+https://github.com/mjambon/biniou.git",
+      "libraries": [
+        "biniou"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/biniou--LICENSE",
+          "sha256": "0d562239a1a2b211fc544943b22a19189a7c4dcaa80ab6872b821ea89a77f5b6"
+        }
+      ]
+    },
+    {
+      "name": "bos",
+      "version": "0.3.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/bos",
+      "devRepo": "git+https://erratique.ch/repos/bos.git",
+      "libraries": [
+        "bos"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/bos--LICENSE.md",
+          "sha256": "06c64a3149e3fe9bea368f265a5c2fe3f914edb468c17bee1a6beb955d17a616"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "version": "3.0.0",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/ocaml-community/calendar",
+      "devRepo": "git+https://github.com/ocaml-community/calendar",
+      "libraries": [
+        "calendar"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/calendar--LICENSE",
+          "sha256": "70f26627042599564d0d030241e4d7d9ae4fe55c0e193a98ed19340b513823ff"
+        }
+      ]
+    },
+    {
+      "name": "camlp-streams",
+      "version": "5.0.1",
+      "licenses": [
+        "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/ocaml/camlp-streams",
+      "devRepo": "git+https://github.com/ocaml/camlp-streams.git",
+      "libraries": [
+        "camlp-streams"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/camlp-streams--LICENSE",
+          "sha256": "6a89476846b491b0a2d1333dac0054c9753bc4be0c8184394df58c62bdf9de76"
+        }
+      ]
+    },
+    {
+      "name": "carton",
+      "version": "0.7.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://git.robur.coop/robur/carton",
+      "devRepo": "git+https://github.com/robur-coop/carton.git",
+      "libraries": [
+        "carton"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/carton--LICENSE.md",
+          "sha256": "35bea4ea413e8b967e946ac9bf1ac200b827f5e80316e2c3829c0dcae60b9e2e"
+        }
+      ]
+    },
+    {
+      "name": "carton-git",
+      "version": "0.7.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://git.robur.coop/robur/carton",
+      "devRepo": "git+https://github.com/robur-coop/carton.git",
+      "libraries": [
+        "carton-git"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/carton-git--LICENSE.md",
+          "sha256": "35bea4ea413e8b967e946ac9bf1ac200b827f5e80316e2c3829c0dcae60b9e2e"
+        }
+      ]
+    },
+    {
+      "name": "carton-lwt",
+      "version": "0.7.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://git.robur.coop/robur/carton",
+      "devRepo": "git+https://github.com/robur-coop/carton.git",
+      "libraries": [
+        "carton-lwt"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/carton-lwt--LICENSE.md",
+          "sha256": "35bea4ea413e8b967e946ac9bf1ac200b827f5e80316e2c3829c0dcae60b9e2e"
+        }
+      ]
+    },
+    {
+      "name": "checkseum",
+      "version": "0.5.3",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/checkseum",
+      "devRepo": "git+https://github.com/mirage/checkseum.git",
+      "libraries": [
+        "checkseum"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/checkseum--LICENSE.md",
+          "sha256": "352e3f304629ba0c1d787705485206cc6303b0cff8ed633f4598ba4f86378c3c"
+        }
+      ]
+    },
+    {
+      "name": "cmdliner",
+      "version": "2.1.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/cmdliner",
+      "devRepo": "git+https://erratique.ch/repos/cmdliner.git",
+      "libraries": [
+        "cmdliner"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/cmdliner--LICENSE.md",
+          "sha256": "deb8445a08c3a4fe46462e3b58f863782476d45bc762ca386a4c74bc01ef02c8"
+        }
+      ]
+    },
+    {
+      "name": "cstruct",
+      "version": "6.2.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-cstruct",
+      "devRepo": "git+https://github.com/mirage/ocaml-cstruct.git",
+      "libraries": [
+        "cstruct"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/cstruct--LICENSE.md",
+          "sha256": "2d07fb6db98b7402752f250a06b076a4a498cc456241e7999e9c92b5be40a16c"
+        }
+      ]
+    },
+    {
+      "name": "ctypes",
+      "version": "0.24.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/yallop/ocaml-ctypes",
+      "devRepo": "git+https://github.com/yallop/ocaml-ctypes.git",
+      "libraries": [
+        "ctypes"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ctypes--LICENSE",
+          "sha256": "8607404171de6993bd1a4dc7f823cdd90b99b6a12b13a42c7506b3f37f992d33"
+        }
+      ]
+    },
+    {
+      "name": "ctypes_stubs_js",
+      "version": "0.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://gitlab.com/nomadic-labs/ctypes_stubs_js",
+      "devRepo": "git+https://gitlab.com/nomadic-labs/ctypes_stubs_js.git",
+      "libraries": [
+        "ctypes_stubs_js"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ctypes_stubs_js--LICENSE",
+          "sha256": "0c097609acd76a47517d4b5eaa9b3676b9949b87894bebd1a7a1318cb75bbc49"
+        }
+      ]
+    },
+    {
+      "name": "decompress",
+      "version": "1.5.3",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/decompress",
+      "devRepo": "git+https://github.com/mirage/decompress.git",
+      "libraries": [
+        "decompress"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/decompress--LICENSE.md",
+          "sha256": "469901db714363039f00f54021f1c736cd410d327ead095a2dbfc6789aad8452"
+        }
+      ]
+    },
+    {
+      "name": "digestif",
+      "version": "1.3.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/digestif",
+      "devRepo": "git+https://github.com/mirage/digestif.git",
+      "libraries": [
+        "digestif"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/digestif--LICENSE.md",
+          "sha256": "0807b85f1e4e45d5ab2343809ece08c048fa7a807d8cf704529801aa190a9a41"
+        }
+      ]
+    },
+    {
+      "name": "domain-local-await",
+      "version": "1.0.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/domain-local-await",
+      "devRepo": "git+https://github.com/ocaml-multicore/domain-local-await.git",
+      "libraries": [
+        "domain-local-await"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/domain-local-await--LICENSE.md",
+          "sha256": "6a1d80ec46febae2f2e0f36b26cdac99adefdbec58f5b8735909729bcbe00a2c"
+        }
+      ]
+    },
+    {
+      "name": "domain-name",
+      "version": "0.5.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/hannesm/domain-name",
+      "devRepo": "git+https://github.com/hannesm/domain-name.git",
+      "libraries": [
+        "domain-name"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/domain-name--LICENSE.md",
+          "sha256": "cef5c32587f55f579e8e1a24786d6a253308a9119650b51c1fe7fe5d15039d82"
+        }
+      ]
+    },
+    {
+      "name": "duff",
+      "version": "0.5",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/duff",
+      "devRepo": "git+https://github.com/mirage/duff.git",
+      "libraries": [
+        "duff"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/duff--LICENSE.md",
+          "sha256": "352e3f304629ba0c1d787705485206cc6303b0cff8ed633f4598ba4f86378c3c"
+        }
+      ]
+    },
+    {
+      "name": "easy-format",
+      "version": "1.3.4",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/ocaml-community/easy-format",
+      "devRepo": "git+https://github.com/ocaml-community/easy-format.git",
+      "libraries": [
+        "easy-format"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/easy-format--LICENSE",
+          "sha256": "49a624b621b51f03fa2d2f0676ebf787b5f9c267c32b8e3c5165f4f4ea04ead3"
+        }
+      ]
+    },
+    {
+      "name": "eio",
+      "version": "1.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/eio",
+      "devRepo": "git+https://github.com/ocaml-multicore/eio.git",
+      "libraries": [
+        "eio"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/eio--LICENSE.md",
+          "sha256": "59c3be7bdb792b7d7cf7a7b946eca4301454db6ea3164cf86fda4666d2707b41"
+        }
+      ]
+    },
+    {
+      "name": "eio_main",
+      "version": "1.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/eio",
+      "devRepo": "git+https://github.com/ocaml-multicore/eio.git",
+      "libraries": [
+        "eio_main"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/eio_main--LICENSE.md",
+          "sha256": "59c3be7bdb792b7d7cf7a7b946eca4301454db6ea3164cf86fda4666d2707b41"
+        }
+      ]
+    },
+    {
+      "name": "eio_posix",
+      "version": "1.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/eio",
+      "devRepo": "git+https://github.com/ocaml-multicore/eio.git",
+      "libraries": [
+        "eio_posix"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/eio_posix--LICENSE.md",
+          "sha256": "59c3be7bdb792b7d7cf7a7b946eca4301454db6ea3164cf86fda4666d2707b41"
+        }
+      ]
+    },
+    {
+      "name": "emile",
+      "version": "1.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/dinosaure/emile",
+      "devRepo": "git+https://github.com/dinosaure/emile.git",
+      "libraries": [
+        "emile"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/emile--LICENSE.md",
+          "sha256": "352e3f304629ba0c1d787705485206cc6303b0cff8ed633f4598ba4f86378c3c"
+        }
+      ]
+    },
+    {
+      "name": "encore",
+      "version": "0.8.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/encore",
+      "devRepo": "git+https://github.com/mirage/encore.git",
+      "libraries": [
+        "encore"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/encore--LICENSE.md",
+          "sha256": "352e3f304629ba0c1d787705485206cc6303b0cff8ed633f4598ba4f86378c3c"
+        }
+      ]
+    },
+    {
+      "name": "eqaf",
+      "version": "0.10",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/eqaf",
+      "devRepo": "git+https://github.com/mirage/eqaf.git",
+      "libraries": [
+        "eqaf"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/eqaf--LICENSE.md",
+          "sha256": "563bcb254ba4b3a8e1f573cd00e13a9ee06e830b74bc5af55811947aaf2be6d4"
+        }
+      ]
+    },
+    {
+      "name": "fmt",
+      "version": "0.11.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/fmt",
+      "devRepo": "git+https://erratique.ch/repos/fmt.git",
+      "libraries": [
+        "fmt"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/fmt--LICENSE.md",
+          "sha256": "8ed47a07dae70d074484a5523ddbced74cac7d4bf646457991c7f965d540214f"
+        }
+      ]
+    },
+    {
+      "name": "fpath",
+      "version": "0.7.3",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/fpath",
+      "devRepo": "git+https://erratique.ch/repos/fpath.git",
+      "libraries": [
+        "fpath"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/fpath--LICENSE.md",
+          "sha256": "064f93a2eabd4c0da25c4239d5916b922f600786bc040b1cbeb893f77abb2d30"
+        }
+      ]
+    },
+    {
+      "name": "git",
+      "version": "3.18.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-git",
+      "devRepo": "git+https://github.com/mirage/ocaml-git.git",
+      "libraries": [
+        "git"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/git--LICENSE.md",
+          "sha256": "35bea4ea413e8b967e946ac9bf1ac200b827f5e80316e2c3829c0dcae60b9e2e"
+        }
+      ]
+    },
+    {
+      "name": "hex",
+      "version": "1.5.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-hex",
+      "devRepo": "git+https://github.com/mirage/ocaml-hex.git",
+      "libraries": [
+        "hex"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/hex--LICENSE.md",
+          "sha256": "39e35a24b12c35b0ebb3d272929fe51c8c500f57b7b7a85805d63f96d076b112"
+        }
+      ]
+    },
+    {
+      "name": "hmap",
+      "version": "0.8.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "http://erratique.ch/software/hmap",
+      "devRepo": "git+http://erratique.ch/repos/hmap.git",
+      "libraries": [
+        "hmap"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/hmap--LICENSE.md",
+          "sha256": "21600120587a0c4110f3d562db2568b76dbc14fdb5adba92a6858ad03945c61d"
+        }
+      ]
+    },
+    {
+      "name": "hxd",
+      "version": "0.4.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/dinosaure/hxd",
+      "devRepo": "git+https://github.com/dinosaure/hxd.git",
+      "libraries": [
+        "hxd"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/hxd--LICENSE.md",
+          "sha256": "2816ff3f360b24d266c28428085d3c4af36fda380d59d9ef69413d37f87ce567"
+        }
+      ]
+    },
+    {
+      "name": "integers",
+      "version": "0.8.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/yallop/ocaml-integers",
+      "devRepo": "git+https://github.com/yallop/ocaml-integers.git",
+      "libraries": [
+        "integers"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/integers--LICENSE.md",
+          "sha256": "d65f2c2e4be0c49461f67925d396efa75ffc4a81cf929507c3af3d0cbe7193ab"
+        }
+      ]
+    },
+    {
+      "name": "integers_stubs_js",
+      "version": "1.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/o1-labs/integers_stubs_js",
+      "devRepo": "git+https://github.com/o1-labs/integers_stubs_js.git",
+      "libraries": [
+        "integers_stubs_js"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/integers_stubs_js--LICENSE",
+          "sha256": "76f8c30369f33f1da0e3be91792f7d5ead8e90bb53a677b3130b25eade2fdc1b"
+        }
+      ]
+    },
+    {
+      "name": "iomux",
+      "version": "0.4",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/ocaml-iomux",
+      "devRepo": "git+https://github.com/ocaml-multicore/ocaml-iomux.git",
+      "libraries": [
+        "iomux"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/iomux--LICENSE.md",
+          "sha256": "58c1f060d0d786b6a0b1a7c4dda5f89d800b38749781b19284109ecddd435d26"
+        }
+      ]
+    },
+    {
+      "name": "ipaddr",
+      "version": "5.6.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-ipaddr",
+      "devRepo": "git+https://github.com/mirage/ocaml-ipaddr.git",
+      "libraries": [
+        "ipaddr"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ipaddr--LICENSE.md",
+          "sha256": "92b8c94a91775e7f90b573c8d2bd2c48f8b7f7a040e7a4ac28dfa36cd2e9e5c7"
+        }
+      ]
+    },
+    {
+      "name": "jane-street-headers",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/jane-street-headers",
+      "devRepo": "git+https://github.com/janestreet/jane-street-headers.git",
+      "libraries": [
+        "jane-street-headers"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/jane-street-headers--LICENSE.md",
+          "sha256": "32c30525f61e707562867e232749a0ebd70ad9e6af989fe0aa0b10ec83addbed"
+        }
+      ]
+    },
+    {
+      "name": "js_of_ocaml",
+      "version": "6.3.2",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://ocsigen.org/js_of_ocaml/latest/manual/overview",
+      "devRepo": "git+https://github.com/ocsigen/js_of_ocaml.git",
+      "libraries": [
+        "js_of_ocaml"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/js_of_ocaml--LICENSE",
+          "sha256": "ade61810946164eda728c580946f52b70e709f3f5dbcba68534b2f41a8104cb6"
+        }
+      ]
+    },
+    {
+      "name": "js_of_ocaml-compiler",
+      "version": "6.3.2",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://ocsigen.org/js_of_ocaml/latest/manual/overview",
+      "devRepo": "git+https://github.com/ocsigen/js_of_ocaml.git",
+      "libraries": [
+        "js_of_ocaml-compiler"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/js_of_ocaml-compiler--LICENSE",
+          "sha256": "ade61810946164eda728c580946f52b70e709f3f5dbcba68534b2f41a8104cb6"
+        }
+      ]
+    },
+    {
+      "name": "js_of_ocaml-lwt",
+      "version": "6.3.2",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://ocsigen.org/js_of_ocaml/latest/manual/overview",
+      "devRepo": "git+https://github.com/ocsigen/js_of_ocaml.git",
+      "libraries": [
+        "js_of_ocaml-lwt"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/js_of_ocaml-lwt--LICENSE",
+          "sha256": "ade61810946164eda728c580946f52b70e709f3f5dbcba68534b2f41a8104cb6"
+        }
+      ]
+    },
+    {
+      "name": "ke",
+      "version": "0.6",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/ke",
+      "devRepo": "git+https://github.com/mirage/ke.git",
+      "libraries": [
+        "ke"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ke--LICENSE.md",
+          "sha256": "563bcb254ba4b3a8e1f573cd00e13a9ee06e830b74bc5af55811947aaf2be6d4"
+        }
+      ]
+    },
+    {
+      "name": "logs",
+      "version": "0.10.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/logs",
+      "devRepo": "git+https://erratique.ch/repos/logs.git",
+      "libraries": [
+        "logs"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/logs--LICENSE.md",
+          "sha256": "33fcf7bfedab8185dbf735c0f4176d0faf7390f04102f9a7ab69563cfcb67388"
+        }
+      ]
+    },
+    {
+      "name": "lwt",
+      "version": "5.10.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/ocsigen/lwt",
+      "devRepo": "git+https://github.com/ocsigen/lwt.git",
+      "libraries": [
+        "lwt"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/lwt--LICENSE.md",
+          "sha256": "f9a48608e85754e42dabcc0fde932c90523a0b7531eac287ca8e3d977e10104e"
+        }
+      ]
+    },
+    {
+      "name": "lwt-dllist",
+      "version": "1.1.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/lwt-dllist",
+      "devRepo": "git+https://github.com/mirage/lwt-dllist.git",
+      "libraries": [
+        "lwt-dllist"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/lwt-dllist--LICENSE.md",
+          "sha256": "f9c4c77baa3828004ee54b8a4f2db2e88ed44a6237a493965bf551fac0fcb62d"
+        }
+      ]
+    },
+    {
+      "name": "macaddr",
+      "version": "5.6.2",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-ipaddr",
+      "devRepo": "git+https://github.com/mirage/ocaml-ipaddr.git",
+      "libraries": [
+        "macaddr"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/macaddr--LICENSE.md",
+          "sha256": "92b8c94a91775e7f90b573c8d2bd2c48f8b7f7a040e7a4ac28dfa36cd2e9e5c7"
+        }
+      ]
+    },
+    {
+      "name": "memtrace",
+      "version": "dev",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/memtrace",
+      "devRepo": "git+https://github.com/janestreet/memtrace.git",
+      "libraries": [
+        "memtrace"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/memtrace--LICENSE.md",
+          "sha256": "f87eab8349ab27ecdac04dd6aff45d7f40884699ad8087e8e3ee36d28d2941a9"
+        }
+      ]
+    },
+    {
+      "name": "menhirLib",
+      "version": "20230608",
+      "licenses": [
+        "LGPL-2.0-only with OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "http://gitlab.inria.fr/fpottier/menhir",
+      "devRepo": "git+https://gitlab.inria.fr/fpottier/menhir.git",
+      "libraries": [
+        "menhirLib"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/menhirLib--LICENSE",
+          "sha256": "cc38da7f740be09b5af15eb01791ccf4f20319d7316b5c14b91f402e88eafe32"
+        }
+      ]
+    },
+    {
+      "name": "mimic",
+      "version": "0.0.9",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/dinosaure/mimic",
+      "devRepo": "git+https://github.com/dinosaure/mimic.git",
+      "libraries": [
+        "mimic"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/mimic--LICENSE.md",
+          "sha256": "090c2c7155629c3e541c3902f47e188aba50732bfccc47e7013cf75ec9a8fc57"
+        }
+      ]
+    },
+    {
+      "name": "mirage-flow",
+      "version": "5.0.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/mirage-flow",
+      "devRepo": "git+https://github.com/mirage/mirage-flow.git",
+      "libraries": [
+        "mirage-flow"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/mirage-flow--LICENSE.md",
+          "sha256": "6d80da3224cbdcf016ea554e00fc9cd933bd1a3417cb5e5b7abf59f6d126761d"
+        }
+      ]
+    },
+    {
+      "name": "mtime",
+      "version": "2.1.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/mtime",
+      "devRepo": "git+https://erratique.ch/repos/mtime.git",
+      "libraries": [
+        "mtime"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/mtime--LICENSE.md",
+          "sha256": "40228d135711b91b3ee398cc4cdc88f967c606632adb6683d17b4111a78a9481"
+        }
+      ]
+    },
+    {
+      "name": "ocaml-compiler",
+      "version": "5.3.0",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://ocaml.org",
+      "devRepo": "git+https://github.com/ocaml/ocaml.git#5.3",
+      "libraries": [
+        "ocaml"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocaml-compiler--LICENSE",
+          "sha256": "65f47d3bf5a921011ac7fa30f23d54f9dffbe7683921eeb116d5ce8dc26ff0c1"
+        }
+      ]
+    },
+    {
+      "name": "ocaml-compiler-libs",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ocaml-compiler-libs",
+      "devRepo": "git+https://github.com/janestreet/ocaml-compiler-libs.git",
+      "libraries": [
+        "ocaml-compiler-libs"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocaml-compiler-libs--LICENSE.md",
+          "sha256": "f62fbca302efd7206e69632cc8d006ef42e36b72a4bd470696086cc20cf62e27"
+        }
+      ]
+    },
+    {
+      "name": "ocaml_intrinsics_kernel",
+      "version": "v0.17.2",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ocaml_intrinsics_kernel",
+      "devRepo": "git+https://github.com/janestreet/ocaml_intrinsics_kernel.git",
+      "libraries": [
+        "ocaml_intrinsics_kernel"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocaml_intrinsics_kernel--LICENSE.md",
+          "sha256": "1a28723500e43570896146ec235d4b11f70987ab4ef665a273b60207ebc73eea"
+        }
+      ]
+    },
+    {
+      "name": "ocamlgraph",
+      "version": "2.2.0",
+      "licenses": [
+        "LGPL-2.1-only"
+      ],
+      "homepage": "https://github.com/backtracking/ocamlgraph/",
+      "devRepo": "git+https://github.com/backtracking/ocamlgraph.git",
+      "libraries": [
+        "ocamlgraph"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocamlgraph--LICENSE",
+          "sha256": "e9684ff81666d63a1746f6b3f0d904db100d092fb4f15032ea4fdc0b89762e4d"
+        }
+      ]
+    },
+    {
+      "name": "ocolor",
+      "version": "1.3.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/marc-chevalier/ocolor",
+      "devRepo": "git+https://github.com/marc-chevalier/ocolor.git",
+      "libraries": [
+        "ocolor"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocolor--LICENSE",
+          "sha256": "3b131a04fefcb1bbebb3de6cf94251df38b5f097e31842e889e4f3a98ae248e8"
+        }
+      ]
+    },
+    {
+      "name": "ocplib-endian",
+      "version": "1.2",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/OCamlPro/ocplib-endian",
+      "devRepo": "git+https://github.com/OCamlPro/ocplib-endian.git",
+      "libraries": [
+        "ocplib-endian"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ocplib-endian--COPYING.txt",
+          "sha256": "218d1f637fc3546fe6c22577274cf6541c2d2cf74b0ce1598daaa7a988e124ff"
+        }
+      ]
+    },
+    {
+      "name": "optint",
+      "version": "0.3.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/optint",
+      "devRepo": "git+https://github.com/mirage/optint.git",
+      "libraries": [
+        "optint"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/optint--LICENSE.md",
+          "sha256": "563bcb254ba4b3a8e1f573cd00e13a9ee06e830b74bc5af55811947aaf2be6d4"
+        }
+      ]
+    },
+    {
+      "name": "parmap",
+      "version": "1.2.5",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/rdicosmo/parmap",
+      "devRepo": "git+https://github.com/rdicosmo/parmap.git",
+      "libraries": [
+        "parmap"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/parmap--LICENSE",
+          "sha256": "4d98be3d4bd9a60b3bef2d139e940d2daede510bc38311676634d36d8aa8446c"
+        }
+      ]
+    },
+    {
+      "name": "parsexp",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/parsexp",
+      "devRepo": "git+https://github.com/janestreet/parsexp.git",
+      "libraries": [
+        "parsexp"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/parsexp--LICENSE.md",
+          "sha256": "32c30525f61e707562867e232749a0ebd70ad9e6af989fe0aa0b10ec83addbed"
+        }
+      ]
+    },
+    {
+      "name": "pcre2",
+      "version": "dev",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/camlp5/pcre2-ocaml",
+      "devRepo": "git+https://github.com/camlp5/pcre2-ocaml.git",
+      "libraries": [
+        "pcre2"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/pcre2--LICENSE.md",
+          "sha256": "89d8a64e6f230354385b6ec827c9b032a4ec6ece12f132b7ec39d6469a21effc"
+        }
+      ]
+    },
+    {
+      "name": "pecu",
+      "version": "0.7",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/mirage/pecu",
+      "devRepo": "git+https://github.com/mirage/pecu.git",
+      "libraries": [
+        "pecu"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/pecu--LICENSE.md",
+          "sha256": "563bcb254ba4b3a8e1f573cd00e13a9ee06e830b74bc5af55811947aaf2be6d4"
+        }
+      ]
+    },
+    {
+      "name": "ppx_compare",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ppx_compare",
+      "devRepo": "git+https://github.com/janestreet/ppx_compare.git",
+      "libraries": [
+        "ppx_compare"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_compare--LICENSE.md",
+          "sha256": "83894c3960cc372e21c99892557109a8327b41c721b8e1124d80cde3ca590d07"
+        }
+      ]
+    },
+    {
+      "name": "ppx_derivers",
+      "version": "1.2.1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/ocaml-ppx/ppx_derivers",
+      "devRepo": "git+https://github.com/ocaml-ppx/ppx_derivers.git",
+      "libraries": [
+        "ppx_derivers"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_derivers--LICENSE.md",
+          "sha256": "850abbe82faa2e528ee89a8f2cad8f41bd0ad18e6dd8186605961dfc2c5a7622"
+        }
+      ]
+    },
+    {
+      "name": "ppx_deriving",
+      "version": "6.1.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/ocaml-ppx/ppx_deriving",
+      "devRepo": "git+https://github.com/ocaml-ppx/ppx_deriving.git",
+      "libraries": [
+        "ppx_deriving"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_deriving--LICENSE.txt",
+          "sha256": "30692750dc39d5026a367f95c05f68853c58cf560051076c49e911438386fc48"
+        }
+      ]
+    },
+    {
+      "name": "ppx_deriving_yojson",
+      "version": "3.10.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/ocaml-ppx/ppx_deriving_yojson",
+      "devRepo": "git+https://github.com/ocaml-ppx/ppx_deriving_yojson.git",
+      "libraries": [
+        "ppx_deriving_yojson"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_deriving_yojson--LICENSE.txt",
+          "sha256": "b6dd9979cfea20886b55d1cd956b9bdb40c205e10c525f4550b46e641175dee9"
+        }
+      ]
+    },
+    {
+      "name": "ppx_enumerate",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ppx_enumerate",
+      "devRepo": "git+https://github.com/janestreet/ppx_enumerate.git",
+      "libraries": [
+        "ppx_enumerate"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_enumerate--LICENSE.md",
+          "sha256": "83894c3960cc372e21c99892557109a8327b41c721b8e1124d80cde3ca590d07"
+        }
+      ]
+    },
+    {
+      "name": "ppx_hash",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ppx_hash",
+      "devRepo": "git+https://github.com/janestreet/ppx_hash.git",
+      "libraries": [
+        "ppx_hash"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_hash--LICENSE.md",
+          "sha256": "83894c3960cc372e21c99892557109a8327b41c721b8e1124d80cde3ca590d07"
+        }
+      ]
+    },
+    {
+      "name": "ppx_inline_test",
+      "version": "v0.17.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ppx_inline_test",
+      "devRepo": "git+https://github.com/janestreet/ppx_inline_test.git",
+      "libraries": [
+        "ppx_inline_test"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_inline_test--LICENSE.md",
+          "sha256": "83894c3960cc372e21c99892557109a8327b41c721b8e1124d80cde3ca590d07"
+        }
+      ]
+    },
+    {
+      "name": "ppx_sexp_conv",
+      "version": "v0.17.1",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/ppx_sexp_conv",
+      "devRepo": "git+https://github.com/janestreet/ppx_sexp_conv.git",
+      "libraries": [
+        "ppx_sexp_conv"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppx_sexp_conv--LICENSE.md",
+          "sha256": "83894c3960cc372e21c99892557109a8327b41c721b8e1124d80cde3ca590d07"
+        }
+      ]
+    },
+    {
+      "name": "ppxlib",
+      "version": "0.37.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/ocaml-ppx/ppxlib",
+      "devRepo": "git+https://github.com/ocaml-ppx/ppxlib.git",
+      "libraries": [
+        "ppxlib"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ppxlib--LICENSE.md",
+          "sha256": "10cb8606938a88b5c03f2d4c434d0bc63b62ef6618464bf6aa16b0ab9f63a90f"
+        }
+      ]
+    },
+    {
+      "name": "psq",
+      "version": "0.2.1",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/pqwy/psq",
+      "devRepo": "git+https://github.com/pqwy/psq.git",
+      "libraries": [
+        "psq"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/psq--LICENSE.md",
+          "sha256": "190773acac1fab3b18ca2fd740139a8a1b779c0d300fd773e28f7b8bad38390e"
+        }
+      ]
+    },
+    {
+      "name": "ptime",
+      "version": "1.2.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/ptime",
+      "devRepo": "git+https://erratique.ch/repos/ptime.git",
+      "libraries": [
+        "ptime"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/ptime--LICENSE.md",
+          "sha256": "0e13405df4bb66d86572957f4f88357716501881900ddcd0a40a2b9dfb4b8787"
+        }
+      ]
+    },
+    {
+      "name": "pyro-caml-instruments",
+      "version": "dev",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/semgrep/pyro-caml",
+      "devRepo": "git+https://github.com/semgrep/pyro-caml.git",
+      "libraries": [
+        "pyro-caml-instruments"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/pyro-caml-instruments--LICENSE",
+          "sha256": "e6121450ff9442c89a3e74fcea13cfdcbe9ff3f2314506aa33af4cdf950a174f"
+        }
+      ]
+    },
+    {
+      "name": "re",
+      "version": "1.14.0",
+      "licenses": [
+        "LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/ocaml/ocaml-re",
+      "devRepo": "git+https://github.com/ocaml/ocaml-re.git",
+      "libraries": [
+        "re"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/re--LICENSE.md",
+          "sha256": "cae2ae58e547a084c747a403deb40436d6cdfcb283d4038a10d51ab7d1c528cd"
+        }
+      ]
+    },
+    {
+      "name": "result",
+      "version": "1.5",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/janestreet/result",
+      "devRepo": "git+https://github.com/janestreet/result.git",
+      "libraries": [
+        "result"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/result--LICENSE.md",
+          "sha256": "50d8d2c227994d14f3e3d158c8bbbfec07440d9a5028f7a0267a4cd136d0e8f5"
+        }
+      ]
+    },
+    {
+      "name": "rresult",
+      "version": "0.7.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/rresult",
+      "devRepo": "git+https://erratique.ch/repos/rresult.git",
+      "libraries": [
+        "rresult"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/rresult--LICENSE.md",
+          "sha256": "a602c442ce28cdbb60c5ec0c1754a9cd19821e1b9c4b3be5a3f9181bee666e2b"
+        }
+      ]
+    },
+    {
+      "name": "semver",
+      "version": "0.2.1",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/rgrinberg/ocaml-semver",
+      "devRepo": "git+https://github.com/rgrinberg/ocaml-semver.git",
+      "libraries": [
+        "semver"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/semver--LICENSE",
+          "sha256": "6eec1c7d262575e30d9b1376a54a2d0066a3c59cf5f17c8e5084c29266f26abc"
+        }
+      ]
+    },
+    {
+      "name": "sexplib",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/sexplib",
+      "devRepo": "git+https://github.com/janestreet/sexplib.git",
+      "libraries": [
+        "sexplib"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/sexplib--LICENSE.md",
+          "sha256": "169e74f8409c6ad52676a16aacc0d8fb4cfa8738032af834c8a1b5305b4bcba9"
+        }
+      ]
+    },
+    {
+      "name": "sexplib0",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/sexplib0",
+      "devRepo": "git+https://github.com/janestreet/sexplib0.git",
+      "libraries": [
+        "sexplib0"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/sexplib0--LICENSE.md",
+          "sha256": "169e74f8409c6ad52676a16aacc0d8fb4cfa8738032af834c8a1b5305b4bcba9"
+        }
+      ]
+    },
+    {
+      "name": "stdlib-shims",
+      "version": "0.3.0",
+      "licenses": [
+        "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://github.com/ocaml/stdlib-shims",
+      "devRepo": "git+https://github.com/ocaml/stdlib-shims.git",
+      "libraries": [
+        "stdlib-shims"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/stdlib-shims--LICENSE",
+          "sha256": "65f47d3bf5a921011ac7fa30f23d54f9dffbe7683921eeb116d5ce8dc26ff0c1"
+        }
+      ]
+    },
+    {
+      "name": "stringext",
+      "version": "1.6.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/rgrinberg/stringext",
+      "devRepo": "git+https://github.com/rgrinberg/stringext.git",
+      "libraries": [
+        "stringext"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/stringext--LICENSE.md",
+          "sha256": "2bb0894bbf0e807d24615fa5961d300eeb38adb4581ac2845e70481d22ee5338"
+        }
+      ]
+    },
+    {
+      "name": "testo",
+      "version": "0.5.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mjambon/testo",
+      "devRepo": "git+https://github.com/mjambon/testo.git",
+      "libraries": [
+        "testo"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/testo--LICENSE.md",
+          "sha256": "42806b61eaf5cfcf39b7ff2da85562fcc41b5b0675f6cab067a10a23e237577b"
+        }
+      ]
+    },
+    {
+      "name": "testo-diff",
+      "version": "0.5.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mjambon/testo",
+      "devRepo": "git+https://github.com/mjambon/testo.git",
+      "libraries": [
+        "testo-diff"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/testo-diff--LICENSE.md",
+          "sha256": "42806b61eaf5cfcf39b7ff2da85562fcc41b5b0675f6cab067a10a23e237577b"
+        }
+      ]
+    },
+    {
+      "name": "testo-util",
+      "version": "0.5.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mjambon/testo",
+      "devRepo": "git+https://github.com/mjambon/testo.git",
+      "libraries": [
+        "testo-util"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/testo-util--LICENSE.md",
+          "sha256": "42806b61eaf5cfcf39b7ff2da85562fcc41b5b0675f6cab067a10a23e237577b"
+        }
+      ]
+    },
+    {
+      "name": "thread-table",
+      "version": "1.0.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/ocaml-multicore/thread-table",
+      "devRepo": "git+https://github.com/ocaml-multicore/thread-table.git",
+      "libraries": [
+        "thread-table"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/thread-table--LICENSE.md",
+          "sha256": "6a1d80ec46febae2f2e0f36b26cdac99adefdbec58f5b8735909729bcbe00a2c"
+        }
+      ]
+    },
+    {
+      "name": "time_now",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/time_now",
+      "devRepo": "git+https://github.com/janestreet/time_now.git",
+      "libraries": [
+        "time_now"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/time_now--LICENSE.md",
+          "sha256": "a601e5e444f8379d3acb45e3f02488cd99a3fd528840d42bdbac9363bc828a77"
+        }
+      ]
+    },
+    {
+      "name": "timedesc",
+      "version": "3.1.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/daypack-dev/timere",
+      "devRepo": "git+https://github.com/daypack-dev/timere.git",
+      "libraries": [
+        "timedesc"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/timedesc--LICENSE",
+          "sha256": "9347a1c70ed96d299e8f51ada885f7234ae5f104aaeb6d2aff4d16ce91a65fc4"
+        }
+      ]
+    },
+    {
+      "name": "timedesc-tzdb",
+      "version": "3.1.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/daypack-dev/timere",
+      "devRepo": "git+https://github.com/daypack-dev/timere.git",
+      "libraries": [
+        "timedesc-tzdb"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/timedesc-tzdb--LICENSE",
+          "sha256": "9347a1c70ed96d299e8f51ada885f7234ae5f104aaeb6d2aff4d16ce91a65fc4"
+        }
+      ]
+    },
+    {
+      "name": "timedesc-tzlocal",
+      "version": "3.1.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/daypack-dev/timere",
+      "devRepo": "git+https://github.com/daypack-dev/timere.git",
+      "libraries": [
+        "timedesc-tzlocal"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/timedesc-tzlocal--LICENSE",
+          "sha256": "9347a1c70ed96d299e8f51ada885f7234ae5f104aaeb6d2aff4d16ce91a65fc4"
+        }
+      ]
+    },
+    {
+      "name": "tsort",
+      "version": "2.2.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/dmbaturin/ocaml-tsort",
+      "devRepo": "git+https://github.com/dmbaturin/ocaml-tsort.git",
+      "libraries": [
+        "tsort"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/tsort--LICENSE",
+          "sha256": "792f6c904e024fae5466cab72ce7dde1ed8d7d2fc47026d03dd6c914ea056c28"
+        }
+      ]
+    },
+    {
+      "name": "uri",
+      "version": "4.4.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/mirage/ocaml-uri",
+      "devRepo": "git+https://github.com/mirage/ocaml-uri.git",
+      "libraries": [
+        "uri"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/uri--LICENSE.md",
+          "sha256": "d990acc0b5c99157b41f66b32a1c5d767c43c3404fa13650f35e9769790e39f5"
+        }
+      ]
+    },
+    {
+      "name": "uuidm",
+      "version": "0.9.10",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/uuidm",
+      "devRepo": "git+https://erratique.ch/repos/uuidm.git",
+      "libraries": [
+        "uuidm"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/uuidm--LICENSE.md",
+          "sha256": "88ebe3c9220cd3830728557cb134d1fc3092d639a2348277d95d80269f16b592"
+        }
+      ]
+    },
+    {
+      "name": "uutf",
+      "version": "1.0.4",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://erratique.ch/software/uutf",
+      "devRepo": "git+https://erratique.ch/repos/uutf.git",
+      "libraries": [
+        "uutf"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/uutf--LICENSE.md",
+          "sha256": "2e483e49cc1788124b0c195a84f0c0748649b1a05f5c9887b09c5089591eeff4"
+        }
+      ]
+    },
+    {
+      "name": "visitors",
+      "version": "20260520",
+      "licenses": [
+        "LGPL-2.1-only WITH OCaml-LGPL-linking-exception"
+      ],
+      "homepage": "https://gitlab.inria.fr/fpottier/visitors",
+      "devRepo": "git+https://gitlab.inria.fr/fpottier/visitors.git",
+      "libraries": [
+        "visitors"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/visitors--LICENSE",
+          "sha256": "e64518e7d62c22d4d70c414716e26db0f489e4babe54fc3e411b5e7236bd9199"
+        }
+      ]
+    },
+    {
+      "name": "yaml",
+      "version": "3.2.0",
+      "licenses": [
+        "ISC"
+      ],
+      "homepage": "https://github.com/avsm/ocaml-yaml",
+      "devRepo": "git+https://github.com/avsm/ocaml-yaml.git",
+      "libraries": [
+        "yaml"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/yaml--LICENSE.md",
+          "sha256": "3d06de8b5a275094a86afe6aba490edf025ab13f6db6a86492990e3440f072a6"
+        }
+      ]
+    },
+    {
+      "name": "yojson",
+      "version": "3.0.0",
+      "licenses": [
+        "BSD-3-Clause"
+      ],
+      "homepage": "https://github.com/ocaml-community/yojson",
+      "devRepo": "git+https://github.com/ocaml-community/yojson.git",
+      "libraries": [
+        "yojson"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/yojson--LICENSE.md",
+          "sha256": "cc8efe2cc2af7b49bbf61f9ab99e15a7cfec5272367423e478da628cd9450ab7"
+        }
+      ]
+    },
+    {
+      "name": "zarith_stubs_js",
+      "version": "v0.17.0",
+      "licenses": [
+        "MIT"
+      ],
+      "homepage": "https://github.com/janestreet/zarith_stubs_js",
+      "devRepo": "git+https://github.com/janestreet/zarith_stubs_js.git",
+      "libraries": [
+        "zarith_stubs_js"
+      ],
+      "licenseFiles": [
+        {
+          "path": "engines/semgrep-wasm/source/licenses/opam-linked/zarith_stubs_js--LICENSE.md",
+          "sha256": "a601e5e444f8379d3acb45e3f02488cd99a3fd528840d42bdbac9363bc828a77"
+        }
+      ]
+    }
+  ],
+  "additionalRuntimeComponents": [
+    {
+      "name": "Semgrep Community Edition",
+      "version": "1.172.0",
+      "license": "LGPL-2.1-only",
+      "selectedLicense": "LGPL-2.1-only",
+      "source": "https://github.com/semgrep/semgrep/tree/651f37efa397bf066e1cf627414eeabe40b07e27"
+    },
+    {
+      "name": "ocaml-tree-sitter-core",
+      "version": "2dc9e0c738086df1ce4de93723302d9560d5b76c",
+      "license": "LGPL-2.1-only WITH OCaml-LGPL-linking-exception",
+      "selectedLicense": "LGPL-2.1-only WITH OCaml-LGPL-linking-exception",
+      "source": "https://github.com/returntocorp/ocaml-tree-sitter-core/tree/2dc9e0c738086df1ce4de93723302d9560d5b76c"
+    },
+    {
+      "name": "PCRE2",
+      "version": "10.43",
+      "license": "BSD-3-Clause",
+      "selectedLicense": "BSD-3-Clause",
+      "source": "https://github.com/PCRE2Project/pcre2/releases/tag/pcre2-10.43"
+    },
+    {
+      "name": "tree-sitter",
+      "version": "0.22.6",
+      "license": "MIT",
+      "selectedLicense": "MIT",
+      "source": "https://github.com/tree-sitter/tree-sitter/tree/v0.22.6"
+    },
+    {
+      "name": "libyaml",
+      "version": "0.2.5@2c891fc7a770e8ba2fec34fc6b545c672beb37e6",
+      "license": "MIT",
+      "selectedLicense": "MIT",
+      "source": "https://github.com/yaml/libyaml/tree/2c891fc7a770e8ba2fec34fc6b545c672beb37e6"
+    },
+    {
+      "name": "Emscripten",
+      "version": "6.0.6-git",
+      "license": "MIT AND NCSA",
+      "selectedLicense": "MIT AND NCSA",
+      "source": "https://github.com/emscripten-core/emscripten"
+    },
+    {
+      "name": "musl libc",
+      "version": "Emscripten 6.0.6 vendored source",
+      "license": "MIT",
+      "selectedLicense": "MIT",
+      "source": "https://github.com/emscripten-core/emscripten/tree/6.0.6/system/lib/libc/musl"
+    },
+    {
+      "name": "esbuild",
+      "version": "0.17.18",
+      "license": "MIT",
+      "selectedLicense": "MIT",
+      "source": "https://github.com/evanw/esbuild/tree/v0.17.18"
+    },
+    {
+      "name": "semgrep-python generated parser",
+      "version": "647a20f8207740b0a76541bb27e1eaaf111dca7e",
+      "license": "GPL-3.0-only",
+      "selectedLicense": "GPL-3.0-only",
+      "source": "https://github.com/semgrep/semgrep-python/tree/647a20f8207740b0a76541bb27e1eaaf111dca7e",
+      "provenance": "engines/semgrep-wasm/source/generated-parser-license-evidence.json",
+      "gate": "cleared for the public GPL-3.0-only distribution; upstream root license remains NOASSERTION"
+    },
+    {
+      "name": "semgrep-typescript generated parser",
+      "version": "50fe6a5c46d3dee74d1d176b9767ffc520a1003e",
+      "license": "GPL-3.0-only",
+      "selectedLicense": "GPL-3.0-only",
+      "source": "https://github.com/semgrep/semgrep-typescript/tree/50fe6a5c46d3dee74d1d176b9767ffc520a1003e",
+      "provenance": "engines/semgrep-wasm/source/generated-parser-license-evidence.json",
+      "gate": "cleared for the public GPL-3.0-only distribution; upstream root license remains NOASSERTION"
+    },
+    {
+      "name": "semgrep-tsx generated parser",
+      "version": "6005de74ed9e2fb891785a3df8582dbb91e272bc",
+      "license": "GPL-3.0-only",
+      "selectedLicense": "GPL-3.0-only",
+      "source": "https://github.com/semgrep/semgrep-tsx/tree/6005de74ed9e2fb891785a3df8582dbb91e272bc",
+      "provenance": "engines/semgrep-wasm/source/generated-parser-license-evidence.json",
+      "gate": "cleared for the public GPL-3.0-only distribution; upstream root license remains NOASSERTION"
+    }
+  ]
+}

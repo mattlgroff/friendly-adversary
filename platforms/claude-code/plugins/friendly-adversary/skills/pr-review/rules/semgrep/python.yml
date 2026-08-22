@@ -1,0 +1,39 @@
+rules:
+  - id: friendly-adversary.python.dynamic-code-execution
+    message: Dynamic code execution accepts a non-literal value. Confirm that untrusted input cannot reach this call.
+    severity: WARNING
+    languages: [python]
+    patterns:
+      - pattern-either:
+          - pattern: eval($VALUE)
+          - pattern: exec($VALUE)
+      - metavariable-pattern:
+          metavariable: $VALUE
+          patterns:
+            - pattern-not: '"..."'
+  - id: friendly-adversary.python.shell-exec
+    message: A subprocess enables shell parsing. Confirm that command content cannot be attacker controlled.
+    severity: WARNING
+    languages: [python]
+    pattern-either:
+      - pattern: subprocess.run(..., shell=True, ...)
+      - pattern: subprocess.call(..., shell=True, ...)
+      - pattern: subprocess.Popen(..., shell=True, ...)
+      - patterns:
+          - pattern: run(..., shell=True, ...)
+          - pattern-either:
+              - pattern-inside: 'from subprocess import run; ...'
+      - patterns:
+          - pattern: call(..., shell=True, ...)
+          - pattern-either:
+              - pattern-inside: 'from subprocess import call; ...'
+      - patterns:
+          - pattern: Popen(..., shell=True, ...)
+          - pattern-either:
+              - pattern-inside: 'from subprocess import Popen; ...'
+      - patterns:
+          - pattern: $SUBPROCESS_CALL(..., shell=True, ...)
+          - pattern-either:
+              - pattern-inside: 'from subprocess import run as $SUBPROCESS_CALL; ...'
+              - pattern-inside: 'from subprocess import call as $SUBPROCESS_CALL; ...'
+              - pattern-inside: 'from subprocess import Popen as $SUBPROCESS_CALL; ...'

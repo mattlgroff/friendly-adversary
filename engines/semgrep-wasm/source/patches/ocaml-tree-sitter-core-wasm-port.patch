@@ -1,0 +1,35 @@
+diff --git a/src/run/lib/Util_file.ml b/src/run/lib/Util_file.ml
+index b88a10c..796b777 100644
+--- a/src/run/lib/Util_file.ml
++++ b/src/run/lib/Util_file.ml
+@@ -24,6 +24,8 @@
+ *)
+ 
+ (* copied from `OSS/libs/commons/UFile.ml` *)
++let jsoo = ref false
++
+ (* Temporary files created using Python's [tempfile.NamedTemporaryFiles] on
+     Windows enables the [FILE_SHARE_DELETE] sharing mode. Files that have open
+     handles with the [FILE_SHARE_DELETE] sharing mode can only be re-opened in
+@@ -33,6 +35,12 @@ let win_safe_open_in_bin file : Unix.file_descr =
+   Unix.openfile file [ O_CREAT; O_RDONLY; O_SHARE_DELETE ] 0o666
+ 
+ let read_file path =
++  if !jsoo then (
++    let channel = Stdlib.open_in_bin path in
++    let contents = really_input_string channel (in_channel_length channel) in
++    close_in channel;
++    contents)
++  else
+   let buf_len = 4096 in
+   let extbuf = Buffer.create 4096 in
+   let buf = Bytes.create buf_len in
+diff --git a/src/run/lib/Util_file.mli b/src/run/lib/Util_file.mli
+index 1d2e067..9830fc2 100644
+--- a/src/run/lib/Util_file.mli
++++ b/src/run/lib/Util_file.mli
+@@ -12,3 +12,4 @@
+    * https://www.gnu.org/software/bash/manual/html_node/Process-Substitution.html
+ *)
+ val read_file : string -> string
++val jsoo : bool ref

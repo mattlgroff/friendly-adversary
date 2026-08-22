@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "archiveRoot": "semgrep-1.172.0-friendly-adversary-source",
+  "sourceDateEpoch": 1786147200,
+  "opamPackageCount": 104,
+  "contentTrees": [
+    {
+      "archivePath": "semgrep",
+      "algorithm": "sha256",
+      "definitionVersion": 1,
+      "entryCount": 10429,
+      "sha256": "068aca988e5247e76a31964c90ea5d70afa8db6cf87815ee2948525cac75097b"
+    },
+    {
+      "archivePath": "opam-sources",
+      "algorithm": "sha256",
+      "definitionVersion": 1,
+      "entryCount": 55617,
+      "sha256": "1d78c5f486f77298cbd6b002eb3d6ea8620e563efecef6c251edb200a0208a87"
+    }
+  ],
+  "semgrepFiles": [
+    {
+      "archivePath": "semgrep/LICENSE",
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "archivePath": "semgrep/semgrep.opam",
+      "sha256": "46865df6f9d083d1a3d9cd62516823d944f68dd3c556431e2800e5664a70a3a3"
+    }
+  ],
+  "externalSources": [
+    {
+      "archivePath": "external-sources/pcre2-10.43.tar.gz",
+      "sha256": "889d16be5abb8d05400b33c25e151638b8d4bac0e2d9c76e9d6923118ae8a34e"
+    },
+    {
+      "archivePath": "external-sources/tree-sitter-0.22.6.tar.gz",
+      "sha256": "e2b687f74358ab6404730b7fb1a1ced7ddb3780202d37595ecd7b20a8f41861f"
+    },
+    {
+      "archivePath": "external-sources/ocaml-tree-sitter-semgrep-d68c1d87318808ec1b36ce89570ef6c0bc763f77.tar.gz",
+      "sha256": "85d1cede25cdf613f200e1df10d17e25cd83d42b4d08b079b7af15b965b21924"
+    }
+  ],
+  "repositoryFiles": [
+    {
+      "sourcePath": "LICENSE",
+      "archivePath": "friendly-adversary/GPL-3.0-only.txt"
+    },
+    {
+      "sourcePath": "LICENSING.md",
+      "archivePath": "friendly-adversary/LICENSING.md"
+    },
+    {
+      "sourcePath": "scripts/build-semgrep-wasm.sh",
+      "archivePath": "friendly-adversary/build-semgrep-wasm.sh"
+    },
+    {
+      "sourcePath": "scripts/generate-semgrep-linked-inventory.mjs",
+      "archivePath": "friendly-adversary/generate-semgrep-linked-inventory.mjs"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/upstream-lock.json",
+      "archivePath": "friendly-adversary/upstream-lock.json"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/runtime-manifest.json",
+      "archivePath": "friendly-adversary/runtime-manifest.json"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/source/linked-components.json",
+      "archivePath": "friendly-adversary/linked-components.json"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/source/generated-parser-license-evidence.json",
+      "archivePath": "friendly-adversary/generated-parser-license-evidence.json"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/source/corresponding-source-manifest.json",
+      "archivePath": "friendly-adversary/corresponding-source-manifest.json"
+    }
+  ],
+  "repositoryDirectories": [
+    {
+      "sourcePath": "engines/semgrep-wasm/source/licenses",
+      "archivePath": "friendly-adversary/licenses"
+    },
+    {
+      "sourcePath": "engines/semgrep-wasm/source/patches",
+      "archivePath": "friendly-adversary/patches"
+    }
+  ],
+  "fingerprintFiles": [
+    "scripts/package-semgrep-corresponding-source.sh",
+    "scripts/corresponding-source-publication.mjs",
+    "scripts/verify-semgrep-corresponding-source-evidence.mjs",
+    "scripts/verify-semgrep-source.mjs"
+  ],
+  "sourceBundlePatchFiles": [
+    "engines/semgrep-wasm/source/patches/semgrep-1.172.0-wasm-port.patch",
+    "engines/semgrep-wasm/source/patches/ocaml-tree-sitter-core-wasm-port.patch"
+  ]
+}

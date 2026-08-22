@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1",
+  "entrypoint": "friendly-adversary-mcp.cjs",
+  "bytes": 1355806,
+  "sha256": "7b2d5c489b52b9b1b90f9e7bd62fa67966efc83304301013479ae35d88c733af",
+  "nodeTarget": "22.22",
+  "syntaxTarget": "es2021",
+  "transport": "stdio",
+  "sdk": {
+    "server": "2.0.0",
+    "core": "2.0.0",
+    "zod": "4.4.3"
+  },
+  "restrictedImports": [
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:net"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:dgram"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:dns"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:dns/promises"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:http"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:https"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:http2"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:tls"
+    },
+    {
+      "input": "src/mcp-network-guard.ts",
+      "builtin": "node:inspector"
+    }
+  ]
+}

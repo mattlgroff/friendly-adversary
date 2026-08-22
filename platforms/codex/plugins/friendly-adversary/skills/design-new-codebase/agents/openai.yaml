@@ -1,0 +1,6 @@
+interface:
+  display_name: "Friendly Adversary New Codebase Design"
+  short_description: "Reach consensus on a new codebase design"
+  default_prompt: "Use $friendly-adversary:design-new-codebase to interview me and design this new codebase."
+policy:
+  allow_implicit_invocation: false

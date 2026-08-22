@@ -1,0 +1,68 @@
+ripgrep v15.2.0 (ripgrep-15.2.0)
+├── anyhow v1.0.103
+├── bstr v1.13.0
+│   ├── memchr v2.8.3
+│   └── regex-automata v0.4.15
+│       ├── aho-corasick v1.1.4
+│       │   └── memchr v2.8.3
+│       ├── memchr v2.8.3
+│       └── regex-syntax v0.8.11
+├── grep v0.4.1 (ripgrep-15.2.0/crates/grep)
+│   ├── grep-cli v0.1.12 (ripgrep-15.2.0/crates/cli)
+│   │   ├── bstr v1.13.0 (*)
+│   │   ├── globset v0.4.19 (ripgrep-15.2.0/crates/globset)
+│   │   │   ├── aho-corasick v1.1.4 (*)
+│   │   │   ├── bstr v1.13.0 (*)
+│   │   │   ├── log v0.4.33
+│   │   │   ├── regex-automata v0.4.15 (*)
+│   │   │   └── regex-syntax v0.8.11
+│   │   ├── log v0.4.33
+│   │   └── termcolor v1.4.1
+│   ├── grep-matcher v0.1.9 (ripgrep-15.2.0/crates/matcher)
+│   │   └── memchr v2.8.3
+│   ├── grep-printer v0.3.1 (ripgrep-15.2.0/crates/printer)
+│   │   ├── bstr v1.13.0 (*)
+│   │   ├── grep-matcher v0.1.9 (ripgrep-15.2.0/crates/matcher) (*)
+│   │   ├── grep-searcher v0.1.17 (ripgrep-15.2.0/crates/searcher)
+│   │   │   ├── bstr v1.13.0 (*)
+│   │   │   ├── encoding_rs v0.8.35
+│   │   │   │   └── cfg-if v1.0.4
+│   │   │   ├── encoding_rs_io v0.1.7
+│   │   │   │   └── encoding_rs v0.8.35 (*)
+│   │   │   ├── grep-matcher v0.1.9 (ripgrep-15.2.0/crates/matcher) (*)
+│   │   │   ├── log v0.4.33
+│   │   │   ├── memchr v2.8.3
+│   │   │   └── memmap2 v0.9.11
+│   │   ├── log v0.4.33
+│   │   ├── serde v1.0.228
+│   │   │   └── serde_core v1.0.228
+│   │   ├── serde_json v1.0.150
+│   │   │   ├── itoa v1.0.18
+│   │   │   ├── memchr v2.8.3
+│   │   │   ├── serde_core v1.0.228
+│   │   │   └── zmij v1.0.23
+│   │   └── termcolor v1.4.1
+│   ├── grep-regex v0.1.14 (ripgrep-15.2.0/crates/regex)
+│   │   ├── bstr v1.13.0 (*)
+│   │   ├── grep-matcher v0.1.9 (ripgrep-15.2.0/crates/matcher) (*)
+│   │   ├── log v0.4.33
+│   │   ├── regex-automata v0.4.15 (*)
+│   │   └── regex-syntax v0.8.11
+│   └── grep-searcher v0.1.17 (ripgrep-15.2.0/crates/searcher) (*)
+├── ignore v0.4.29 (ripgrep-15.2.0/crates/ignore)
+│   ├── crossbeam-deque v0.8.7
+│   │   ├── crossbeam-epoch v0.9.20
+│   │   │   └── crossbeam-utils v0.8.22
+│   │   └── crossbeam-utils v0.8.22
+│   ├── globset v0.4.19 (ripgrep-15.2.0/crates/globset) (*)
+│   ├── log v0.4.33
+│   ├── memchr v2.8.3
+│   ├── regex-automata v0.4.15 (*)
+│   ├── same-file v1.0.6
+│   └── walkdir v2.5.0
+│       └── same-file v1.0.6
+├── lexopt v0.3.2
+├── log v0.4.33
+├── serde_json v1.0.150 (*)
+├── termcolor v1.4.1
+└── textwrap v0.16.2

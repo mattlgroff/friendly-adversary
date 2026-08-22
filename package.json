@@ -1,0 +1,89 @@
+{
+  "name": "friendly-adversary",
+  "version": "3.0.4",
+  "description": "Local evidence-first PR review, codebase audit, and new-codebase design for TypeScript, JavaScript, and Python",
+  "type": "module",
+  "private": true,
+  "license": "GPL-3.0-only",
+  "author": "Matthew Groff",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattlgroff/friendly-adversary.git"
+  },
+  "homepage": "https://github.com/mattlgroff/friendly-adversary#readme",
+  "bugs": {
+    "url": "https://github.com/mattlgroff/friendly-adversary/issues"
+  },
+  "bin": {
+    "friendly-adversary": "dist/src/cli.js"
+  },
+  "files": [
+    "dist/src/",
+    "dist/mcp/",
+    "engines/semgrep-wasm/",
+    "engines/ruff-wasm/",
+    "engines/ripgrep-wasm/",
+    "lenses/",
+    "references/finding-contract.md",
+    "rules/",
+    "third-party/",
+    "wasm/",
+    "scripts/build-semgrep-wasm.sh",
+    "scripts/generate-semgrep-linked-inventory.mjs",
+    "scripts/package-semgrep-corresponding-source.sh",
+    "scripts/corresponding-source-publication.mjs",
+    "scripts/run-semgrep-conformance.mjs",
+    "scripts/validate-semgrep-rules.mjs",
+    "scripts/verify-semgrep-corresponding-source-evidence.mjs",
+    "scripts/verify-semgrep-runtime.mjs",
+    "scripts/verify-semgrep-source.mjs",
+    "scripts/enforce-public-release.mjs",
+    "README.md",
+    "prd.md",
+    "docs/install.md",
+    "docs/architecture.md",
+    "docs/LENS-CONTRACT.md",
+    "docs/lens-authoring.md",
+    "docs/evaluation.md",
+    "LICENSING.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc -p tsconfig.json && node scripts/build-mcp.mjs",
+    "build:mcp": "node scripts/clean-dist.mjs && tsc -p tsconfig.json && node scripts/build-mcp.mjs",
+    "build:oxlint-wasm": "node scripts/build-oxlint-wasm.mjs",
+    "check:oxlint-wasm-build": "node scripts/build-oxlint-wasm.mjs --check",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "licenses:oxlint-wasm": "node scripts/generate-oxlint-third-party-notices.mjs",
+    "conformance:oxlint": "npm run build && node scripts/oxlint-conformance.mjs",
+    "semgrep:verify-source": "node scripts/verify-semgrep-source.mjs",
+    "semgrep:record-source-evidence": "node scripts/verify-semgrep-corresponding-source-evidence.mjs record",
+    "semgrep:verify-source-evidence": "node scripts/verify-semgrep-corresponding-source-evidence.mjs verify",
+    "semgrep:verify-runtime": "node scripts/verify-semgrep-runtime.mjs",
+    "verify:public-release": "node scripts/enforce-public-release.mjs verify",
+    "ruff:verify-runtime": "node scripts/verify-ruff-runtime.mjs",
+    "ripgrep:classify-tests": "node scripts/classify-ripgrep-tests.mjs",
+    "ripgrep:generate-manifest": "node scripts/generate-ripgrep-manifest.mjs",
+    "ripgrep:verify-runtime": "node scripts/verify-ripgrep-runtime.mjs",
+    "semgrep:validate-rules": "node scripts/validate-semgrep-rules.mjs",
+    "sync:plugins": "npm run build && node scripts/sync-platform-assets.mjs",
+    "test": "npm run build && node --test dist/tests/*.test.js",
+    "smoke:pack": "npm run build && node scripts/smoke-pack.mjs",
+    "validate": "npm run verify:public-release && npm run semgrep:verify-source-evidence && npm run semgrep:validate-rules && npm run ripgrep:classify-tests -- --check && npm run build && npm run check:plugins && npm run semgrep:verify-runtime && npm run ruff:verify-runtime && npm run ripgrep:verify-runtime && node dist/src/cli.js validate --root .",
+    "check:plugins": "node scripts/check-platform-assets.mjs",
+    "prepack": "node scripts/run-exclusive-prepack.mjs",
+    "prepack:exclusive": "npm run sync:plugins && npm run validate && npm test",
+    "prepublishOnly": "node scripts/enforce-public-release.mjs block"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/server": "2.0.0",
+    "@types/node": "^22.19.0",
+    "esbuild": "0.28.1",
+    "typescript": "^5.9.3",
+    "zod": "4.4.3"
+  }
+}

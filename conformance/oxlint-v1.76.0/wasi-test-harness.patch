@@ -1,0 +1,23 @@
+diff --git a/crates/oxc_linter/src/service/runtime.rs b/crates/oxc_linter/src/service/runtime.rs
+index e8b42b3..28627d4 100644
+--- a/crates/oxc_linter/src/service/runtime.rs
++++ b/crates/oxc_linter/src/service/runtime.rs
+@@ -226,0 +227 @@ impl Runtime {
++        #[cfg(not(target_family = "wasm"))]
+diff --git a/crates/oxc_linter/src/tester.rs b/crates/oxc_linter/src/tester.rs
+index 53e9417..01f6d49 100644
+--- a/crates/oxc_linter/src/tester.rs
++++ b/crates/oxc_linter/src/tester.rs
+@@ -475,0 +476 @@ impl Tester {
++        #[cfg(not(target_family = "wasm"))]
+@@ -686 +687,9 @@ impl Tester {
+-        let result = lint_service.run_test_source(&file_system, paths, false, &sender);
++        let mut result = lint_service.run_test_source(&file_system, paths, false, &sender);
++        result.sort_by(|left, right| {
++            let left_offset = left.error.labels.iter().map(|label| label.offset()).min().unwrap_or(u32::MAX);
++            let right_offset = right.error.labels.iter().map(|label| label.offset()).min().unwrap_or(u32::MAX);
++            left_offset
++                .cmp(&right_offset)
++                .then_with(|| left.error.code.to_string().cmp(&right.error.code.to_string()))
++                .then_with(|| left.error.message.cmp(&right.error.message))
++        });
