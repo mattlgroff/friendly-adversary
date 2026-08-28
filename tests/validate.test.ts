@@ -78,7 +78,28 @@ test("installed Codex skill validation requires an escalated collector launch", 
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"'));
+    const weakened = skill
+      .replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"')
+      .concat('\nA non-workflow note mentions sandbox_permissions: "require_escalated".\n');
+    await writeFile(skillPath, weakened);
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation requires disclosure of the escalated collector scope", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-disclosure-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace("The escalation applies to the collector and repository-owned checks, so proceed only for the trusted repository required by this skill. ", ""));
     await assert.rejects(
       () => validateRepository(root),
       /missing required escalated collector launch/u,

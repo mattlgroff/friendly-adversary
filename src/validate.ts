@@ -387,7 +387,11 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
   if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
-  if (!content.includes('sandbox_permissions: "require_escalated"')) {
+  const collectorStep = content.split("\n").find((line) => line.startsWith("2. Read `references/tooling.md`."));
+  if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
+    || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
+    || !collectorStep.includes("If escalation is denied, stop incomplete.")
+    || collectorStep.includes('sandbox_permissions: "use_default"')) {
     errors.push(`${label}: missing required escalated collector launch`);
   }
   if (!content.includes("never invoke `review` again")) {

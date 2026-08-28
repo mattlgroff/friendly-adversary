@@ -1,4 +1,4 @@
-export const PRODUCT_VERSION = "3.1.0";
+export const PRODUCT_VERSION = "3.2.0";
 export const RECEIPT_FILE = "receipt.json";
 export const OUTPUT_DIRECTORY = ".friendly-adversary";
 export const RUNS_DIRECTORY = "pr-reviews";

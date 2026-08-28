@@ -55,7 +55,7 @@ Do not start two PR review collectors against the same checkout concurrently. Re
 
 ### Agent orchestration
 
-PR review fans out one fresh local `codex exec` process per selected lens before waiting. Every process uses `gpt-5.6-luna`, high reasoning, Fast mode, ignored user configuration, an ephemeral session, a read-only sandbox, core-only shell environment inheritance, and automatic secret-name exclusions. The CLI validates the final Markdown and publishes it directly, so the calling model never copies lens responses into files. Audit fans out semantic subsystem agents once. Design maintains decision revisions and runs independent architecture challenges.
+PR review fans out one fresh local `codex exec` process per selected lens before waiting. Every process uses `gpt-5.6-luna`, high reasoning, Fast mode, ignored user configuration, an ephemeral session, a read-only sandbox, core-only shell environment inheritance, and automatic secret-name exclusions. On a Codex host, the outer collector requires an escalated shell launch so those authenticated nested processes can initialize. That escalation also covers repository-owned checks and is allowed only for a trusted repository. The CLI validates the final Markdown and publishes it directly, so the calling model never copies lens responses into files. Audit fans out semantic subsystem agents once. Design maintains decision revisions and runs independent architecture challenges.
 
 The calling model alone adjudicates agent output. Agent agreement or consensus never replaces independent disproof, evidence validation, duplicate merging, and final classification.
 

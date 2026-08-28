@@ -1,6 +1,6 @@
 {
   "name": "friendly-adversary",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Local evidence-first PR review, codebase audit, and new-codebase design for TypeScript, JavaScript, and Python",
   "type": "module",
   "private": true,

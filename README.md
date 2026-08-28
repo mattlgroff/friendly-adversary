@@ -22,6 +22,8 @@ Friendly Adversary bundles Semgrep CE, Ruff, an Oxlint-compatible engine, and ri
 
 PR review also runs applicable checks already configured in the trusted target repository. Its dependencies must already be installed. Codebase audit deliberately does not run repository scripts, binaries, package managers, executable configuration, or installed project tools.
 
+On Codex, PR review requests an escalated collector launch because the collector must start authenticated nested Codex CLI processes. This moves the collector and repository-owned checks outside the outer shell sandbox. Approve it only for a repository you trust. Every Luna lens still runs in its own read-only Codex sandbox. If escalation is denied or unavailable, the review stops incomplete.
+
 ## Install in Claude Code
 
 ```bash
@@ -147,6 +149,8 @@ Start a new Codex task after installation or update. In Claude Code, start a new
 ## Safety boundaries
 
 Run PR review only in repositories you trust. Repository checks can execute repository-owned code, create background processes that outlive the review, and have side effects outside Git. Friendly Adversary monitors the pinned repository snapshot but is not a process sandbox.
+
+On a Codex host, the required escalated collector launch includes those repository checks. The escalation does not weaken the read-only sandbox used by each nested Luna lens.
 
 Codebase audit is the safer inspection mode for an unfamiliar repository because it runs only bundled analyzers and read-only Git inspection. Reviewed source and analyzer output are still treated as untrusted evidence by agent prompts.
 
