@@ -289,6 +289,24 @@ test("installed Codex skill validation ignores retry text hidden in indented cod
   }
 });
 
+test("installed Codex skill validation pins its delegated tooling contract", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-tooling-contract-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const toolingPath = path.join(root, "references", "tooling.md");
+    const tooling = await readFile(toolingPath, "utf8");
+    await writeFile(toolingPath, tooling.replace("## Collection order", "## Optional collection order"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex tooling contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed skill validation rejects adjudication that can overstate evidence", async () => {
   const source = path.resolve("platforms", "claude-code", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-adjudication-contract-"));
