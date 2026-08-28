@@ -1,10 +1,10 @@
 # Evaluations
 
-This directory defines the v1 evaluation scaffold for future model and effort experiments. It does not contain executable fixtures or benchmark results yet.
+This directory defines the v1 evaluation scaffold for model and effort experiments. It includes focused source fixtures but does not claim benchmark results.
 
 - `evals.json` describes representative review behaviors.
 - `model-matrix.yaml` lists platform configurations to compare.
-- future case directories will contain pinned base and proposed states plus ground truth.
+- fixture directories contain pinned source, contracts, or proposed states plus expected review behavior.
 
 Run every case in a fresh session. Compare one-shot review with Friendly Adversary, then compare per-lens model and effort assignments.
 

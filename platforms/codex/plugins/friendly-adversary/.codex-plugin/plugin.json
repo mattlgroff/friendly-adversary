@@ -1,6 +1,6 @@
 {
   "name": "friendly-adversary",
-  "version": "3.0.4",
+  "version": "3.1.0",
   "description": "Local evidence-first PR review, codebase audit, and new-codebase design",
   "author": {
     "name": "Matthew Groff",
