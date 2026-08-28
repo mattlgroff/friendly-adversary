@@ -413,10 +413,27 @@ function validateOrchestrationSkillContract(errors, label, content) {
             errors.push(`${label}: missing orchestration requirement: ${requirement}`);
     }
 }
+function operativeMarkdown(content) {
+    const lines = content.replace(/<!--[\s\S]*?-->/gu, "").split("\n");
+    let fenceMarker;
+    return lines.map((line) => {
+        const fence = /^\s*(`{3,}|~{3,})/u.exec(line)?.[1];
+        if (fence) {
+            const marker = fence[0];
+            if (fenceMarker === undefined)
+                fenceMarker = marker;
+            else if (fenceMarker === marker)
+                fenceMarker = undefined;
+            return "";
+        }
+        return fenceMarker === undefined ? line : "";
+    }).join("\n");
+}
 function validateCodexForkIsolation(errors, label, content) {
     if (!content.includes("Do not spawn a subagent for a lens."))
         errors.push(`${label}: missing prohibition on Codex lens subagents`);
-    const lines = content.split("\n");
+    const operativeContent = operativeMarkdown(content);
+    const lines = operativeContent.split("\n");
     const collectorStepStarts = lines.flatMap((line, index) => line.startsWith("2. Read `references/tooling.md`.") ? [index] : []);
     const collectorStepStart = collectorStepStarts.length === 1 ? collectorStepStarts[0] : undefined;
     const collectorStepEnd = collectorStepStart === undefined
@@ -430,6 +447,10 @@ function validateCodexForkIsolation(errors, label, content) {
         || !collectorStep.includes("If escalation is denied, stop incomplete.")
         || collectorStep.includes('sandbox_permissions: "use_default"')) {
         errors.push(`${label}: missing required escalated collector launch`);
+    }
+    const collectorLaunches = operativeContent.match(/scripts\/runtime\/cli\.js review\b/gu) ?? [];
+    if (collectorLaunches.length !== 1 || !collectorStep?.includes(collectorLaunches[0])) {
+        errors.push(`${label}: expected exactly one collector launch in workflow step 2`);
     }
     if (!content.includes("never invoke `review` again")) {
         errors.push(`${label}: missing Codex long-running collector retry prohibition`);

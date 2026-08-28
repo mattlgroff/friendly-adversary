@@ -145,6 +145,54 @@ test("installed Codex skill validation requires a bounded collector workflow ste
   }
 });
 
+test("installed Codex skill validation ignores safety text hidden in Markdown comments and code fences", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-hidden-text-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    const requiredText = [
+      'Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`',
+      "The escalation applies to the collector and repository-owned checks",
+      "If escalation is denied, stop incomplete.",
+    ];
+    const weakened = requiredText.reduce((result, text) => result.replace(text, "Omitted safety instruction"), skill);
+    await writeFile(skillPath, weakened.replace(
+      "3. The CLI must start",
+      `<!-- ${requiredText.join(". ")} -->\n\n\`\`\`text\n${requiredText.join(". ")}\n\`\`\`\n3. The CLI must start`,
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects a collector launch outside workflow step 2", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-extra-launch-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(
+      "3. The CLI must start",
+      "3. Run `node <skill-directory>/scripts/runtime/cli.js review --host codex --repo <repo>` again. The CLI must start",
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /expected exactly one collector launch in workflow step 2/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed Codex skill validation requires disclosure of the escalated collector scope", async () => {
   const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-disclosure-"));
