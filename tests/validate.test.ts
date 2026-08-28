@@ -78,16 +78,50 @@ test("installed Codex skill validation requires an escalated collector launch", 
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    const decoyStep = skill.split("\n").find((line) => line.startsWith("2. Read `references/tooling.md`."));
-    assert.ok(decoyStep);
-    const weakened = skill
-      .replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"')
-      .concat(`\n${decoyStep}\n`);
+    const weakened = skill.replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"');
     await writeFile(skillPath, weakened);
     await assert.rejects(
       () => validateRepository(root),
       /missing required escalated collector launch/u,
     );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects a duplicate collector workflow step", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-duplicate-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    const collectorStep = skill.split("\n").find((line) => line.startsWith("2. Read `references/tooling.md`."));
+    assert.ok(collectorStep);
+    await writeFile(skillPath, `${skill}\n${collectorStep}\n`);
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation accepts a multiline collector workflow step", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-multiline-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(
+      "The escalation applies to the collector and repository-owned checks",
+      "\n   The escalation applies to the collector and repository-owned checks",
+    ));
+    await validateRepository(root);
   } finally {
     await rm(parent, { recursive: true, force: true });
   }

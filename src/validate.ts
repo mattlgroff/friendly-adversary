@@ -387,8 +387,15 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
   if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
-  const collectorSteps = content.split("\n").filter((line) => line.startsWith("2. Read `references/tooling.md`."));
-  const collectorStep = collectorSteps.length === 1 ? collectorSteps[0] : undefined;
+  const lines = content.split("\n");
+  const collectorStepStarts = lines.flatMap((line, index) => line.startsWith("2. Read `references/tooling.md`.") ? [index] : []);
+  const collectorStepStart = collectorStepStarts.length === 1 ? collectorStepStarts[0] : undefined;
+  const collectorStepEnd = collectorStepStart === undefined
+    ? undefined
+    : lines.findIndex((line, index) => index > collectorStepStart && /^\d+\.\s/u.test(line));
+  const collectorStep = collectorStepStart === undefined
+    ? undefined
+    : lines.slice(collectorStepStart, collectorStepEnd === -1 ? lines.length : collectorStepEnd).join("\n");
   if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
     || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
     || !collectorStep.includes("If escalation is denied, stop incomplete.")
