@@ -5,6 +5,8 @@ import {
   auditReferenceFiles,
   auditSkillRoots,
   claudeAgentsRoot,
+  codexPrReviewAgentSource,
+  codexPrReviewAgentTarget,
   copiedTrees,
   designReferenceFiles,
   designSkillRoots,
@@ -58,6 +60,9 @@ for (const skillRoot of skillRoots) {
   await chmod(path.join(runtimeTarget, "cli.js"), 0o755);
   await chmod(path.join(runtimeTarget, "friendly-adversary-mcp.cjs"), 0o755);
 }
+
+await mkdir(path.dirname(codexPrReviewAgentTarget), { recursive: true });
+await copyFile(codexPrReviewAgentSource, codexPrReviewAgentTarget);
 
 for (const skillRoot of auditSkillRoots) {
   const referencesTarget = path.join(skillRoot, "references");

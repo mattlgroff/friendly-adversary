@@ -24,6 +24,8 @@ export const designSkillRoots = ["codex", "claude-code"].map((platform) => (
 ));
 export const claudeAgentsRoot = path.join(root, "platforms", "claude-code", "plugins", "friendly-adversary", "agents");
 export const workflowAgentsSource = path.join(root, "agents", "claude-code");
+export const codexPrReviewAgentSource = path.join(root, "agents", "codex", "pr-review-openai.yaml");
+export const codexPrReviewAgentTarget = path.join(skillRoots[0], "agents", "openai.yaml");
 export const skillRuntimePackage = `${JSON.stringify({
   name: "friendly-adversary-skill-runtime",
   private: true,

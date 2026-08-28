@@ -14,6 +14,7 @@ const CLAUDE_SKILL_SHA256 = "b5d5721540d5fbbfa5284cf35f6d8fe191b3d5328599bad874b
 // This generated skill authorizes unrestricted repository-owned commands.
 // Pin its complete reviewed contract, while normalizing cross-platform newlines.
 const CODEX_SKILL_SHA256 = "547283872983a90dcad2afa46ee4c6cc35b25df0dd541932975adfca491fa9ab";
+const CODEX_AGENT_MARKER_SHA256 = "c4ebc19eb4253dd5d312e61415ee745faa5980c3cbe33a4c7a6a9084407ad713";
 const CODEX_TOOLING_SHA256 = "f7308533d980320e788529c01b8e8a248c0dbe08be5876569c162c5a9708a485";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
   ["(MIT OR Apache-2.0) AND Unicode-3.0", "MIT AND Unicode-3.0"],
@@ -391,11 +392,6 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 }
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
-  const normalizedContent = content.replaceAll("\r\n", "\n");
-  const skillDigest = createHash("sha256").update(normalizedContent).digest("hex");
-  if (skillDigest !== CODEX_SKILL_SHA256) {
-    errors.push(`${label}: differs from the reviewed Codex skill contract`);
-  }
   if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
   const collectorSteps = content.split(/\r?\n/u).filter((line) => line.startsWith("2. Read `references/tooling.md`."));
   const collectorStep = collectorSteps.length === 1 ? collectorSteps[0] : undefined;
@@ -414,6 +410,12 @@ function reviewedSkillDigest(content: string): string {
   return createHash("sha256").update(content.replaceAll("\r\n", "\n")).digest("hex");
 }
 
+function validateCodexSkillContract(errors: string[], label: string, content: string): void {
+  if (reviewedSkillDigest(content) !== CODEX_SKILL_SHA256) {
+    errors.push(`${label}: differs from the reviewed Codex skill contract`);
+  }
+}
+
 function validateClaudeSkillContract(errors: string[], label: string, content: string): void {
   if (reviewedSkillDigest(content) !== CLAUDE_SKILL_SHA256) {
     errors.push(`${label}: differs from the reviewed Claude Code skill contract`);
@@ -424,6 +426,11 @@ function validateCodexToolingContract(errors: string[], label: string, content: 
   const normalizedContent = content.replaceAll("\r\n", "\n");
   const digest = createHash("sha256").update(normalizedContent).digest("hex");
   if (digest !== CODEX_TOOLING_SHA256) errors.push(`${label}: differs from the reviewed Codex tooling contract`);
+}
+
+function validateCodexAgentMarker(errors: string[], label: string, content: string): void {
+  const digest = createHash("sha256").update(content.replaceAll("\r\n", "\n")).digest("hex");
+  if (digest !== CODEX_AGENT_MARKER_SHA256) errors.push(`${label}: differs from the reviewed Codex platform marker`);
 }
 
 function validateAdjudicationContract(errors: string[], label: string, content: string): void {
@@ -471,8 +478,9 @@ export async function validateRepository(root: string): Promise<string[]> {
     const codexMarker = path.join(root, "agents", "openai.yaml");
     const hasCodexMarker = await pathExists(codexMarker);
     if (hasCodexMarker) {
-      if (installedSkillDigest !== CODEX_SKILL_SHA256) errors.push("SKILL.md: differs from the reviewed Codex skill contract");
+      validateCodexSkillContract(errors, "SKILL.md", installedSkill);
       validateCodexForkIsolation(errors, "SKILL.md", installedSkill);
+      validateCodexAgentMarker(errors, "agents/openai.yaml", await readFile(codexMarker, "utf8"));
     } else if (installedSkillDigest === CODEX_SKILL_SHA256) {
       errors.push("Missing bundled file: agents/openai.yaml");
     } else if (installedSkillDigest === CLAUDE_SKILL_SHA256) {
@@ -514,7 +522,11 @@ export async function validateRepository(root: string): Promise<string[]> {
     validateNonEditingSkillContract(errors, skillRelative, skill);
     validateOrchestrationSkillContract(errors, skillRelative, skill);
     if (platform === "codex") {
+      validateCodexSkillContract(errors, skillRelative, skill);
       validateCodexForkIsolation(errors, skillRelative, skill);
+      const agentRelative = path.join(skillRoot, "agents", "openai.yaml");
+      if (!await pathExists(path.join(root, agentRelative))) errors.push(`${agentRelative}: missing Codex platform marker`);
+      else validateCodexAgentMarker(errors, agentRelative, await readFile(path.join(root, agentRelative), "utf8"));
     } else validateClaudeSkillContract(errors, skillRelative, skill);
     const toolingRelative = path.join(skillRoot, "references", "tooling.md");
     validateCodexToolingContract(errors, toolingRelative, await readFile(path.join(root, toolingRelative), "utf8"));

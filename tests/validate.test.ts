@@ -323,6 +323,24 @@ test("installed Codex skill validation requires its platform marker", async () =
   }
 });
 
+test("installed Codex skill validation pins its platform marker", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-platform-marker-contract-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const markerPath = path.join(root, "agents", "openai.yaml");
+    const marker = await readFile(markerPath, "utf8");
+    await writeFile(markerPath, marker.replace("allow_implicit_invocation: false", "allow_implicit_invocation: true"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex platform marker/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed skill validation rejects adjudication that can overstate evidence", async () => {
   const source = path.resolve("platforms", "claude-code", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-adjudication-contract-"));

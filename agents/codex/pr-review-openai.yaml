@@ -1,0 +1,6 @@
+interface:
+  display_name: "Friendly Adversary PR Review"
+  short_description: "Challenge a pull request before it opens"
+  default_prompt: "Use $friendly-adversary:pr-review to challenge my current changes before I open a pull request."
+policy:
+  allow_implicit_invocation: false

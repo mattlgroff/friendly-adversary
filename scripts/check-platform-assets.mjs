@@ -4,6 +4,8 @@ import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import {
   claudeAgentsRoot,
+  codexPrReviewAgentSource,
+  codexPrReviewAgentTarget,
   allSkillRoots,
   auditReferenceFiles,
   auditSkillRoots,
@@ -138,6 +140,9 @@ for (const skillRoot of skillRoots) {
     verifiedFiles += 1;
   }
 }
+
+await assertFileEqual(codexPrReviewAgentSource, codexPrReviewAgentTarget, "codex agents/openai.yaml");
+verifiedFiles += 1;
 
 for (const [roots, references, label] of [
   [auditSkillRoots, auditReferenceFiles, "audit-codebase"],
