@@ -129,7 +129,7 @@ for (const required of ["--permission", "--allow-worker", "--allow-fs-read=", "-
 }
 const cliSource = await readFile(path.join(root, "src", "semgrep-wasm-cli.ts"), "utf8");
 if (!cliSource.includes("disableNetworkAccess();")) errors.push("The Semgrep wrapper does not activate the network deny guard");
-if (!cliSource.includes("const SEMGREP_WORKER_STACK_SIZE_MB = 4;")) errors.push("The Semgrep wrapper does not declare the certified 4 MiB worker stack");
+if (!cliSource.includes("const SEMGREP_WORKER_STACK_SIZE_MB = 16;")) errors.push("The Semgrep wrapper does not declare the certified 16 MiB worker stack");
 if (!cliSource.includes("resourceLimits: { stackSizeMb: SEMGREP_WORKER_STACK_SIZE_MB }")) errors.push("The Semgrep wrapper does not isolate scans in a stack-sized worker");
 if (!cliSource.includes("resourceLimits.stackSizeMb ?? 0")) errors.push("The Semgrep wrapper does not verify its effective worker stack limit");
 if (!cliSource.includes("Unsupported target language")) errors.push("The Semgrep wrapper does not reject unsupported target languages");
@@ -357,7 +357,7 @@ if (errors.length) {
     nodePermissionModel: true,
     networkGuard: true,
     v8HeapLimitMiB: 8192,
-    v8WorkerStackLimitMiB: 4,
+    v8WorkerStackLimitMiB: 16,
     wasmModuleLimitMiB: 256,
     maximumLoadedWasmModules: 3,
     linkedOcamlPackages: linkedInventory.linkedOcamlPackageCount,
