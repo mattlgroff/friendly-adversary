@@ -307,6 +307,22 @@ test("installed Codex skill validation pins its delegated tooling contract", asy
   }
 });
 
+test("installed Codex skill validation requires its platform marker", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-platform-marker-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    await rm(path.join(root, "agents", "openai.yaml"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /Missing bundled file: agents\/openai\.yaml/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed skill validation rejects adjudication that can overstate evidence", async () => {
   const source = path.resolve("platforms", "claude-code", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-adjudication-contract-"));
