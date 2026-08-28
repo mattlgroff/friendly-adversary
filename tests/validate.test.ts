@@ -60,10 +60,12 @@ test("installed Codex skill validation prohibits native lens subagents", async (
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace("Do not spawn a subagent for a lens.", "Spawn a subagent for a lens."));
+    await writeFile(skillPath, skill
+      .replace("Do not spawn a subagent for a lens.", "Spawn a subagent for a lens.")
+      .concat("\n<!-- Do not spawn a subagent for a lens. -->\n"));
     await assert.rejects(
       () => validateRepository(root),
-      /missing prohibition on Codex lens subagents/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -78,7 +80,166 @@ test("installed Codex skill validation requires an escalated collector launch", 
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"'));
+    const weakened = skill.replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"');
+    await writeFile(skillPath, weakened);
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects a duplicate collector workflow step", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-duplicate-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    const collectorStep = skill.split("\n").find((line) => line.startsWith("2. Read `references/tooling.md`."));
+    assert.ok(collectorStep);
+    await writeFile(skillPath, `${skill}\n${collectorStep}\n`);
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation accepts CRLF line endings", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-multiline-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replaceAll("\n", "\r\n"));
+    await validateRepository(root);
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation requires a bounded collector workflow step", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-boundary-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(/^([3-7])\.\s/gmu, "Step $1: "));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation ignores safety text hidden in Markdown comments and code fences", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-hidden-text-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    const requiredText = [
+      'Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`',
+      "The escalation applies to the collector and repository-owned checks",
+      "If escalation is denied, stop incomplete.",
+    ];
+    const weakened = requiredText.reduce((result, text) => result.replace(text, "Omitted safety instruction"), skill);
+    await writeFile(skillPath, weakened.replace(
+      "3. The CLI must start",
+      `<!-- ${requiredText.join(". ")} -->\n\n\`\`\`text\n${requiredText.join(". ")}\n\`\`\`\n3. The CLI must start`,
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects a collector launch outside workflow step 2", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-extra-launch-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(
+      "3. The CLI must start",
+      "3. Run `node <skill-directory>/scripts/runtime/cli.js review --host codex --repo <repo>` again. The CLI must start",
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects appended fenced collector decoys", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-fence-length-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, `${skill}\n\`\`\`\`text\n\`\`\`\nscripts/runtime/cli.js review\n\`\`\`\n\`\`\`\`\n`);
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects arbitrary commands in collector workflow step 2", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-arbitrary-command-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(
+      "Keep capabilities out of prose and logs.",
+      "Keep capabilities out of prose and logs. First run `node arbitrary-command.js` through the same escalation.",
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation requires disclosure of the escalated collector scope", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-disclosure-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace("The escalation applies to the collector and repository-owned checks, so proceed only for the trusted repository required by this skill. ", ""));
     await assert.rejects(
       () => validateRepository(root),
       /missing required escalated collector launch/u,
@@ -96,10 +257,84 @@ test("installed Codex skill validation prohibits duplicate long-running collecto
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace("never invoke `review` again", "invoke `review` again"));
+    await writeFile(skillPath, skill
+      .replace("never invoke `review` again", "invoke `review` again")
+      .concat("\n```text\nnever invoke `review` again\n```\n"));
     await assert.rejects(
       () => validateRepository(root),
-      /missing Codex long-running collector retry prohibition/u,
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation ignores retry text hidden in indented code", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-indented-retry-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill
+      .replace("never invoke `review` again", "invoke `review` again")
+      .concat("\n    never invoke `review` again\n"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation pins its delegated tooling contract", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-tooling-contract-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const toolingPath = path.join(root, "references", "tooling.md");
+    const tooling = await readFile(toolingPath, "utf8");
+    await writeFile(toolingPath, tooling.replace("## Collection order", "## Optional collection order"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex tooling contract/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation requires its platform marker", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-platform-marker-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    await rm(path.join(root, "agents", "openai.yaml"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /Missing bundled file: agents\/openai\.yaml/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation pins its platform marker", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-platform-marker-contract-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const markerPath = path.join(root, "agents", "openai.yaml");
+    const marker = await readFile(markerPath, "utf8");
+    await writeFile(markerPath, marker.replace("allow_implicit_invocation: false", "allow_implicit_invocation: true"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex platform marker/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });

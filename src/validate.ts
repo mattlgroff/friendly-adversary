@@ -10,6 +10,12 @@ const SECTIONS = ["## Property", "## Failure classes", "## Applicability", "## A
 const OXLINT_SHA256 = "8893c7e1a230eea648ca646a578afbd62c1712f9f8d36a4ab2e8589c73b6a5bb";
 const RUFF_WASM_SHA256 = "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f";
 const RUFF_GLUE_SHA256 = "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897";
+const CLAUDE_SKILL_SHA256 = "b5d5721540d5fbbfa5284cf35f6d8fe191b3d5328599bad874b526919b846eb3";
+// This generated skill authorizes unrestricted repository-owned commands.
+// Pin its complete reviewed contract, while normalizing cross-platform newlines.
+const CODEX_SKILL_SHA256 = "547283872983a90dcad2afa46ee4c6cc35b25df0dd541932975adfca491fa9ab";
+const CODEX_AGENT_MARKER_SHA256 = "c4ebc19eb4253dd5d312e61415ee745faa5980c3cbe33a4c7a6a9084407ad713";
+const CODEX_TOOLING_SHA256 = "f7308533d980320e788529c01b8e8a248c0dbe08be5876569c162c5a9708a485";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
   ["(MIT OR Apache-2.0) AND Unicode-3.0", "MIT AND Unicode-3.0"],
   ["0BSD OR MIT OR Apache-2.0", "MIT"],
@@ -387,12 +393,44 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
   if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
-  if (!content.includes('sandbox_permissions: "require_escalated"')) {
+  const collectorSteps = content.split(/\r?\n/u).filter((line) => line.startsWith("2. Read `references/tooling.md`."));
+  const collectorStep = collectorSteps.length === 1 ? collectorSteps[0] : undefined;
+  if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
+    || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
+    || !collectorStep.includes("If escalation is denied, stop incomplete.")
+    || collectorStep.includes('sandbox_permissions: "use_default"')) {
     errors.push(`${label}: missing required escalated collector launch`);
   }
   if (!content.includes("never invoke `review` again")) {
     errors.push(`${label}: missing Codex long-running collector retry prohibition`);
   }
+}
+
+function reviewedSkillDigest(content: string): string {
+  return createHash("sha256").update(content.replaceAll("\r\n", "\n")).digest("hex");
+}
+
+function validateCodexSkillContract(errors: string[], label: string, content: string): void {
+  if (reviewedSkillDigest(content) !== CODEX_SKILL_SHA256) {
+    errors.push(`${label}: differs from the reviewed Codex skill contract`);
+  }
+}
+
+function validateClaudeSkillContract(errors: string[], label: string, content: string): void {
+  if (reviewedSkillDigest(content) !== CLAUDE_SKILL_SHA256) {
+    errors.push(`${label}: differs from the reviewed Claude Code skill contract`);
+  }
+}
+
+function validateCodexToolingContract(errors: string[], label: string, content: string): void {
+  const normalizedContent = content.replaceAll("\r\n", "\n");
+  const digest = createHash("sha256").update(normalizedContent).digest("hex");
+  if (digest !== CODEX_TOOLING_SHA256) errors.push(`${label}: differs from the reviewed Codex tooling contract`);
+}
+
+function validateCodexAgentMarker(errors: string[], label: string, content: string): void {
+  const digest = createHash("sha256").update(content.replaceAll("\r\n", "\n")).digest("hex");
+  if (digest !== CODEX_AGENT_MARKER_SHA256) errors.push(`${label}: differs from the reviewed Codex platform marker`);
 }
 
 function validateAdjudicationContract(errors: string[], label: string, content: string): void {
@@ -436,9 +474,21 @@ export async function validateRepository(root: string): Promise<string[]> {
     const installedSkill = await readFile(path.join(root, "SKILL.md"), "utf8");
     validateNonEditingSkillContract(errors, "SKILL.md", installedSkill);
     validateOrchestrationSkillContract(errors, "SKILL.md", installedSkill);
-    if (await pathExists(path.join(root, "agents", "openai.yaml"))) {
+    const installedSkillDigest = reviewedSkillDigest(installedSkill);
+    const codexMarker = path.join(root, "agents", "openai.yaml");
+    const hasCodexMarker = await pathExists(codexMarker);
+    if (hasCodexMarker) {
+      validateCodexSkillContract(errors, "SKILL.md", installedSkill);
       validateCodexForkIsolation(errors, "SKILL.md", installedSkill);
+      validateCodexAgentMarker(errors, "agents/openai.yaml", await readFile(codexMarker, "utf8"));
+    } else if (installedSkillDigest === CODEX_SKILL_SHA256) {
+      errors.push("Missing bundled file: agents/openai.yaml");
+    } else if (installedSkillDigest === CLAUDE_SKILL_SHA256) {
+      validateClaudeSkillContract(errors, "SKILL.md", installedSkill);
+    } else {
+      errors.push("SKILL.md: differs from every reviewed installed skill contract");
     }
+    validateCodexToolingContract(errors, "references/tooling.md", await readFile(path.join(root, "references", "tooling.md"), "utf8"));
     validateAdjudicationContract(errors, "references/adjudication.md", await readFile(path.join(root, "references", "adjudication.md"), "utf8"));
     validateFindingContract(errors, "references/finding-contract.md", await readFile(path.join(root, "references", "finding-contract.md"), "utf8"));
     await validateOxlintArtifact(errors, root, "scripts/runtime/wasm/oxlint/engine.wasm");
@@ -471,7 +521,15 @@ export async function validateRepository(root: string): Promise<string[]> {
     const skill = await readFile(path.join(root, skillRelative), "utf8");
     validateNonEditingSkillContract(errors, skillRelative, skill);
     validateOrchestrationSkillContract(errors, skillRelative, skill);
-    if (platform === "codex") validateCodexForkIsolation(errors, skillRelative, skill);
+    if (platform === "codex") {
+      validateCodexSkillContract(errors, skillRelative, skill);
+      validateCodexForkIsolation(errors, skillRelative, skill);
+      const agentRelative = path.join(skillRoot, "agents", "openai.yaml");
+      if (!await pathExists(path.join(root, agentRelative))) errors.push(`${agentRelative}: missing Codex platform marker`);
+      else validateCodexAgentMarker(errors, agentRelative, await readFile(path.join(root, agentRelative), "utf8"));
+    } else validateClaudeSkillContract(errors, skillRelative, skill);
+    const toolingRelative = path.join(skillRoot, "references", "tooling.md");
+    validateCodexToolingContract(errors, toolingRelative, await readFile(path.join(root, toolingRelative), "utf8"));
     validateAdjudicationContract(errors, adjudicationRelative, await readFile(path.join(root, adjudicationRelative), "utf8"));
     const findingContractRelative = path.join(skillRoot, "references", "finding-contract.md");
     validateFindingContract(errors, findingContractRelative, await readFile(path.join(root, findingContractRelative), "utf8"));

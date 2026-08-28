@@ -67,6 +67,8 @@ codex plugin add friendly-adversary@friendly-adversary
 
 Start a new Codex task after installation or update. Existing conversations may retain an older plugin snapshot.
 
+Codex PR review requests approval to launch its collector outside the outer shell sandbox. This is required because the collector starts authenticated nested Codex CLI processes. The escalation also applies to repository-owned lint, typecheck, test, build, and validation commands, so approve it only for a trusted repository. Every nested Luna lens remains read-only. If the active approval policy rejects escalation, the run stops incomplete before review completion.
+
 ## Install from a local clone
 
 Clone and validate:
@@ -133,6 +135,10 @@ Install the target repository's own dependencies using its documented setup. Fri
 ### PR review reports that Codex or Luna is unavailable
 
 Run `codex --version`, confirm that Codex is authenticated in the same native Windows, WSL, macOS, or Linux environment as the host, and confirm that `gpt-5.6-luna` is available. PR lenses have no Claude-agent, inherited-model, serial, or alternate-model fallback.
+
+### Codex denies the collector escalation
+
+Start the PR review in an interactive Codex session that permits sandbox approval requests, then approve the collector only after confirming the target repository is trusted. A restricted non-interactive session that rejects escalation cannot run Codex-hosted PR review. Use `audit-codebase` for an unfamiliar repository because it does not execute repository-owned code.
 
 ### MCP tool is unavailable
 
