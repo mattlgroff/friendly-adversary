@@ -269,6 +269,26 @@ test("installed Codex skill validation prohibits duplicate long-running collecto
   }
 });
 
+test("installed Codex skill validation ignores retry text hidden in indented code", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-indented-retry-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill
+      .replace("never invoke `review` again", "invoke `review` again")
+      .concat("\n    never invoke `review` again\n"));
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing Codex long-running collector retry prohibition/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed skill validation rejects adjudication that can overstate evidence", async () => {
   const source = path.resolve("platforms", "claude-code", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-adjudication-contract-"));

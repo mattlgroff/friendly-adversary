@@ -11,6 +11,8 @@ const SECTIONS = ["## Property", "## Failure classes", "## Applicability", "## A
 const OXLINT_SHA256 = "8893c7e1a230eea648ca646a578afbd62c1712f9f8d36a4ab2e8589c73b6a5bb";
 const RUFF_WASM_SHA256 = "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f";
 const RUFF_GLUE_SHA256 = "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897";
+// Deliberately pin the normalized operative text because this step authorizes
+// unrestricted repository-owned commands. Rewording it requires explicit review.
 const CODEX_COLLECTOR_STEP_SHA256 = "8554a1cb2d3ac420c9a881213c4604a21b1f250cb25dda5eec3e80e6b74f3eae";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
   ["(MIT OR Apache-2.0) AND Unicode-3.0", "MIT AND Unicode-3.0"],
