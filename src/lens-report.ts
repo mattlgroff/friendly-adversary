@@ -67,6 +67,10 @@ function markdownOutsideHtmlComments(content: string): string {
   return visible;
 }
 
+export function markdownOperativeText(content: string): string {
+  return markdownOutsideFences(markdownOutsideHtmlComments(content));
+}
+
 export function detectReportSecret(content: string): string | undefined {
   return detectRecognizableSecret(content);
 }

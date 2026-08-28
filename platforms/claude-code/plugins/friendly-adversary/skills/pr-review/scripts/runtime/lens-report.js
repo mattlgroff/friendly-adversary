@@ -59,6 +59,9 @@ function markdownOutsideHtmlComments(content) {
     }
     return visible;
 }
+export function markdownOperativeText(content) {
+    return markdownOutsideFences(markdownOutsideHtmlComments(content));
+}
 export function detectReportSecret(content) {
     return detectRecognizableSecret(content);
 }

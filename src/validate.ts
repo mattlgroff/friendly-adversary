@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { FriendlyAdversaryError } from "./errors.js";
 import { pathExists } from "./fs-utils.js";
+import { markdownOperativeText } from "./lens-report.js";
 import { RIPGREP_WASM_SHA256 } from "./ripgrep-wasm.js";
 
 const IDS = ["repository-fit", "correctness", "contracts", "state-and-concurrency", "security", "data-integrity", "verification", "operability", "anti-slop"];
@@ -10,6 +11,7 @@ const SECTIONS = ["## Property", "## Failure classes", "## Applicability", "## A
 const OXLINT_SHA256 = "8893c7e1a230eea648ca646a578afbd62c1712f9f8d36a4ab2e8589c73b6a5bb";
 const RUFF_WASM_SHA256 = "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f";
 const RUFF_GLUE_SHA256 = "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897";
+const CODEX_COLLECTOR_STEP_SHA256 = "8554a1cb2d3ac420c9a881213c4604a21b1f250cb25dda5eec3e80e6b74f3eae";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
   ["(MIT OR Apache-2.0) AND Unicode-3.0", "MIT AND Unicode-3.0"],
   ["0BSD OR MIT OR Apache-2.0", "MIT"],
@@ -385,24 +387,9 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
   }
 }
 
-function operativeMarkdown(content: string): string {
-  const lines = content.replace(/<!--[\s\S]*?-->/gu, "").split("\n");
-  let fenceMarker: "`" | "~" | undefined;
-  return lines.map((line) => {
-    const fence = /^\s*(`{3,}|~{3,})/u.exec(line)?.[1];
-    if (fence) {
-      const marker = fence[0] as "`" | "~";
-      if (fenceMarker === undefined) fenceMarker = marker;
-      else if (fenceMarker === marker) fenceMarker = undefined;
-      return "";
-    }
-    return fenceMarker === undefined ? line : "";
-  }).join("\n");
-}
-
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
-  if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
-  const operativeContent = operativeMarkdown(content);
+  const operativeContent = markdownOperativeText(content);
+  if (!operativeContent.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
   const lines = operativeContent.split("\n");
   const collectorStepStarts = lines.flatMap((line, index) => line.startsWith("2. Read `references/tooling.md`.") ? [index] : []);
   const collectorStepStart = collectorStepStarts.length === 1 ? collectorStepStarts[0] : undefined;
@@ -412,17 +399,18 @@ function validateCodexForkIsolation(errors: string[], label: string, content: st
   const collectorStep = collectorStepStart === undefined || collectorStepEnd === -1
     ? undefined
     : lines.slice(collectorStepStart, collectorStepEnd).join("\n");
-  if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
-    || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
-    || !collectorStep.includes("If escalation is denied, stop incomplete.")
-    || collectorStep.includes('sandbox_permissions: "use_default"')) {
+  const normalizedCollectorStep = collectorStep?.replace(/\s+/gu, " ").trim();
+  const collectorStepDigest = normalizedCollectorStep === undefined
+    ? undefined
+    : createHash("sha256").update(normalizedCollectorStep).digest("hex");
+  if (collectorStepDigest !== CODEX_COLLECTOR_STEP_SHA256) {
     errors.push(`${label}: missing required escalated collector launch`);
   }
   const collectorLaunches = operativeContent.match(/scripts\/runtime\/cli\.js review\b/gu) ?? [];
   if (collectorLaunches.length !== 1 || !collectorStep?.includes(collectorLaunches[0])) {
     errors.push(`${label}: expected exactly one collector launch in workflow step 2`);
   }
-  if (!content.includes("never invoke `review` again")) {
+  if (!operativeContent.includes("never invoke `review` again")) {
     errors.push(`${label}: missing Codex long-running collector retry prohibition`);
   }
 }

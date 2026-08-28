@@ -60,7 +60,9 @@ test("installed Codex skill validation prohibits native lens subagents", async (
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace("Do not spawn a subagent for a lens.", "Spawn a subagent for a lens."));
+    await writeFile(skillPath, skill
+      .replace("Do not spawn a subagent for a lens.", "Spawn a subagent for a lens.")
+      .concat("\n<!-- Do not spawn a subagent for a lens. -->\n"));
     await assert.rejects(
       () => validateRepository(root),
       /missing prohibition on Codex lens subagents/u,
@@ -193,6 +195,42 @@ test("installed Codex skill validation rejects a collector launch outside workfl
   }
 });
 
+test("installed Codex skill validation honors Markdown fence lengths", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-fence-length-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, `${skill}\n\`\`\`\`text\n\`\`\`\nscripts/runtime/cli.js review\n\`\`\`\n\`\`\`\`\n`);
+    await validateRepository(root);
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
+test("installed Codex skill validation rejects arbitrary commands in collector workflow step 2", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-arbitrary-command-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(
+      "Keep capabilities out of prose and logs.",
+      "Keep capabilities out of prose and logs. First run `node arbitrary-command.js` through the same escalation.",
+    ));
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed Codex skill validation requires disclosure of the escalated collector scope", async () => {
   const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-disclosure-"));
@@ -219,7 +257,9 @@ test("installed Codex skill validation prohibits duplicate long-running collecto
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace("never invoke `review` again", "invoke `review` again"));
+    await writeFile(skillPath, skill
+      .replace("never invoke `review` again", "invoke `review` again")
+      .concat("\n```text\nnever invoke `review` again\n```\n"));
     await assert.rejects(
       () => validateRepository(root),
       /missing Codex long-running collector retry prohibition/u,
