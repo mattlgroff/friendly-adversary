@@ -387,6 +387,9 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
   if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
+  if (!content.includes('sandbox_permissions: "require_escalated"')) {
+    errors.push(`${label}: missing required escalated collector launch`);
+  }
   if (!content.includes("never invoke `review` again")) {
     errors.push(`${label}: missing Codex long-running collector retry prohibition`);
   }

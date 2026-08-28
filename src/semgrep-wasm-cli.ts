@@ -7,7 +7,7 @@ import { disableNetworkAccess } from "./network-guard.js";
 
 const VERSION = "1.172.0-wasm-friendly-adversary.1";
 const SEMGREP_VERSION = "1.172.0";
-const SEMGREP_WORKER_STACK_SIZE_MB = 4;
+const SEMGREP_WORKER_STACK_SIZE_MB = 16;
 const require = createRequire(import.meta.url);
 const runtimeDirectory = path.dirname(fileURLToPath(import.meta.url));
 const assetsRoot = path.resolve(runtimeDirectory, "../..");
@@ -184,7 +184,7 @@ function parseOutput(raw: string): SemgrepOutput {
 async function main(): Promise<void> {
   requireSupportedNode();
   if (!isMainThread && (resourceLimits.stackSizeMb ?? 0) < SEMGREP_WORKER_STACK_SIZE_MB) {
-    throw new Error("The Semgrep worker did not receive its required 4 MiB stack limit");
+    throw new Error("The Semgrep worker did not receive its required 16 MiB stack limit");
   }
   disableNetworkAccess();
   const { config, targets: rawTargets } = parseArguments(process.argv.slice(2));
