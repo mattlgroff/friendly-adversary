@@ -78,9 +78,11 @@ test("installed Codex skill validation requires an escalated collector launch", 
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
+    const decoyStep = skill.split("\n").find((line) => line.startsWith("2. Read `references/tooling.md`."));
+    assert.ok(decoyStep);
     const weakened = skill
       .replace('sandbox_permissions: "require_escalated"', 'sandbox_permissions: "use_default"')
-      .concat('\nA non-workflow note mentions sandbox_permissions: "require_escalated".\n');
+      .concat(`\n${decoyStep}\n`);
     await writeFile(skillPath, weakened);
     await assert.rejects(
       () => validateRepository(root),
