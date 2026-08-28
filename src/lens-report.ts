@@ -67,23 +67,6 @@ function markdownOutsideHtmlComments(content: string): string {
   return visible;
 }
 
-function markdownOutsideIndentedCode(content: string): string {
-  let indented = false;
-  return content.split(/\r?\n/u).map((line) => {
-    if (/^(?: {4}|\t)/u.test(line)) {
-      indented = true;
-      return "";
-    }
-    if (indented && line.trim() === "") return "";
-    indented = false;
-    return line;
-  }).join("\n");
-}
-
-export function markdownOperativeText(content: string): string {
-  return markdownOutsideIndentedCode(markdownOutsideFences(markdownOutsideHtmlComments(content)));
-}
-
 export function detectReportSecret(content: string): string | undefined {
   return detectRecognizableSecret(content);
 }

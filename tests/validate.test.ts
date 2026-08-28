@@ -65,7 +65,7 @@ test("installed Codex skill validation prohibits native lens subagents", async (
       .concat("\n<!-- Do not spawn a subagent for a lens. -->\n"));
     await assert.rejects(
       () => validateRepository(root),
-      /missing prohibition on Codex lens subagents/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -111,7 +111,7 @@ test("installed Codex skill validation rejects a duplicate collector workflow st
   }
 });
 
-test("installed Codex skill validation accepts a multiline collector workflow step", async () => {
+test("installed Codex skill validation accepts CRLF line endings", async () => {
   const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-multiline-"));
   try {
@@ -119,10 +119,7 @@ test("installed Codex skill validation accepts a multiline collector workflow st
     await cp(source, root, { recursive: true });
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
-    await writeFile(skillPath, skill.replace(
-      "The escalation applies to the collector and repository-owned checks",
-      "\n   The escalation applies to the collector and repository-owned checks",
-    ));
+    await writeFile(skillPath, skill.replaceAll("\n", "\r\n"));
     await validateRepository(root);
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -140,7 +137,7 @@ test("installed Codex skill validation requires a bounded collector workflow ste
     await writeFile(skillPath, skill.replace(/^([3-7])\.\s/gmu, "Step $1: "));
     await assert.rejects(
       () => validateRepository(root),
-      /missing required escalated collector launch/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -188,14 +185,14 @@ test("installed Codex skill validation rejects a collector launch outside workfl
     ));
     await assert.rejects(
       () => validateRepository(root),
-      /expected exactly one collector launch in workflow step 2/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
   }
 });
 
-test("installed Codex skill validation honors Markdown fence lengths", async () => {
+test("installed Codex skill validation rejects appended fenced collector decoys", async () => {
   const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-fence-length-"));
   try {
@@ -204,7 +201,10 @@ test("installed Codex skill validation honors Markdown fence lengths", async () 
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
     await writeFile(skillPath, `${skill}\n\`\`\`\`text\n\`\`\`\nscripts/runtime/cli.js review\n\`\`\`\n\`\`\`\`\n`);
-    await validateRepository(root);
+    await assert.rejects(
+      () => validateRepository(root),
+      /differs from the reviewed Codex skill contract/u,
+    );
   } finally {
     await rm(parent, { recursive: true, force: true });
   }
@@ -224,7 +224,7 @@ test("installed Codex skill validation rejects arbitrary commands in collector w
     ));
     await assert.rejects(
       () => validateRepository(root),
-      /missing required escalated collector launch/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -262,7 +262,7 @@ test("installed Codex skill validation prohibits duplicate long-running collecto
       .concat("\n```text\nnever invoke `review` again\n```\n"));
     await assert.rejects(
       () => validateRepository(root),
-      /missing Codex long-running collector retry prohibition/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });
@@ -282,7 +282,7 @@ test("installed Codex skill validation ignores retry text hidden in indented cod
       .concat("\n    never invoke `review` again\n"));
     await assert.rejects(
       () => validateRepository(root),
-      /missing Codex long-running collector retry prohibition/u,
+      /differs from the reviewed Codex skill contract/u,
     );
   } finally {
     await rm(parent, { recursive: true, force: true });

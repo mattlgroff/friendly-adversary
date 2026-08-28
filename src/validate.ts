@@ -3,7 +3,6 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { FriendlyAdversaryError } from "./errors.js";
 import { pathExists } from "./fs-utils.js";
-import { markdownOperativeText } from "./lens-report.js";
 import { RIPGREP_WASM_SHA256 } from "./ripgrep-wasm.js";
 
 const IDS = ["repository-fit", "correctness", "contracts", "state-and-concurrency", "security", "data-integrity", "verification", "operability", "anti-slop"];
@@ -11,9 +10,9 @@ const SECTIONS = ["## Property", "## Failure classes", "## Applicability", "## A
 const OXLINT_SHA256 = "8893c7e1a230eea648ca646a578afbd62c1712f9f8d36a4ab2e8589c73b6a5bb";
 const RUFF_WASM_SHA256 = "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f";
 const RUFF_GLUE_SHA256 = "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897";
-// Deliberately pin the normalized operative text because this step authorizes
-// unrestricted repository-owned commands. Rewording it requires explicit review.
-const CODEX_COLLECTOR_STEP_SHA256 = "8554a1cb2d3ac420c9a881213c4604a21b1f250cb25dda5eec3e80e6b74f3eae";
+// This generated skill authorizes unrestricted repository-owned commands.
+// Pin its complete reviewed contract, while normalizing cross-platform newlines.
+const CODEX_SKILL_SHA256 = "547283872983a90dcad2afa46ee4c6cc35b25df0dd541932975adfca491fa9ab";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
   ["(MIT OR Apache-2.0) AND Unicode-3.0", "MIT AND Unicode-3.0"],
   ["0BSD OR MIT OR Apache-2.0", "MIT"],
@@ -390,29 +389,21 @@ function validateOrchestrationSkillContract(errors: string[], label: string, con
 }
 
 function validateCodexForkIsolation(errors: string[], label: string, content: string): void {
-  const operativeContent = markdownOperativeText(content);
-  if (!operativeContent.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
-  const lines = operativeContent.split("\n");
-  const collectorStepStarts = lines.flatMap((line, index) => line.startsWith("2. Read `references/tooling.md`.") ? [index] : []);
-  const collectorStepStart = collectorStepStarts.length === 1 ? collectorStepStarts[0] : undefined;
-  const collectorStepEnd = collectorStepStart === undefined
-    ? undefined
-    : lines.findIndex((line, index) => index > collectorStepStart && /^\d+\.\s/u.test(line));
-  const collectorStep = collectorStepStart === undefined || collectorStepEnd === -1
-    ? undefined
-    : lines.slice(collectorStepStart, collectorStepEnd).join("\n");
-  const normalizedCollectorStep = collectorStep?.replace(/\s+/gu, " ").trim();
-  const collectorStepDigest = normalizedCollectorStep === undefined
-    ? undefined
-    : createHash("sha256").update(normalizedCollectorStep).digest("hex");
-  if (collectorStepDigest !== CODEX_COLLECTOR_STEP_SHA256) {
+  const normalizedContent = content.replaceAll("\r\n", "\n");
+  const skillDigest = createHash("sha256").update(normalizedContent).digest("hex");
+  if (skillDigest !== CODEX_SKILL_SHA256) {
+    errors.push(`${label}: differs from the reviewed Codex skill contract`);
+  }
+  if (!content.includes("Do not spawn a subagent for a lens.")) errors.push(`${label}: missing prohibition on Codex lens subagents`);
+  const collectorSteps = content.split(/\r?\n/u).filter((line) => line.startsWith("2. Read `references/tooling.md`."));
+  const collectorStep = collectorSteps.length === 1 ? collectorSteps[0] : undefined;
+  if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
+    || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
+    || !collectorStep.includes("If escalation is denied, stop incomplete.")
+    || collectorStep.includes('sandbox_permissions: "use_default"')) {
     errors.push(`${label}: missing required escalated collector launch`);
   }
-  const collectorLaunches = operativeContent.match(/scripts\/runtime\/cli\.js review\b/gu) ?? [];
-  if (collectorLaunches.length !== 1 || !collectorStep?.includes(collectorLaunches[0])) {
-    errors.push(`${label}: expected exactly one collector launch in workflow step 2`);
-  }
-  if (!operativeContent.includes("never invoke `review` again")) {
+  if (!content.includes("never invoke `review` again")) {
     errors.push(`${label}: missing Codex long-running collector retry prohibition`);
   }
 }
