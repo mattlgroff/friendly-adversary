@@ -422,9 +422,9 @@ function validateCodexForkIsolation(errors, label, content) {
     const collectorStepEnd = collectorStepStart === undefined
         ? undefined
         : lines.findIndex((line, index) => index > collectorStepStart && /^\d+\.\s/u.test(line));
-    const collectorStep = collectorStepStart === undefined
+    const collectorStep = collectorStepStart === undefined || collectorStepEnd === -1
         ? undefined
-        : lines.slice(collectorStepStart, collectorStepEnd === -1 ? lines.length : collectorStepEnd).join("\n");
+        : lines.slice(collectorStepStart, collectorStepEnd).join("\n");
     if (!collectorStep?.includes('Invoke this collector command through `exec_command` with `sandbox_permissions: "require_escalated"`')
         || !collectorStep.includes("The escalation applies to the collector and repository-owned checks")
         || !collectorStep.includes("If escalation is denied, stop incomplete.")

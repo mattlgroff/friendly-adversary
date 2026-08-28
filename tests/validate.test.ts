@@ -127,6 +127,24 @@ test("installed Codex skill validation accepts a multiline collector workflow st
   }
 });
 
+test("installed Codex skill validation requires a bounded collector workflow step", async () => {
+  const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
+  const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-boundary-"));
+  try {
+    const root = path.join(parent, "skill");
+    await cp(source, root, { recursive: true });
+    const skillPath = path.join(root, "SKILL.md");
+    const skill = await readFile(skillPath, "utf8");
+    await writeFile(skillPath, skill.replace(/^([3-7])\.\s/gmu, "Step $1: "));
+    await assert.rejects(
+      () => validateRepository(root),
+      /missing required escalated collector launch/u,
+    );
+  } finally {
+    await rm(parent, { recursive: true, force: true });
+  }
+});
+
 test("installed Codex skill validation requires disclosure of the escalated collector scope", async () => {
   const source = path.resolve("platforms", "codex", "plugins", "friendly-adversary", "skills", "pr-review");
   const parent = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-codex-collector-disclosure-"));
