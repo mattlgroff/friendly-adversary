@@ -15,6 +15,8 @@ For each subsystem record:
 - applicable Friendly Adversary dimensions;
 - explicit exclusions with reasons.
 
+Any subsystem that owns tests, test fixtures, test helpers, test configuration, or behavior whose claimed proof depends on those assets must include the `verification` dimension. Keep tests with the subsystem behavior they claim to prove rather than creating an unowned test catch-all. The verification review must trace representative tests to their production path and independently sourced oracle, not infer confidence from test names, file counts, coverage percentages, or green status.
+
 Classify a path as generated only when the repository declares its canonical source or generator mapping. For every generated path group, name that source or mapping in the inventory. If no mapping can be named, count the path as canonical. Platform location alone is not provenance. Host-specific manifests, MCP launch configuration, skill entry points, and invocation metadata are canonical production contracts unless such a mapping exists, so assign each one exactly one authoritative subsystem owner.
 
 Treat each pinned Git submodule as an external gitlink boundary. Record its pinned object, local dirty status, ownership, reachability, and coverage limits. Do not silently claim that the parent audit inspected code inside the submodule.

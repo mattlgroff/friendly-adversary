@@ -72,6 +72,32 @@
         "Records the evidence that disproves the candidate",
         "Returns no supported findings instead of enforcing an opinionated rule mechanically"
       ]
+    },
+    {
+      "id": "verification-tautological-oracle",
+      "status": "fixture-ready",
+      "fixture": "evals/fixtures/verification-tautological-oracle",
+      "query": "Review the tests in this pull request and determine whether they prove the changed behavior.",
+      "applicable_lenses": ["verification"],
+      "expected_behavior": [
+        "Traces the test through the changed production path instead of trusting its name or green status",
+        "Identifies that the expected result duplicates the same incorrect rounding rule as the implementation",
+        "Names a concrete input for which the documented contract is violated while the test remains green",
+        "Reports the shared oracle as false confidence rather than merely requesting more coverage"
+      ]
+    },
+    {
+      "id": "verification-observable-artifact-contract",
+      "status": "fixture-ready",
+      "fixture": "evals/fixtures/verification-observable-artifact-contract",
+      "query": "Audit this codebase for tests that only assert source text or generated output.",
+      "applicable_lenses": ["verification"],
+      "expected_behavior": [
+        "Confirms whether the exact generated text is an externally observable repository contract",
+        "Accepts a literal assertion whose expected tokens come from an independent public specification",
+        "Does not label every snapshot or source-presence assertion as tautological",
+        "Returns no supported finding when a plausible contract defect would make the assertion fail"
+      ]
     }
   ]
 }

@@ -1,0 +1,5 @@
+.app-theme {
+  color-scheme: dark;
+  --app-surface: #111827;
+  --app-text: #f9fafb;
+}

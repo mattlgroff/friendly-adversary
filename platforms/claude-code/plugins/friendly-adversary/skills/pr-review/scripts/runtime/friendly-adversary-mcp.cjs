@@ -29807,7 +29807,7 @@ var PRODUCT_VERSION, RECEIPT_FILE, OUTPUT_DIRECTORY, DEFAULT_TIMEOUT_MS, LENS_MO
 var init_constants = __esm({
   "src/constants.ts"() {
     "use strict";
-    PRODUCT_VERSION = "3.0.4";
+    PRODUCT_VERSION = "3.1.0";
     RECEIPT_FILE = "receipt.json";
     OUTPUT_DIRECTORY = ".friendly-adversary";
     DEFAULT_TIMEOUT_MS = 10 * 60 * 1e3;

@@ -9,7 +9,7 @@
       "name": "friendly-adversary",
       "source": "./platforms/claude-code/plugins/friendly-adversary",
       "description": "Run local PR reviews, full codebase audits, and challenged new-codebase design with bundled WebAssembly analyzers",
-      "version": "3.0.4",
+      "version": "3.1.0",
       "author": {
         "name": "Matthew Groff"
       },
