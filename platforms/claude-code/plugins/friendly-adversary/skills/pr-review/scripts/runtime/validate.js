@@ -295,10 +295,10 @@ async function validatePortableFiles(errors, root) {
             continue;
         }
         const segments = file.split(path.sep);
-        if (segments.includes("third-party") || segments.includes("license-overrides"))
+        if (segments.includes("third-party") || segments.includes("license-overrides") || segments.includes("node_modules"))
             continue;
         const portable = file.split(path.sep).join("/");
-        if (/engines\/(?:semgrep-wasm\/(?:runtime|source\/patches)|ruff-wasm\/runtime)\//u.test(portable))
+        if (/engines\/(?:semgrep-wasm\/(?:runtime|source\/patches)|ruff-wasm\/runtime|knip\/(?:runtime|notices))\//u.test(portable))
             continue;
         const content = bytes.toString("utf8");
         const placeholder = "TO" + "DO";

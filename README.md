@@ -2,6 +2,12 @@
 
 Friendly Adversary is a local adversarial review system for TypeScript, JavaScript, and Python repositories. It combines bundled WebAssembly analyzers, independent Luna lens reviews through the local Codex CLI, and final evidence-based adjudication by the model running Claude Code or Codex.
 
+Knip provides whole-project unused-file, export, and dependency evidence for
+JavaScript/TypeScript codebase audits. PR reviews run it selectively for package,
+module-edge, and project-configuration changes. Existing repository-fit and
+anti-slop lenses validate the findings; no extra lens or model call is added.
+See [Knip integration](docs/knip.md) for coverage and runtime details.
+
 It provides three explicitly invoked skills:
 
 - `pr-review` challenges a proposed change before a pull request is opened or merged.
@@ -168,3 +174,5 @@ Codebase audit is the safer inspection mode for an unfamiliar repository because
 ## License
 
 Friendly Adversary is GPL-3.0-only. Bundled third-party components retain their original licenses and notices. The complete Semgrep corresponding source is attached to every GitHub release that distributes the runtime. See [LICENSING.md](LICENSING.md).
+
+Bundled Knip, its JavaScript dependencies, and Oxc WASM attribution are documented in [Knip third-party notices](engines/knip/NOTICE.md). These notices are shipped with both plugins.

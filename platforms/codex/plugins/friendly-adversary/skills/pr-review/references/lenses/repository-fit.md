@@ -38,6 +38,7 @@ For `audit-codebase`, map current canonical owners, public boundaries, dependenc
 - symbol and text searches for equivalent behavior
 - package and workspace boundaries
 - import and dependency graph evidence
+- Knip stdout.json and coverage.json when present: unused dependencies, files, and exports are candidates, not proven defects. Check entry points, dynamic loading, generated files, and external package consumers. For PR review, prove the change introduced the issue, including last-consumer removals that orphan unchanged files. Do not report pre-existing cleanup debt as a PR regression.
 - existing tests for similar code
 
 ## Investigation procedure

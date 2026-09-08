@@ -33,6 +33,7 @@ export const skillRuntimePackage = `${JSON.stringify({
 }, null, 2)}\n`;
 
 export const copiedTrees = [
+  { source: path.join(root, 'engines', 'knip', 'runtime'), target: path.join('engines', 'knip', 'runtime') },
   { source: path.join(root, "wasm", "oxlint"), target: path.join("scripts", "runtime", "wasm", "oxlint") },
   { source: path.join(root, "third-party"), target: "third-party" },
   { source: path.join(root, "rules"), target: "rules" },

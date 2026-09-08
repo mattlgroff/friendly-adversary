@@ -278,9 +278,9 @@ async function validatePortableFiles(errors: string[], root: string): Promise<vo
       continue;
     }
     const segments = file.split(path.sep);
-    if (segments.includes("third-party") || segments.includes("license-overrides")) continue;
+    if (segments.includes("third-party") || segments.includes("license-overrides") || segments.includes("node_modules")) continue;
     const portable = file.split(path.sep).join("/");
-    if (/engines\/(?:semgrep-wasm\/(?:runtime|source\/patches)|ruff-wasm\/runtime)\//u.test(portable)) continue;
+    if (/engines\/(?:semgrep-wasm\/(?:runtime|source\/patches)|ruff-wasm\/runtime|knip\/(?:runtime|notices))\//u.test(portable)) continue;
     const content = bytes.toString("utf8");
     const placeholder = "TO" + "DO";
     if (new RegExp(`\\b${placeholder}\\b`).test(content)) errors.push(`${file}: contains a placeholder`);
