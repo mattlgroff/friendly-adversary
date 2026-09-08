@@ -47,6 +47,7 @@ For `audit-codebase`, evaluate the current snapshot without requiring a diff, ch
 - async orchestration and multi-step state updates
 - existing abstractions the reviewed code extends or bypasses
 - tests that reveal the intended boundary and behavior
+- Knip unused-code diagnostics when present, with its coverage.json configuration hints. Establish material maintenance cost and rule out dynamic or external consumers. In PR review, establish causation from the diff rather than treating the entire existing unused-code inventory as new findings.
 
 ## Investigation procedure
 

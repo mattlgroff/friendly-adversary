@@ -1,5 +1,7 @@
 node_modules/
 dist/
+!**/engines/knip/runtime/jiti/dist/
+!**/engines/knip/runtime/jiti/dist/*.cjs
 coverage/
 build/oxlint-wasm/target/
 .DS_Store

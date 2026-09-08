@@ -869,6 +869,7 @@ async function startWorkflow(kind: WorkflowKind, candidate: string, host: Review
         options: { timeoutMs },
         assetsRoot,
         includeRepositoryTools: false,
+        audit: true,
       });
       receipt.incompleteReasons.push(...receipt.toolRuns
         .filter((tool) => tool.required && tool.status !== "completed")

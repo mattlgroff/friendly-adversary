@@ -12,6 +12,7 @@ import { runOxlintWasm, type OxlintWasmFile } from "./oxlint-wasm.js";
 import { runRuffWasm, RUFF_WASM_UPSTREAM_COMMIT, RUFF_WASM_UPSTREAM_VERSION } from "./ruff-wasm.js";
 import { validateSemgrepRunOutput } from "./semgrep-output.js";
 import { ShutdownGuard } from "./shutdown.js";
+import { knipProjectRoots, validateKnipOutput } from "./knip.js";
 import type { ReviewOptions, ToolRunRecord } from "./types.js";
 
 const RUNTIME_DIRECTORY = path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +26,7 @@ interface Input {
   options: ReviewOptions;
   assetsRoot: string;
   includeRepositoryTools?: boolean;
+  audit?: boolean;
   afterRepositoryTool?: () => Promise<void>;
 }
 
@@ -33,7 +35,7 @@ interface Plan {
   projectControlled?: boolean;
   scriptKind?: "lint" | "typecheck" | "type-check" | "test" | "build" | "validate";
   internal?: "generated-bundle-omissions" | "oxlint-wasm" | "ruff-wasm";
-  outputContract?: "semgrep-wasm";
+  outputContract?: "semgrep-wasm" | "knip";
   files?: string[];
   omissions?: GeneratedBundleOmission[];
   executable?: string;
@@ -727,6 +729,18 @@ async function planTools(
   const tsApplicable = relevantChangedFiles.some((file) => TYPESCRIPT_EXTENSIONS.has(path.extname(file).toLowerCase()));
   const pyApplicable = relevantChangedFiles.some((file) => PYTHON_EXTENSIONS.has(path.extname(file).toLowerCase()));
   const plans: Plan[] = [];
+  const knipRoots = await knipProjectRoots(input.repo, input.changedFiles, input.mergeBaseSha, input.audit === true);
+  for (const [index, root] of knipRoots.entries()) {
+    const launcher = path.join(input.assetsRoot, 'engines', 'knip', 'runtime', 'launch.mjs');
+    const name = batchedToolName('knip', index, knipRoots.length);
+    plans.push({
+      name, cwd: root, projectControlled: input.audit !== true, outputContract: 'knip',
+      executable: process.execPath,
+      args: [launcher, input.audit ? 'audit' : 'pr', path.join(input.runDirectory, 'deterministic', name, 'coverage.json')],
+      versionArgs: [launcher, '--version'],
+      extension: 'json', findingExitCodes: [0, 1], required: true,
+    });
+  }
   const repositoryLintConfigured = repositoryPlans.some((plan) => plan.scriptKind === "lint");
   const repositoryTypecheckConfigured = repositoryPlans.some(
     (plan) => plan.scriptKind === "typecheck" || plan.scriptKind === "type-check",
@@ -1011,7 +1025,9 @@ async function collectTool(
         ...(tool.extension ? { stdoutExtension: tool.extension } : {}),
       });
       const commandFailure = result.timedOut || result.outputLimitExceeded || result.spawnError !== undefined || result.signal !== undefined || result.versionFailure !== undefined || !tool.findingExitCodes.includes(result.exitCode);
-      const outputFailure = !commandFailure && tool.outputContract === "semgrep-wasm"
+      const outputFailure = !commandFailure && tool.outputContract === 'knip'
+        ? await validateKnipOutput(directory)
+        : !commandFailure && tool.outputContract === "semgrep-wasm"
         ? validateSemgrepRunOutput(await readFile(path.join(directory, "stdout.json"), "utf8"), tool.files ?? [])
         : undefined;
       const operationalFailure = commandFailure || outputFailure !== undefined;

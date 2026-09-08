@@ -299,6 +299,12 @@ async function targetFixture(name, file, initial, changed, expectedRule, tarball
     throw new Error(`${name} packed ripgrep output or provenance was incomplete`);
   }
   if (!file.endsWith(".py")) {
+    const knip = receipt.toolRuns.find((tool) => tool.name === 'knip');
+    if (knip?.status !== 'completed') throw new Error(`Packed Knip did not complete: ${JSON.stringify(knip)}`);
+    const knipOutput = JSON.parse(await readFile(path.join(runDirectory, 'deterministic/knip/stdout.json'), 'utf8'));
+    if (!Array.isArray(knipOutput.issues)) throw new Error('Packed Knip output is missing issues');
+    const coverage = JSON.parse(await readFile(path.join(runDirectory, 'deterministic/knip/coverage.json'), 'utf8'));
+    if (coverage.configurationHints.length) throw new Error('Packed Knip reported incomplete configuration');
     const metadata = JSON.parse(await readFile(path.join(runDirectory, "deterministic", "oxlint-wasm", "metadata.json"), "utf8"));
     const stdout = await readFile(path.join(runDirectory, "deterministic", "oxlint-wasm", "stdout.json"), "utf8");
     if (!stdout.trim()) {
@@ -396,6 +402,13 @@ try {
     if (!entries.includes("engines/semgrep-wasm/runtime/engine/semgrep-engine.wasm")) throw new Error("Packed artifact is missing the Semgrep WebAssembly engine");
     if (!entries.includes("engines/ruff-wasm/runtime/ruff_wasm_bg.wasm")) throw new Error("Packed artifact is missing the Ruff WebAssembly engine");
     if (!entries.includes("engines/ripgrep-wasm/runtime/rg.wasm")) throw new Error("Packed artifact is missing the ripgrep WebAssembly engine");
+    for (const file of ['launch.mjs', 'knip.mjs', 'coverage.mjs', 'parser/parser.wasm32-wasi.wasm', 'resolver/resolver.wasm32-wasi.wasm', 'manifest.json']) {
+      if (!entries.includes(`engines/knip/runtime/${file}`)) throw new Error(`Packed artifact is missing Knip ${file}`);
+    }
+    const knipManifest = JSON.parse(await readFile(path.join(root, 'engines/knip/runtime/manifest.json'), 'utf8'));
+    for (const file of ['NOTICE.md', ...Object.keys(knipManifest.sha256).filter(file => /^(?:licenses|notices)\//.test(file))]) {
+      if (!entries.includes(`engines/knip/runtime/${file}`)) throw new Error(`Packed artifact is missing Knip attribution ${file}`);
+    }
     if (!entries.includes("engines/ripgrep-wasm/source/ripgrep-15.2.0-source.tar.gz")) throw new Error("Packed artifact is missing the ripgrep source archive");
     if (!entries.includes("engines/ripgrep-wasm/SHA256SUMS")) throw new Error("Packed artifact is missing the ripgrep distribution manifest");
     if (!entries.includes("engines/ruff-wasm/LICENSE")) throw new Error("Packed artifact is missing the Ruff MIT license");
@@ -421,7 +434,7 @@ try {
     "friendly-adversary.python.dynamic-code-execution",
     tarball,
   );
-  process.stdout.write("Offline packed CLI scan passed for TypeScript and Python targets with all four embedded WebAssembly analyzers.\n");
+  process.stdout.write("Offline packed CLI scan passed for TypeScript and Python targets with all four existing WASM analyzers and bundled WASM-only Knip.\n");
 } finally {
   await rm(temporary, { recursive: true, force: true });
 }
