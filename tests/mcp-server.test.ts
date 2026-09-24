@@ -67,9 +67,7 @@ test("both host manifests launch the declared MCP server", async () => {
   for (const platform of ["claude-code", "codex"] as const) {
     const pluginRoot = path.resolve("platforms", platform, "plugins", "friendly-adversary");
     const manifest = JSON.parse(await readFile(path.join(pluginRoot, ".mcp.json"), "utf8"));
-    const declared = platform === "claude-code"
-      ? manifest.mcpServers["friendly-adversary-reports"]
-      : manifest["friendly-adversary-reports"];
+    const declared = manifest.mcpServers["friendly-adversary-reports"];
     const args = declared.args.map((argument: string) => argument.replace("${CLAUDE_PLUGIN_ROOT}", pluginRoot));
     const transport = new StdioClientTransport({
       command: declared.command,
