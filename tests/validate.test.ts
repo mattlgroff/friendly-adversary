@@ -394,7 +394,9 @@ test("host MCP manifests preserve the exact stdio launch contract", async () => 
   for (const platform of ["claude-code", "codex"] as const) {
     const manifest = JSON.parse(await readFile(path.resolve("platforms", platform, "plugins", "friendly-adversary", ".mcp.json"), "utf8"));
     assert.deepEqual(validateMcpManifestContract(platform, manifest), []);
-    const server = platform === "claude-code" ? manifest.mcpServers["friendly-adversary-reports"] : manifest["friendly-adversary-reports"];
+    assert.deepEqual(Object.keys(manifest), ["mcpServers"]);
+    assert.notDeepEqual(validateMcpManifestContract(platform, manifest.mcpServers), []);
+    const server = manifest.mcpServers["friendly-adversary-reports"];
     server.args = [...server.args, "--inspect"];
     assert.match(validateMcpManifestContract(platform, manifest)[0] ?? "", /differs from the required stdio contract/u);
   }

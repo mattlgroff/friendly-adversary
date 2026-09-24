@@ -301,13 +301,15 @@ export function validateMcpManifestContract(platform: "claude-code" | "codex", v
         },
       }
     : {
-        "friendly-adversary-reports": {
-          command: "node",
-          args: ["--permission", "--allow-fs-read=*", "--allow-fs-write=*", "--no-addons", "skills/pr-review/scripts/runtime/friendly-adversary-mcp.cjs"],
-          cwd: ".",
-          enabled_tools: ["record_artifact"],
-          default_tools_approval_mode: "approve",
-          env: { NODE_OPTIONS: "", NODE_PATH: "" },
+        mcpServers: {
+          "friendly-adversary-reports": {
+            command: "node",
+            args: ["--permission", "--allow-fs-read=*", "--allow-fs-write=*", "--no-addons", "skills/pr-review/scripts/runtime/friendly-adversary-mcp.cjs"],
+            cwd: ".",
+            enabled_tools: ["record_artifact"],
+            default_tools_approval_mode: "approve",
+            env: { NODE_OPTIONS: "", NODE_PATH: "" },
+          },
         },
       };
   return JSON.stringify(value) === JSON.stringify(expected) ? [] : [`${platform} MCP launch manifest differs from the required stdio contract`];
