@@ -10,10 +10,10 @@ const SECTIONS = ["## Property", "## Failure classes", "## Applicability", "## A
 const OXLINT_SHA256 = "8893c7e1a230eea648ca646a578afbd62c1712f9f8d36a4ab2e8589c73b6a5bb";
 const RUFF_WASM_SHA256 = "94bbf4cb394817181bcdf793eee3f0ae2574f0dca912fe99ab4012ee4d8bad4f";
 const RUFF_GLUE_SHA256 = "ec74250fabf2aadd864ffdc1df86fe5ec7901466837a7ebc7e8de306f0563897";
-const CLAUDE_SKILL_SHA256 = "b5d5721540d5fbbfa5284cf35f6d8fe191b3d5328599bad874b526919b846eb3";
+const CLAUDE_SKILL_SHA256 = "5cabc76eb43cf4d97b73609965275d216212903f48b3c02de6244c53452add05";
 // This generated skill authorizes unrestricted repository-owned commands.
 // Pin its complete reviewed contract, while normalizing cross-platform newlines.
-const CODEX_SKILL_SHA256 = "547283872983a90dcad2afa46ee4c6cc35b25df0dd541932975adfca491fa9ab";
+const CODEX_SKILL_SHA256 = "90fb005f2d74d550e7bfba6c6792b0b5f6dba7109ad66299e7d4a5b80b7f0eb1";
 const CODEX_AGENT_MARKER_SHA256 = "c4ebc19eb4253dd5d312e61415ee745faa5980c3cbe33a4c7a6a9084407ad713";
 const CODEX_TOOLING_SHA256 = "f7308533d980320e788529c01b8e8a248c0dbe08be5876569c162c5a9708a485";
 const OXLINT_LICENSE_SELECTIONS = new Map<string, string>([
@@ -363,7 +363,7 @@ const NON_EDITING_SKILL_REQUIREMENTS = [
 
 const ORCHESTRATION_SKILL_REQUIREMENTS = [
   "The review CLI owns concurrent lens dispatch.",
-  "Every lens must run through the installed local Codex CLI with `gpt-5.6-luna`, `high` reasoning, and `fast` service tier.",
+  "Every lens must run through the installed local Codex CLI with `gpt-6.1-sol`, `medium` reasoning, and `fast` service tier.",
   "Do not inspect the target, investigate a claim, run additional review commands, or begin adjudication until the CLI returns all lens receipts.",
   "record_artifact",
   "Do not let a lens inherit the parent conversation or original skill invocation.",

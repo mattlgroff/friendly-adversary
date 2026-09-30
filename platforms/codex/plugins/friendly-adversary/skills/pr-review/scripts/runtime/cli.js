@@ -137,7 +137,7 @@ Usage:
   friendly-adversary status --run <directory> [--summary]
   friendly-adversary validate [--root .]
 
-The review command prepares a pinned run, collects deterministic evidence, and runs every lens concurrently through the required local Codex CLI Luna runtime.
+The review command prepares a pinned run, collects deterministic evidence, and runs every lens concurrently through the required local Codex CLI GPT-6.1-Sol runtime.
 The audit command snapshots a full brownfield repository and runs only bundled analyzers.
 The design command starts an interview-driven greenfield decision session.
 The calling Codex or Claude Code model performs final adjudication only.

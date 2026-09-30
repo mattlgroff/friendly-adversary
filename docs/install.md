@@ -5,7 +5,7 @@
 - Node.js 22.22.0 or newer
 - Git
 - Claude Code or Codex with plugin support
-- Codex CLI installed, authenticated, and able to use `gpt-5.6-luna`
+- Codex CLI installed, authenticated, and able to use `gpt-6.1-sol`
 
 No Python, Rust, Docker, native analyzer, or analyzer download is required.
 
@@ -67,7 +67,7 @@ codex plugin add friendly-adversary@friendly-adversary
 
 Start a new Codex task after installation or update. Existing conversations may retain an older plugin snapshot.
 
-Codex PR review requests approval to launch its collector outside the outer shell sandbox. This is required because the collector starts authenticated nested Codex CLI processes. The escalation also applies to repository-owned lint, typecheck, test, build, and validation commands, so approve it only for a trusted repository. Every nested Luna lens remains read-only. If the active approval policy rejects escalation, the run stops incomplete before review completion.
+Codex PR review requests approval to launch its collector outside the outer shell sandbox. This is required because the collector starts authenticated nested Codex CLI processes. The escalation also applies to repository-owned lint, typecheck, test, build, and validation commands, so approve it only for a trusted repository. Every nested GPT-6.1-Sol lens remains read-only. If the active approval policy rejects escalation, the run stops incomplete before review completion.
 
 ## Install from a local clone
 
@@ -84,7 +84,7 @@ Register the local directory as a marketplace using the host's local marketplace
 
 ## Windows and WSL
 
-Native Windows and WSL are separate environments. Install Node, Codex CLI, the host CLI, Git credentials, and the plugin in each environment where you intend to use it. Claude Code PR review still requires Codex CLI because every lens executes through Luna locally.
+Native Windows and WSL are separate environments. Install Node, Codex CLI, the host CLI, Git credentials, and the plugin in each environment where you intend to use it. Claude Code PR review still requires Codex CLI because every lens executes through GPT-6.1-Sol locally.
 
 Use a native Windows clone for native Windows testing and a Linux filesystem path such as `/home/<user>/working/...` for WSL. Avoid reviewing a WSL repository through `/mnt/c` when a Linux filesystem clone is available.
 
@@ -132,9 +132,9 @@ Confirm that ordinary `git clone https://github.com/mattlgroff/friendly-adversar
 
 Install the target repository's own dependencies using its documented setup. Friendly Adversary never installs them. Use `audit-codebase` when you need a repository-wide inspection that does not execute project-owned tools.
 
-### PR review reports that Codex or Luna is unavailable
+### PR review reports that Codex or GPT-6.1-Sol is unavailable
 
-Run `codex --version`, confirm that Codex is authenticated in the same native Windows, WSL, macOS, or Linux environment as the host, and confirm that `gpt-5.6-luna` is available. PR lenses have no Claude-agent, inherited-model, serial, or alternate-model fallback.
+Run `codex --version`, confirm that Codex is authenticated in the same native Windows, WSL, macOS, or Linux environment as the host, and confirm that `gpt-6.1-sol` is available. PR lenses have no Claude-agent, inherited-model, serial, or alternate-model fallback.
 
 ### Codex denies the collector escalation
 

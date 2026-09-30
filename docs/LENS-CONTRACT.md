@@ -14,7 +14,7 @@ The packaging script discovers these directories and copies the canonical files 
 ## Platform adapter
 
 - On both Codex and Claude Code hosts, the Friendly Adversary CLI invokes the installed local Codex CLI once per selected lens.
-- Every PR lens uses the pinned Luna model, reasoning effort, service tier, sandbox, and isolation settings defined by the runtime.
+- Every PR lens uses the pinned GPT-6.1-Sol model, reasoning effort, service tier, sandbox, and isolation settings defined by the runtime.
 - Run `npm run sync:plugins` and `npm run validate` after adding or changing a lens.
 - Generated platform references are not hand-edited. The calling host model performs final adjudication only.
 

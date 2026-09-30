@@ -29807,12 +29807,12 @@ var PRODUCT_VERSION, RECEIPT_FILE, OUTPUT_DIRECTORY, DEFAULT_TIMEOUT_MS, LENS_MO
 var init_constants = __esm({
   "src/constants.ts"() {
     "use strict";
-    PRODUCT_VERSION = "3.3.1";
+    PRODUCT_VERSION = "3.3.2";
     RECEIPT_FILE = "receipt.json";
     OUTPUT_DIRECTORY = ".friendly-adversary";
     DEFAULT_TIMEOUT_MS = 10 * 60 * 1e3;
-    LENS_MODEL = "gpt-5.6-luna";
-    LENS_REASONING_EFFORT = "high";
+    LENS_MODEL = "gpt-6.1-sol";
+    LENS_REASONING_EFFORT = "medium";
     LENS_SERVICE_TIER = "fast";
     LENS_HOST = "codex-cli";
     MAX_CAPTURE_BYTES = 128 * 1024 * 1024;
