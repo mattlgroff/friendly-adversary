@@ -40,7 +40,7 @@ test("installed skill validation rejects weakened parallel-wait and context boun
     const skillPath = path.join(root, "SKILL.md");
     const skill = await readFile(skillPath, "utf8");
     await writeFile(skillPath, skill
-      .replace("Every lens must run through the installed local Codex CLI with `gpt-5.6-luna`, `high` reasoning, and `fast` service tier.", "Use any available model.")
+      .replace("Every lens must run through the installed local Codex CLI with `gpt-6.1-sol`, `medium` reasoning, and `fast` service tier.", "Use any available model.")
       .replace("Do not let a lens inherit the parent conversation or original skill invocation.", "Reuse the parent conversation.")
       .replace("Never recursively inventory the installed plugin or skill tree.", "Inspect the plugin tree."));
     await assert.rejects(

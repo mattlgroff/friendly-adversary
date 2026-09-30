@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1",
   "entrypoint": "friendly-adversary-mcp.cjs",
-  "bytes": 1355806,
-  "sha256": "38ea29a484fba140a6626480283d926076d6e8048bc6b8e0aee0448abffdc393",
+  "bytes": 1355807,
+  "sha256": "36d85b8dd02bdd6e6df6373d64ff6dbb8d16e620bafadc45d07e801ed7614ae8",
   "nodeTarget": "22.22",
   "syntaxTarget": "es2021",
   "transport": "stdio",

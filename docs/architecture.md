@@ -18,7 +18,7 @@ host skill
      -> pinned snapshot and deterministic collectors
      -> external authority and scoped capabilities
      -> concurrent read-only ephemeral codex exec processes
-        -> gpt-5.6-luna with high reasoning and Fast mode
+        -> gpt-6.1-sol with medium reasoning and Fast mode
         -> validated direct lens publication
   -> exclusive calling-model adjudication
      -> one stdio MCP tool: record_artifact
@@ -27,7 +27,7 @@ host skill
 
 ### CLI
 
-The Node CLI owns snapshotting, deterministic collection, required concurrent Luna lens execution for PR review, authority creation, resume, workflow abort, sealing, status, and verification.
+The Node CLI owns snapshotting, deterministic collection, required concurrent GPT-6.1-Sol lens execution for PR review, authority creation, resume, workflow abort, sealing, status, and verification.
 
 Commands:
 
@@ -51,15 +51,15 @@ Semgrep CE, Ruff, an Oxlint-compatible engine, and ripgrep are bundled as WebAss
 
 PR review may also run repository-owned checks from an existing trusted installation. Audit never runs those checks. Design runs no analyzer or repository code.
 
-Do not start two PR review collectors against the same checkout concurrently. Repository-owned build, test, and typecheck commands are not assumed to be safe when overlapped. Luna lenses within one completed collection remain fully concurrent because they write only to distinct capability-scoped artifacts.
+Do not start two PR review collectors against the same checkout concurrently. Repository-owned build, test, and typecheck commands are not assumed to be safe when overlapped. GPT-6.1-Sol lenses within one completed collection remain fully concurrent because they write only to distinct capability-scoped artifacts.
 
 ### Agent orchestration
 
-PR review fans out one fresh local `codex exec` process per selected lens before waiting. Every process uses `gpt-5.6-luna`, high reasoning, Fast mode, ignored user configuration, an ephemeral session, a read-only sandbox, core-only shell environment inheritance, and automatic secret-name exclusions. On a Codex host, the outer collector requires an escalated shell launch so those authenticated nested processes can initialize. That escalation also covers repository-owned checks and is allowed only for a trusted repository. The CLI validates the final Markdown and publishes it directly, so the calling model never copies lens responses into files. Audit fans out semantic subsystem agents once. Design maintains decision revisions and runs independent architecture challenges.
+PR review fans out one fresh local `codex exec` process per selected lens before waiting. Every process uses `gpt-6.1-sol`, medium reasoning, Fast mode, ignored user configuration, an ephemeral session, a read-only sandbox, core-only shell environment inheritance, and automatic secret-name exclusions. On a Codex host, the outer collector requires an escalated shell launch so those authenticated nested processes can initialize. That escalation also covers repository-owned checks and is allowed only for a trusted repository. The CLI validates the final Markdown and publishes it directly, so the calling model never copies lens responses into files. Audit fans out semantic subsystem agents once. Design maintains decision revisions and runs independent architecture challenges.
 
 The calling model alone adjudicates agent output. Agent agreement or consensus never replaces independent disproof, evidence validation, duplicate merging, and final classification.
 
-The host may not replace the required Codex CLI lens runtime with its own agent primitives, parent model, serial review, or alternate model. Missing Codex CLI access, Luna access, or any valid lens result makes the run incomplete. There is no fallback.
+The host may not replace the required Codex CLI lens runtime with its own agent primitives, parent model, serial review, or alternate model. Missing Codex CLI access, GPT-6.1-Sol access, or any valid lens result makes the run incomplete. There is no fallback.
 
 ## One artifact tool
 

@@ -1,6 +1,6 @@
 # Friendly Adversary
 
-Friendly Adversary is a local adversarial review system for TypeScript, JavaScript, and Python repositories. It combines bundled WebAssembly analyzers, independent Luna lens reviews through the local Codex CLI, and final evidence-based adjudication by the model running Claude Code or Codex.
+Friendly Adversary is a local adversarial review system for TypeScript, JavaScript, and Python repositories. It combines bundled WebAssembly analyzers, independent GPT-6.1-Sol lens reviews through the local Codex CLI, and final evidence-based adjudication by the model running Claude Code or Codex.
 
 Knip provides whole-project unused-file, export, and dependency evidence for
 JavaScript/TypeScript codebase audits. PR reviews run it selectively for package,
@@ -22,13 +22,13 @@ Friendly Adversary does not fix, stage, commit, push, or deploy application code
 - Git for PR review and codebase audit
 - Node.js 22.22.0 or newer
 - Claude Code or Codex with plugin support
-- Codex CLI installed, authenticated, and able to use `gpt-5.6-luna`
+- Codex CLI installed, authenticated, and able to use `gpt-6.1-sol`
 
 Friendly Adversary bundles Semgrep CE, Ruff, an Oxlint-compatible engine, and ripgrep as WebAssembly. It does not require Python, Docker, Rust, native analyzer executables, runtime downloads, or network access.
 
 PR review also runs applicable checks already configured in the trusted target repository. Its dependencies must already be installed. Codebase audit deliberately does not run repository scripts, binaries, package managers, executable configuration, or installed project tools.
 
-On Codex, PR review requests an escalated collector launch because the collector must start authenticated nested Codex CLI processes. This moves the collector and repository-owned checks outside the outer shell sandbox. Approve it only for a repository you trust. Every Luna lens still runs in its own read-only Codex sandbox. If escalation is denied or unavailable, the review stops incomplete.
+On Codex, PR review requests an escalated collector launch because the collector must start authenticated nested Codex CLI processes. This moves the collector and repository-owned checks outside the outer shell sandbox. Approve it only for a repository you trust. Every GPT-6.1-Sol lens still runs in its own read-only Codex sandbox. If escalation is denied or unavailable, the review stops incomplete.
 
 ## Install in Claude Code
 
@@ -123,9 +123,9 @@ Every sealed run is published under `.friendly-adversary/`:
 └── designs/<run-id>/
 ```
 
-Lens-authored artifacts are Markdown. Every PR lens runs concurrently in a fresh ephemeral `codex exec` process with `gpt-5.6-luna`, high reasoning, Fast mode, ignored user configuration, and a read-only sandbox. The Claude or Codex model that invoked the skill reads the persisted lens reports and performs final adjudication. Final reports also receive deterministic offline HTML companions. Native analyzer output is preserved without translation. A sealed run includes `artifacts.sha256` for integrity verification.
+Lens-authored artifacts are Markdown. Every PR lens runs concurrently in a fresh ephemeral `codex exec` process with `gpt-6.1-sol`, medium reasoning, Fast mode, ignored user configuration, and a read-only sandbox. The Claude or Codex model that invoked the skill reads the persisted lens reports and performs final adjudication. Final reports also receive deterministic offline HTML companions. Native analyzer output is preserved without translation. A sealed run includes `artifacts.sha256` for integrity verification.
 
-The final orchestrator and non-PR workflows use one local MCP tool named `record_artifact`. The PR lens runner publishes validated Luna responses through the same internal capability enforcement without routing report text through the calling model. A capability limits each publication to one run and an exact path or path prefix. The server uses stdio and opens no network listener.
+The final orchestrator and non-PR workflows use one local MCP tool named `record_artifact`. The PR lens runner publishes validated GPT-6.1-Sol responses through the same internal capability enforcement without routing report text through the calling model. A capability limits each publication to one run and an exact path or path prefix. The server uses stdio and opens no network listener.
 
 PR review collects evidence and agent reports in private user-scoped state outside the repository. The runtime verifies the pinned Git snapshot after every repository-controlled command, and the checkout must not be edited concurrently. The target repository receives no Friendly Adversary files until sealing. Sealing freezes agent writes, verifies the pinned Git snapshot, builds and verifies a complete staging directory beside the final destination, and publishes it with one atomic rename. A crash before that rename leaves no final run; a crash after it leaves a complete run. Friendly Adversary confines agent capabilities, but it is not an operating-system sandbox against a deliberately malicious process running as the same user.
 
@@ -156,7 +156,7 @@ Start a new Codex task after installation or update. In Claude Code, start a new
 
 Run PR review only in repositories you trust. Repository checks can execute repository-owned code, create background processes that outlive the review, and have side effects outside Git. Friendly Adversary monitors the pinned repository snapshot but is not a process sandbox.
 
-On a Codex host, the required escalated collector launch includes those repository checks. The escalation does not weaken the read-only sandbox used by each nested Luna lens.
+On a Codex host, the required escalated collector launch includes those repository checks. The escalation does not weaken the read-only sandbox used by each nested GPT-6.1-Sol lens.
 
 Codebase audit is the safer inspection mode for an unfamiliar repository because it runs only bundled analyzers and read-only Git inspection. Reviewed source and analyzer output are still treated as untrusted evidence by agent prompts.
 

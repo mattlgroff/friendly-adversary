@@ -13,7 +13,7 @@ function git(repo: string, ...args: string[]): void {
 }
 
 async function fixture(): Promise<string> {
-  const repo = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-luna-"));
+  const repo = await mkdtemp(path.join(os.tmpdir(), "friendly-adversary-sol-"));
   git(repo, "init", "-b", "main");
   git(repo, "config", "user.email", "fixture@example.com");
   git(repo, "config", "user.name", "Fixture");
@@ -25,7 +25,7 @@ async function fixture(): Promise<string> {
   return realpath(repo);
 }
 
-test("review dispatches every lens concurrently through exact Luna high fast invocations", async (t) => {
+test("review dispatches every lens concurrently through exact Sol medium fast invocations", async (t) => {
   const repo = await fixture();
   t.after(() => rm(repo, { recursive: true, force: true }));
   let versionCalls = 0;
@@ -63,7 +63,7 @@ test("review dispatches every lens concurrently through exact Luna high fast inv
   assert.equal(invocations.length, 3);
   for (const item of invocations) {
     assert.deepEqual(item.args.slice(0, 7), [
-      "exec", "-m", "gpt-5.6-luna", "-c", 'model_reasoning_effort="high"', "-c", 'service_tier="fast"',
+      "exec", "-m", "gpt-6.1-sol", "-c", 'model_reasoning_effort="medium"', "-c", 'service_tier="fast"',
     ]);
     assert.ok(item.args.includes("read-only"));
     assert.ok(item.args.includes("--ephemeral"));
@@ -77,13 +77,13 @@ test("review dispatches every lens concurrently through exact Luna high fast inv
     assert.match(item.prompt, /Even if base and head SHA are identical/u);
   }
   const evidence = JSON.parse(await readFile(path.join(run.runDirectory, "lens-runtime.json"), "utf8")) as Record<string, unknown>;
-  assert.equal(evidence.model, "gpt-5.6-luna");
-  assert.equal(evidence.reasoningEffort, "high");
+  assert.equal(evidence.model, "gpt-6.1-sol");
+  assert.equal(evidence.reasoningEffort, "medium");
   assert.equal(evidence.serviceTier, "fast");
   assert.equal(evidence.dispatch, "concurrent");
   for (const lens of run.receipt.expectedLenses) {
     const report = await readFile(path.join(run.runDirectory, "lenses", `${lens}.md`), "utf8");
-    assert.match(report, /^- Model: gpt-5\.6-luna\n- Effort: high\n- Host: codex-cli/mu);
+    assert.match(report, /^- Model: gpt-6\.1-sol\n- Effort: medium\n- Host: codex-cli/mu);
   }
 });
 

@@ -273,7 +273,7 @@ async function targetFixture(name, file, initial, changed, expectedRule, tarball
     throw new Error(`${name} packed CLI did not execute the selected Codex lens`);
   }
   const codexArgs = JSON.parse(await readFile(tripwire.codexInvocation, "utf8"));
-  for (const required of ["gpt-5.6-luna", 'model_reasoning_effort="high"', 'service_tier="fast"', "read-only", "--ephemeral", "--ignore-user-config"]) {
+  for (const required of ["gpt-6.1-sol", 'model_reasoning_effort="medium"', 'service_tier="fast"', "read-only", "--ephemeral", "--ignore-user-config"]) {
     if (!codexArgs.includes(required)) throw new Error(`${name} packed Codex lens omitted ${required}`);
   }
   const receipt = JSON.parse(await readFile(path.join(runDirectory, "receipt.json"), "utf8"));
